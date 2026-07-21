@@ -1,0 +1,711 @@
+appt_id,customer_name,phone,assigned_agent,source,appt_date,appt_time,branch,status,sale_amount,notes,booked_on
+HAY-0001,عزيز عقل - عرعرة,05202273357,Haya,Phone Call,2026-06-02,13:00,Main Showroom,Attended,,,2026-06-02
+HAY-0002,سماح,0543325282,Haya,Phone Call,2026-06-06,14:00,Main Showroom,Scheduled,,,2026-06-02
+HAY-0003,عفاف,0504227346,Haya,Phone Call,2026-06-03,,Main Showroom,Scheduled,,لا رد,2026-06-02
+HAY-0004,اشرف ابو الليل- عين ماهل,0508490355,Haya,Phone Call,2026-06-04,16:30,Main Showroom,Scheduled,,,2026-06-02
+HAY-0005,محمد اغبارية,0525407095,Haya,Phone Call,2026-06-05,,Main Showroom,Scheduled,,قبل ال 10,2026-06-02
+HAY-0006,ابو عبدالله,0502511150,Haya,Phone Call,2026-06-06,,Main Showroom,Scheduled,,بعد ال ١٠,2026-06-02
+HAY-0007,عبد محاميد,0525410107,Haya,Phone Call,2026-06-05,,Main Showroom,Rescheduled,,,2026-06-02
+HAY-0008,عدوي - طرعان,0527514188,Haya,Phone Call,2026-06-06,,Main Showroom,Rescheduled,,,2026-06-02
+HAY-0009,محمد - جلجولة,0523978298,Haya,WhatsApp,2026-06-04,15:00,Main Showroom,Scheduled,,,2026-06-02
+HAY-0010,سعود- الرملة,0529484670,Haya,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-02
+HAY-0011,ارشيد ارشيد  - اكسال,050855197,Haya,Phone Call,2026-06-04,10:00,Main Showroom,Scheduled,,,2026-06-03
+HAY-0012,ابو محمد,0525212816,Haya,Phone Call,2026-06-06,11:00,Main Showroom,Scheduled,,,2026-06-03
+HAY-0013,مروان,0522879490,Haya,Phone Call,2026-06-19,,Main Showroom,Attended,,,2026-06-03
+HAY-0014,نديم شقور,0524277779,Haya,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-03
+HAY-0015,Yazid,0509501820,Haya,Phone Call,2026-06-04,11:00,Main Showroom,Scheduled,,,2026-06-03
+HAY-0016,عوني,0526260633,Haya,Phone Call,2026-06-05,09:00,Main Showroom,Scheduled,,,2026-06-03
+HAY-0017,Sami awwad,0549320306,Haya,Phone Call,2026-06-05,10:30,Main Showroom,Attended,,معاه توسن,2026-06-03
+HAY-0018,ايوب - كفر كنا,059981974,Haya,Phone Call,2026-06-05,18:30,Main Showroom,Scheduled,,,2026-06-03
+HAY-0019,ابراهيم مطر,0546362769,Haya,WhatsApp,2026-06-05,11:00,Main Showroom,Closed / Sold,,Leasing,2026-06-03
+HAY-0020,زكريا ابو نصرة,0549761693,Haya,Phone Call,2026-06-05,,Main Showroom,Attended,,بعد ال ١,2026-06-03
+HAY-0021,عوني,0526260633,Haya,Phone Call,2026-06-05,09:00,Main Showroom,Scheduled,,,2026-06-03
+HAY-0022,نديم شفور,0524277779,Haya,Phone Call,2026-06-05,12:00,Main Showroom,Scheduled,,,2026-06-03
+HAY-0023,ياسين نعمة,0549931311,Haya,Phone Call,2026-06-05,10:00,Main Showroom,Attended,,ممكن ييجي - حسب شو بصير معو,2026-06-03
+HAY-0024,محمد دياب,0506656448,Haya,Phone Call,2026-06-05,,Main Showroom,Closed / Sold,,,2026-06-03
+HAY-0025,محمد نجيدات,0555629157,Haya,Phone Call,2026-06-03,11:30,Main Showroom,Scheduled,,بدو ياكدلي بكرا اي ساعة,2026-06-03
+HAY-0026,مهران,0584445806,Haya,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-03
+HAY-0027,ريان كويدر,0544996017,Haya,WhatsApp,2026-06-06,14:30,Main Showroom,Attended,,,2026-06-06
+HAY-0028,شادي,525934577,Haya,Phone Call,2026-06-06,,Main Showroom,Scheduled,,,2026-06-03
+HAY-0029,خير سامي,0523722093,Haya,Phone Call,2026-06-01,12:00,Main Showroom,Attended,,,2026-06-01
+HAY-0030,وائل- كفر كنا,0505066320,Haya,Phone Call,2026-06-07,,Main Showroom,Scheduled,,,2026-06-06
+HAY-0031,سلمان طريف,0508468538,Haya,Phone Call,2026-06-07,17:30,Main Showroom,Scheduled,,بخلص شغل ٤ ونص بعد حييجي,2026-06-06
+HAY-0032,وصال نصاروة,0506909307,Haya,Phone Call,2026-06-22,18:30,Main Showroom,Closed / Sold,,بعد ال ٤,2026-06-06
+HAY-0033,محمد عناتة,0506909307,Haya,Phone Call,2026-06-08,,Main Showroom,Scheduled,,,2026-06-06
+HAY-0034,اياد - بئر السبع,0502124499,Haya,Phone Call,2026-06-08,,Main Showroom,Scheduled,,الاتنين بس يمكن الاحد,2026-06-06
+HAY-0035,علي خميس,0502177310,Haya,Phone Call,2026-06-09,16:30,Main Showroom,Scheduled,,,2026-06-06
+HAY-0036,ابراهيم مطر,0546362769,Haya,Phone Call,2026-06-09,11:00,Main Showroom,Attended,,,2026-06-06
+HAY-0037,حمزة دبورية مع صاحبو,0503209998,Haya,Phone Call,2026-06-07,18:00,Main Showroom,Attended,,,2026-06-07
+HAY-0038,سامي عباس,0505262797,Haya,WhatsApp,2026-06-09,13:30,Main Showroom,Attended,,,2026-06-07
+HAY-0039,امير - يركا,0524646460,Haya,Phone Call,2026-06-11,16:30,Main Showroom,Scheduled,,,2026-06-07
+HAY-0040,رامي - القدس,0543658419,Haya,Phone Call,2026-06-12,11:00,Main Showroom,Scheduled,,,2026-06-07
+HAY-0041,Bahaa sawalha,0587276535,Haya,Phone Call,2026-06-08,16:00,Main Showroom,Attended,,,2026-06-08
+HAY-0042,عدنان,0549496034,Haya,Phone Call,2026-06-10,,Main Showroom,Rescheduled,,,2026-06-08
+HAY-0043,عمر,0523860630,Haya,Phone Call,2026-06-09,08:30,Main Showroom,Scheduled,,,2026-06-08
+HAY-0044,عماد عياد,0526777731,Haya,Phone Call,2026-06-08,,Main Showroom,Rescheduled,,,2026-06-08
+HAY-0045,احمد - ام الفحم,0559400243,Haya,Phone Call,2026-06-10,12:00,Main Showroom,Attended,,2026-01-12 00:00:00,2026-06-08
+HAY-0046,محمد ابو بكر,0527826072,Haya,Phone Call,2026-06-18,,Main Showroom,Scheduled,,,2026-06-08
+HAY-0047,محمد - القدس,0585559317,Haya,Phone Call,2026-06-13,13:00,Main Showroom,Scheduled,,,2026-06-08
+HAY-0048,يزن - القدس,0584934952,Haya,Phone Call,2026-06-13,12:00,Main Showroom,Scheduled,,,2026-06-08
+HAY-0049,Shawki sirhan,0544642916,Haya,Phone Call,2026-06-20,10:00,Main Showroom,Attended,,,2026-06-08
+HAY-0050,بلال فلاح - عرب هيب,0507584344,Haya,Phone Call,2026-06-30,10:00,Main Showroom,Rescheduled,,2026-10-09 00:00:00,2026-06-10
+HAY-0051,ابو عبد الله - سولم,0502511150,Haya,Phone Call,2026-06-12,11:30,Main Showroom,Scheduled,,,2026-06-10
+HAY-0052,ابراهيم - القدس,0584078355,Haya,Phone Call,2026-06-12,,Main Showroom,Scheduled,,,2026-06-10
+HAY-0053,ابراهيم - عين ماهل,0502285731,Haya,Phone Call,2026-06-12,,Main Showroom,Scheduled,,,2026-06-10
+HAY-0054,ريان كويدر,0544996017,Haya,Phone Call,2026-06-19,,Main Showroom,Rescheduled,,بعد الصلاة,2026-06-10
+HAY-0055,زيد,0529065162,Haya,Phone Call,2026-06-12,11:30,Main Showroom,Scheduled,,,2026-06-11
+HAY-0056,معتصم,0522169259,Haya,Phone Call,2026-06-13,10:30,Main Showroom,Attended,,,2026-06-11
+HAY-0057,عوني,0526260833,Haya,Phone Call,2026-06-13,10:00,Main Showroom,Scheduled,,,2026-06-11
+HAY-0058,Ghamal,0507463911,Haya,Phone Call,2026-06-12,,Main Showroom,Scheduled,,,2026-06-11
+HAY-0059,سامر,0524561619,Haya,Phone Call,2026-06-19,,Main Showroom,Scheduled,,,2026-06-11
+HAY-0060,ابو يزيد,,Haya,WhatsApp,2026-06-13,09:30,Main Showroom,Attended,,,2026-06-13
+HAY-0061,ام امجد,0527034133,Haya,Phone Call,2026-06-15,16:00,Main Showroom,Rescheduled,,,2026-06-13
+HAY-0062,يوسف غانم,0503567890,Haya,Phone Call,2026-06-20,15:30,Main Showroom,Scheduled,,,2026-06-13
+HAY-0063,صالح,0548132438,Haya,Phone Call,2026-06-19,12:00,Main Showroom,Attended,,,2026-06-13
+HAY-0064,عبد الباسط قريب علي,0547431576,Haya,WhatsApp,2026-06-14,10:00,Main Showroom,Attended,,,2026-06-13
+HAY-0065,حسين اغبارية,0533319155,Haya,Phone Call,2026-06-16,16:00,Main Showroom,Scheduled,,,2026-06-14
+HAY-0066,مصطفى,0526970098,Haya,Phone Call,2026-06-16,12:00,Main Showroom,Scheduled,,سبورتاج / اوتلاندر,2026-06-14
+HAY-0067,هيثم - ابو حمزة - القدس,0549329234,Haya,Phone Call,2026-06-24,16:00,Main Showroom,Attended,,تويوتا تريد عال c10/ b10,2026-06-14
+HAY-0068,موسى صفوري,0545419275,Haya,Phone Call,2026-06-20,11:00,Main Showroom,Scheduled,,,2026-06-14
+HAY-0069,ابو رامي,0528812139,Haya,Phone Call,2026-06-26,,Main Showroom,Scheduled,,,2026-06-14
+HAY-0070,محمد عناتة - القدس,0542866548,Haya,WhatsApp,2026-06-25,12:00,Main Showroom,Scheduled,,,2026-06-15
+HAY-0071,بركات,0548210323,Haya,Phone Call,2026-06-19,11:00,Main Showroom,Rescheduled,,,2026-06-15
+HAY-0072,ibrahim dajani,0584411145,Haya,Phone Call,2026-06-20,12:00,Main Showroom,Scheduled,,سيارة جديدة,2026-06-15
+HAY-0073,صبحي خميسيي,0524024013,Haya,Phone Call,2026-06-19,18:00,Main Showroom,Scheduled,,,2026-06-15
+HAY-0074,ابراهيم عفولة,0526451099,Haya,Phone Call,2026-06-29,16:30,Main Showroom,Closed / Sold,,,2026-06-15
+HAY-0075,جميل شوفاني,0534443549,Haya,Phone Call,2026-06-15,17:30,Main Showroom,Attended,,,2026-06-15
+HAY-0076,احمد,0526676651,Haya,Phone Call,2026-06-18,16:30,Main Showroom,Scheduled,,,2026-06-16
+HAY-0077,جواد سخنيني,0525518618,Haya,Phone Call,2026-06-20,10:00,Main Showroom,Scheduled,,,2026-06-16
+HAY-0078,ابوعثمان -جبل حمودة,0522660304,Haya,Phone Call,2026-06-17,13:30,Main Showroom,Attended,,,2026-06-16
+HAY-0079,رايق عواد ومرتو غادة,0506576634,Haya,Phone Call,2026-06-19,11:00,Main Showroom,Attended,,,2026-06-16
+HAY-0080,امير كعبية,0542993395,Haya,Phone Call,2026-06-22,15:00,Main Showroom,Rescheduled,,,2026-06-17
+HAY-0081,سعاد,0504269121,Haya,Phone Call,2026-06-18,,Main Showroom,Scheduled,,,2026-06-17
+HAY-0082,زياد زعبي,0508573426,Haya,Phone Call,2026-06-19,12:00,Main Showroom,Scheduled,,,2026-06-17
+HAY-0083,عفاف,050427346,Haya,Phone Call,2026-06-30,15:00,Main Showroom,Rescheduled,,معها سبورتاج بدها جاكو,2026-06-18
+HAY-0084,saleh diab - طمرة,0523415680,Haya,Phone Call,2026-06-20,15:30,Main Showroom,Scheduled,,,2026-06-18
+HAY-0085,بشار الخطيب,0503000093,Haya,Phone Call,2026-06-21,08:00,Main Showroom,Scheduled,,,2026-06-18
+HAY-0086,ابو اشرف,0522803648,Haya,Phone Call,2026-06-22,17:30,Main Showroom,Scheduled,,عشان الصبية سيارة جديدة,2026-06-20
+HAY-0087,موسى - وادي الحمام,0533215553,Haya,Phone Call,2026-06-20,16:30,Main Showroom,Closed / Sold,,,2026-06-20
+HAY-0088,ابراهيم - القدس,0549374446,Haya,Phone Call,2026-06-26,10:30,Main Showroom,Scheduled,,نيسان/ جاكو,2026-06-21
+HAY-0089,مهران,0584445806,Haya,Phone Call,2026-06-21,14:00,Main Showroom,Attended,,,2026-06-21
+HAY-0090,حسن,0507820948,Haya,Phone Call,2026-06-22,14:00,Main Showroom,Attended,,c10/ فورستر,2026-06-21
+HAY-0091,سماعنة محمود,0506308309,Haya,Phone Call,2026-06-26,14:00,Main Showroom,Scheduled,,بعد الصلاه,2026-06-21
+HAY-0092,وليد دروشة,0525578852,Haya,Phone Call,2026-06-26,08:30,Main Showroom,Scheduled,,كوبرا للمدام / جاكو,2026-06-21
+HAY-0093,حسن ابو راس,0527724049,Haya,Phone Call,2026-06-22,15:30,Main Showroom,Attended,,بدو شي اوسع من الجاكو,2026-06-22
+HAY-0094,ضياء  اغبارية,0505550319,Haya,Phone Call,2026-06-22,,Main Showroom,Attended,,,2026-06-22
+HAY-0095,رنا زبيدات,0509015978,Haya,Phone Call,2026-06-28,12:30,Main Showroom,Scheduled,,2026-01-12 00:00:00,2026-06-23
+HAY-0096,صهيب ابن عمار,0548034488,Haya,WhatsApp,2026-06-26,,Main Showroom,Scheduled,,,2026-06-23
+HAY-0097,طلحة- طرعان,0507425269,Haya,Phone Call,2026-06-27,,Main Showroom,Scheduled,,"معاه توسن  , وتركتور ممكن جاكو 5",2026-06-23
+HAY-0098,محمود- العيزر,0558850380,Haya,Phone Call,2026-06-26,10:00,Main Showroom,Scheduled,,,2026-06-23
+HAY-0099,عبد شاهين,0549521988,Haya,Phone Call,2026-06-26,10:30,Main Showroom,Rescheduled,,c10 / jac 5,2026-06-23
+HAY-0100,fakhri jubah,0586727773,Haya,Phone Call,2026-06-27,11:00,Main Showroom,Scheduled,,10-12 / معاه فلوكس فاجن جيتا 2016,2026-06-23
+HAY-0101,ماجد - كفر مندا,052-650-9943,Haya,Phone Call,2026-06-26,,Main Showroom,Rescheduled,,ممكن متاخر,2026-06-23
+HAY-0102,سمير زعبي,050-774-1200,Haya,Phone Call,2026-06-30,15:30,Main Showroom,Attended,,للصبية معاه سيات / بعد الاربعة,2026-06-24
+HAY-0103,مهران - يركا,052-217-9744,Haya,Phone Call,2026-06-26,14:00,Main Showroom,Scheduled,,جاكو 5 ومش ميفوار يمكن ومعاه مازدا ايد مش اولى,2026-06-24
+HAY-0104,احمد حسن - الناصرة,050-460-4200,Haya,Phone Call,2026-06-28,08:30,Main Showroom,Attended,,C10 كهربا / اذا مش الجمعة السبت,2026-06-24
+HAY-0105,سعيد من القدس بشتغل بالطيبة,052-699-8350,Haya,Phone Call,2026-06-25,,Main Showroom,Scheduled,,,2026-06-25
+HAY-0106,خلدون نصار,053-593-0683,Haya,Phone Call,2026-06-26,08:30,Main Showroom,Scheduled,,8ونص 9,2026-06-25
+HAY-0107,عبد تيتي,054-248-0286,Haya,Phone Call,2026-06-27,16:30,Main Showroom,Scheduled,,الجاكو / leap,2026-06-25
+HAY-0108,محمود - شفاعمرو,053-808-4818,Haya,Phone Call,2026-06-26,,Main Showroom,Scheduled,,ممكن يجي بكرا/ ليب صفر ريبيت,2026-06-25
+HAY-0109,دكتور عدنان توتح,054-231-4407,Haya,Phone Call,2026-06-26,,Main Showroom,Scheduled,,ممكن ييجي بكرا,2026-06-25
+HAY-0110,ahmad gzawe,050-294-3087,Haya,Phone Call,2026-06-28,18:30,Main Showroom,Scheduled,,b10 وممكن ليسينج,2026-06-27
+HAY-0111,ahmad khalaf,050-333-0935,Haya,Phone Call,2026-06-30,17:30,Main Showroom,Closed / Sold,,"b10 ,- جاكو 8",2026-06-27
+HAY-0112,مهند زبابدة,054-684-1993,Haya,Phone Call,2026-06-30,,Main Showroom,Scheduled,,جاكو /ليب,2026-06-27
+HAY-0113,Mhmd Afifi,050-918-6101,Haya,Phone Call,2026-06-28,,Main Showroom,Scheduled,,,2026-06-27
+HAY-0114,ام امجد - ام الفحم,,Haya,WhatsApp,2026-06-28,,Main Showroom,Scheduled,,,2026-06-27
+HAY-0115,فداء طوافرة,050-404-0581,Haya,Phone Call,2026-06-28,,Main Showroom,Scheduled,,,2026-06-28
+HAY-0116,زكريا,050-455-2955,Haya,Phone Call,2026-06-30,17:30,Main Showroom,Scheduled,,5ونص -6,2026-06-28
+HAY-0117,tawfeq hasan,054-225-1203,Haya,Phone Call,2026-06-29,18:00,Main Showroom,Scheduled,,,2026-06-28
+HAY-0118,عثمان,050-215-7415,Haya,Phone Call,2026-06-30,10:00,Main Showroom,Scheduled,,,2026-06-29
+HAY-0119,كرم صالح,054-792-2959,Haya,Phone Call,2026-06-29,,Main Showroom,Scheduled,,,2026-06-29
+HAY-0120,حمزة ابن هيثم- القدس,0527726104,Haya,Phone Call,2026-06-29,,Main Showroom,Closed / Sold,,,2026-06-28
+HAY-0121,محمود تبع السجاد,0505516764,Haya,Phone Call,2026-06-30,16:30,Main Showroom,Rescheduled,,4-5 هوك للسيارة,2026-06-29
+HAY-0122,عادل-كفر ياسيف,0559669569,Haya,Phone Call,2026-06-30,,Main Showroom,Scheduled,,,2026-06-30
+HAY-0123,مأمون,0542060017,Haya,Phone Call,2026-06-30,15:30,Main Showroom,Attended,,3:30-4:00,2026-06-30
+HAY-0124,فاتن ابو نصرة,0505122544,Haya,Phone Call,2026-07-02,12:30,Main Showroom,Attended,,,2026-07-01
+HAY-0125,سامر زعبي,0505447175,Haya,Phone Call,2026-07-02,18:00,Main Showroom,Scheduled,,,2026-07-01
+HAY-0126,صبحي خميسيي - كفر كنا,0524024013,Haya,Phone Call,2026-07-04,12:30,Main Showroom,Scheduled,,,2026-07-01
+HAY-0127,حسام القدس -,0528888382,Haya,Phone Call,2026-07-03,14:00,Main Showroom,Scheduled,,اجل الموضوع / جاكو 7 / ليب,2026-07-02
+HAY-0128,ابو جميل سيارة لابوه,0542647227,Haya,Phone Call,2026-07-06,11:30,Main Showroom,Scheduled,,2026-12-11 00:00:00,2026-07-02
+HAY-0129,اياد ابو الليل,0532345955,Haya,Phone Call,2026-07-03,10:30,Main Showroom,Scheduled,,10:30-12 / معاه توسن,2026-07-02
+HAY-0130,حسين اغبارية,0533319155,Haya,Phone Call,2026-07-03,14:00,Main Showroom,Scheduled,,ليب c10,2026-07-02
+HAY-0131,ابراهيم القدس,0549374446,Haya,Phone Call,2026-07-03,,Main Showroom,Scheduled,,معاه نيسان/ جاكو 8,2026-07-02
+HAY-0132,ابو اشرف للصبية,0522803648,Haya,Phone Call,2026-07-06,,Main Showroom,Scheduled,,للصبية تريد ان او جديد جاكو 5 او ليب,2026-07-02
+HAY-0133,محمود - العيزر,0558850380,Haya,Phone Call,2026-07-04,,Main Showroom,Cancelled,,,2026-07-02
+HAY-0134,حمدان محاميد,0524708375,Haya,Phone Call,2026-07-09,,Main Showroom,Scheduled,,بعد العصر/ معاه سوبارو / ممك سوباروا او ليب,2026-07-04
+HAY-0135,محمد - بيت حنينا القدس,0528086683,Haya,Phone Call,2026-07-06,18:00,Main Showroom,Scheduled,,معاه سكودا حسبوها 75 جاكو 8 او ليب,2026-07-04
+HAY-0136,امجد,0525636256,Haya,Phone Call,2026-07-10,,Main Showroom,Scheduled,,ليب,2026-07-04
+HAY-0137,مهند هوشيه,0535214741,Haya,Phone Call,2026-07-07,13:00,Main Showroom,Scheduled,,معاه باسات ممكن جاكو 8 او لييب,2026-07-04
+HAY-0138,رابعة صادق مع زوجها,0527873720,Haya,Phone Call,2026-07-06,,Main Showroom,Scheduled,,معاه بي واي دي بدو كهربا اكتر من ال بي واي دي / متاخر,2026-07-04
+HAY-0139,رسمي ابو غنام - بير السبع,0505689913,Haya,Phone Call,2026-07-09,,Main Showroom,Scheduled,,سيارتين ممكن c10 0%,2026-07-05
+HAY-0140,ممدوح قرايين -القدس,0525949905,Haya,Phone Call,2026-07-10,,Main Showroom,Scheduled,,معاه توسن تريد ان ميمون 30 وبدو c10 / بجوز ييجي يشوف السيارات بس عسكاه مو اسا,2026-07-05
+HAY-0141,محمد مسودة,0584355485,Haya,Phone Call,2026-07-10,,Main Showroom,Scheduled,,كهربا فل b10 او تي 3,2026-07-05
+HAY-0142,رشاد,0526808077,Haya,Phone Call,2026-07-07,16:30,Main Showroom,Scheduled,,,2026-07-05
+HAY-0143,اياد ابو عقل,050-404-0020,Haya,Phone Call,2026-07-11,,Main Showroom,Scheduled,,ارنلو الجمعة ناكد عالوقت,2026-07-06
+HAY-0144,ابو علي الرينة,,Haya,Phone Call,2026-07-08,12:00,Main Showroom,Scheduled,,,2026-07-06
+HAY-0145,فراس,05456006330,Haya,Phone Call,2026-07-06,15:00,Main Showroom,Attended,,,2026-07-06
+HAY-0146,وسام من عرابة,,Haya,Phone Call,2026-07-10,,Main Showroom,Scheduled,,بكرا او الجمعة,2026-07-06
+RAW-0001,محمد القدس,050-344-4352,Rawand,Phone Call,2026-06-05,10:30,Main Showroom,Attended,,,2026-06-02
+RAW-0002,ابو عادل,052-583-7780,Rawand,Phone Call,2026-06-12,14:00,Main Showroom,No Show,,,2026-06-02
+RAW-0003,-,054-921-0059,Rawand,Phone Call,2026-06-03,14:00,Main Showroom,No Show,,s-مش اكيد,2026-06-02
+RAW-0004,راشد,050-326-7734,Rawand,Phone Call,2026-06-07,11:00,Main Showroom,Cancelled,,,2026-06-02
+RAW-0005,-,050-956-1777,Rawand,Phone Call,2026-06-05,12:00,Main Showroom,Scheduled,,مش اكيد,2026-06-02
+RAW-0006,سماح+خالد,052-539-2691,Rawand,Phone Call,2026-06-07,11:00,Main Showroom,Cancelled,,اذا ما جابت byd,2026-06-02
+RAW-0007,محمد,050-765-1979,Rawand,Phone Call,2026-06-03,17:30,Main Showroom,Closed / Sold,,,2026-06-03
+RAW-0008,عبد,050-571-9546,Rawand,Phone Call,2026-06-04,16:30,Main Showroom,No Show,,,2026-06-03
+RAW-0009,اياد,054-838-0092,Rawand,Phone Call,2026-06-07,11:30,Main Showroom,Scheduled,,,2026-06-03
+RAW-0010,عبدالله,052-241-5115,Rawand,Phone Call,2026-06-05,10:00,Main Showroom,Attended,,s,2026-06-03
+RAW-0011,مالك,,Rawand,Phone Call,2026-06-02,14:00,Main Showroom,Attended,,مع وسن,2026-06-02
+RAW-0012,جلال,054-431-7553,Rawand,Phone Call,2026-06-06,10:30,Main Showroom,Attended,,مش اكيد/ممكن السبت,2026-06-03
+RAW-0013,اسامة,052-353-9989,Rawand,Phone Call,2026-06-05,12:00,Main Showroom,Cancelled,,,2026-06-03
+RAW-0014,عامر,054-937-2099,Rawand,Phone Call,2026-06-03,16:00,Main Showroom,Closed / Sold,,,2026-06-03
+RAW-0015,عماد,053-223-1434,Rawand,Phone Call,2026-06-05,13:00,Main Showroom,Cancelled,,A-new,2026-06-03
+RAW-0016,محمود,053-229-0966,Rawand,Phone Call,2026-06-03,17:00,Main Showroom,Scheduled,,,2026-06-03
+RAW-0017,ابو مروان,052-560-8098,Rawand,Phone Call,2026-06-05,14:30,Main Showroom,Cancelled,,,2026-06-03
+RAW-0018,احمد,050-578-3527,Rawand,Phone Call,2026-06-05,10:30,Main Showroom,Attended,,,2026-06-04
+RAW-0019,ابو محمد,054-554-8751,Rawand,Phone Call,2026-06-06,11:00,Main Showroom,No Show,,,2026-06-04
+RAW-0020,اياد,054-591-1103,Rawand,Phone Call,2026-06-06,13:00,Main Showroom,No Show,,s,2026-06-04
+RAW-0021,محمد,050-659-7821,Rawand,Phone Call,2026-06-05,13:00,Main Showroom,Closed / Sold,,,2026-06-04
+RAW-0022,ظافر,054-593-8287,Rawand,Phone Call,2026-06-05,11:00,Main Showroom,Cancelled,,,2026-06-04
+RAW-0023,محمد,052-814-4884,Rawand,Phone Call,2026-06-05,11:30,Main Showroom,No Show,,,2026-06-04
+RAW-0024,مؤيد,054-331-6910,Rawand,Phone Call,2026-06-12,13:00,Main Showroom,Rescheduled,,s,2026-06-04
+RAW-0025,نوهال,054-948-4458,Rawand,Phone Call,2026-06-05,12:00,Main Showroom,Cancelled,,,2026-06-04
+RAW-0026,اكرم,054-831-3672,Rawand,Phone Call,2026-06-07,13:00,Main Showroom,Attended,,مع حلا,2026-06-04
+RAW-0027,احمد,050-611-1232,Rawand,Phone Call,2026-06-13,12:00,Main Showroom,Attended,,,2026-06-04
+RAW-0028,جمال,050-865-5117,Rawand,Phone Call,2026-06-09,11:30,Main Showroom,Scheduled,,غير مؤكد,2026-06-04
+RAW-0029,عابد,0525583328,Rawand,Phone Call,2026-06-05,13:00,Main Showroom,Closed / Sold,,لاند كروزر,2026-06-04
+RAW-0030,وسام,058-614-0842,Rawand,Phone Call,2026-06-06,14:00,Main Showroom,Closed / Sold,,,2026-06-06
+RAW-0031,معاذ,52-783-5559,Rawand,Phone Call,2026-06-12,13:00,Main Showroom,No Show,,,2026-06-06
+RAW-0032,ابو ابراهيم,052-400-4485,Rawand,Phone Call,2026-06-07,16:30,Main Showroom,Attended,,,2026-06-06
+RAW-0033,سميح لحام,050-526-4399,Rawand,Phone Call,2026-06-07,14:30,Main Showroom,Cancelled,,براحته,2026-06-06
+RAW-0034,مؤيد,054-331-6910,Rawand,Phone Call,2026-06-12,10:00,Main Showroom,No Show,,سوبارو,2026-06-06
+RAW-0035,حسان,058-413-1210,Rawand,Phone Call,2026-06-09,15:00,Main Showroom,Closed / Sold,,,2026-06-06
+RAW-0036,احمد,0509425594,Rawand,WhatsApp,2026-06-07,10:00,Main Showroom,Scheduled,,,2026-06-06
+RAW-0037,عابد,054-976-2935,Rawand,Phone Call,2026-06-13,11:00,Main Showroom,Attended,,سوبارو,2026-06-06
+RAW-0038,يحيى,052-797-4767,Rawand,Phone Call,2026-06-15,10:30,Main Showroom,No Show,,,2026-06-06
+RAW-0039,منى,052-542-9913,Rawand,Phone Call,2026-06-07,12:00,Main Showroom,No Show,,,2026-06-06
+RAW-0040,محمد,052-251-8301,Rawand,Phone Call,2026-06-07,14:00,Main Showroom,Scheduled,,كوبرا,2026-06-06
+RAW-0041,بليغ,054-229-0887,Rawand,Phone Call,2026-06-07,10:30,Main Showroom,Closed / Sold,,,2026-06-06
+RAW-0042,شادي,052-637-8740,Rawand,Phone Call,2026-06-12,11:30,Main Showroom,Rescheduled,,عنده حالة وفاة بعد اسبوع ارجعيلو,2026-06-07
+RAW-0043,هاني,052-304-3310,Rawand,Phone Call,2026-06-13,13:00,Main Showroom,Rescheduled,,,2026-06-07
+RAW-0044,مقداد,052-279-0606,Rawand,Phone Call,2026-06-07,16:00,Main Showroom,Attended,,,2026-06-07
+RAW-0045,كريم,054-761-9195,Rawand,Phone Call,2026-06-12,14:30,Main Showroom,Rescheduled,,احتمال يقدر,2026-06-07
+RAW-0046,نمر,050-300-1541,Rawand,Phone Call,2026-06-12,13:00,Main Showroom,Scheduled,,,2026-06-07
+RAW-0047,جلال,054-662-1182,Rawand,Phone Call,2026-06-13,11:00,Main Showroom,Cancelled,,,2026-06-08
+RAW-0048,عز الدين,53-923-0838,Rawand,Phone Call,2026-06-13,11:30,Main Showroom,Cancelled,,,2026-06-08
+RAW-0049,احمد,053-629-0625,Rawand,Phone Call,2026-06-13,14:00,Main Showroom,Cancelled,,تأكيد الخميس,2026-06-08
+RAW-0050,مصعب,052-649-8938,Rawand,Phone Call,2026-06-10,15:00,Main Showroom,Cancelled,,سكودا,2026-06-08
+RAW-0051,سليم,0544418929,Rawand,Phone Call,2026-06-13,11:00,Main Showroom,Scheduled,,اكديلو يوم الجمعة,2026-06-08
+RAW-0052,غدير,052-471-2151,Rawand,Phone Call,2026-06-12,11:00,Main Showroom,Scheduled,,سوبارو,2026-06-09
+RAW-0053,ربيع,0506575700,Rawand,Phone Call,2026-06-17,11:30,Main Showroom,Scheduled,,,2026-06-09
+RAW-0054,خالد,052-538-1333,Rawand,Phone Call,2026-06-12,10:00,Main Showroom,Attended,,سوبارو,2026-06-09
+RAW-0055,عبد الله,050-593-4097,Rawand,Phone Call,2026-06-09,15:30,Main Showroom,Attended,,سوبارو,2026-06-09
+RAW-0056,موسى,0547446066,Rawand,Phone Call,2026-06-10,14:00,Main Showroom,Rescheduled,,,2026-06-09
+RAW-0057,اشرف,054-802-8246,Rawand,Phone Call,2026-06-13,11:30,Main Showroom,No Show,,,2026-06-10
+RAW-0058,مشهور,050-778-3305,Rawand,Phone Call,2026-06-13,11:00,Main Showroom,Rescheduled,,,2026-06-10
+RAW-0059,راغب,052-537-0281,Rawand,Phone Call,2026-06-12,10:00,Main Showroom,Closed / Sold,,,2026-06-10
+RAW-0060,فؤاد,050-506-5195,Rawand,Phone Call,2026-06-13,11:00,Main Showroom,Cancelled,,,2026-06-10
+RAW-0061,محمود,052-358-2010,Rawand,Phone Call,2026-06-12,10:30,Main Showroom,Scheduled,,,2026-06-10
+RAW-0062,فارس,052-887-5003,Rawand,Phone Call,2026-06-12,14:00,Main Showroom,Scheduled,,,2026-06-10
+RAW-0063,بشير,0549048998,Rawand,Phone Call,2026-06-12,09:30,Main Showroom,Scheduled,,,2026-06-11
+RAW-0064,عزام,050-261-0286,Rawand,Phone Call,2026-06-19,10:00,Main Showroom,Scheduled,,مسافر عالاردن بنرجعله اخر الاسبوع الجاي,2026-06-11
+RAW-0065,فارس,,Rawand,Phone Call,2026-06-12,13:00,Main Showroom,Scheduled,,احكي معه بعد ال 12,2026-06-11
+RAW-0066,محمود,052-817-7171,Rawand,Phone Call,2026-06-13,11:00,Main Showroom,Scheduled,,,2026-06-11
+RAW-0067,عمر,052-237-7299,Rawand,Phone Call,2026-06-14,11:30,Main Showroom,Cancelled,,,2026-06-11
+RAW-0068,محمد,52-409-2186,Rawand,Phone Call,2026-06-12,10:00,Main Showroom,Attended,,,2026-06-12
+RAW-0069,عمران,052-468-5929,Rawand,Phone Call,2026-06-17,14:00,Main Showroom,Scheduled,,,2026-06-13
+RAW-0070,حليمة,052-363-8735,Rawand,Phone Call,2026-06-14,12:00,Main Showroom,No Show,,,2026-06-13
+RAW-0071,وسام,058-614-0842,Rawand,Phone Call,2026-06-15,09:30,Main Showroom,Scheduled,,,2026-06-14
+RAW-0072,غسان,052-624-1447,Rawand,Phone Call,2026-06-15,11:00,Main Showroom,Attended,,,2026-06-14
+RAW-0073,محمود,050-828-8844,Rawand,Phone Call,2026-06-21,11:30,Main Showroom,Scheduled,,,2026-06-14
+RAW-0074,عنان,054-675-4943,Rawand,Phone Call,2026-06-16,12:30,Main Showroom,Scheduled,,,2026-06-14
+RAW-0075,علي,054-641-3001,Rawand,Phone Call,2026-06-19,14:00,Main Showroom,Scheduled,,,2026-06-14
+RAW-0076,سامي,054-245-9766,Rawand,Phone Call,2026-06-15,16:00,Main Showroom,Scheduled,,,2026-06-14
+RAW-0077,يوسف,054-632-3426,Rawand,Phone Call,2026-06-26,11:00,Main Showroom,Scheduled,,,2026-06-15
+RAW-0078,مالك,054-860-5654,Rawand,Phone Call,2026-06-15,15:30,Main Showroom,Scheduled,,,2026-06-15
+RAW-0079,رسل,0505707412,Rawand,WhatsApp,2026-06-15,16:00,Main Showroom,Closed / Sold,,,2026-06-15
+RAW-0080,ابو امير,050-597-0000,Rawand,Phone Call,2026-06-20,12:30,Main Showroom,Scheduled,,,2026-06-15
+RAW-0081,وسام,058-614-0842,Rawand,WhatsApp,2026-06-16,11:00,Main Showroom,Attended,,,2026-06-16
+RAW-0082,اسامة,54-210-0432,Rawand,WhatsApp,2026-06-21,12:00,Main Showroom,Rescheduled,,,2026-06-16
+RAW-0083,هارون,052-315-0905,Rawand,Phone Call,2026-06-19,15:00,Main Showroom,Attended,,,2026-06-16
+RAW-0084,ليلى,052-407-3802,Rawand,Phone Call,2026-06-19,11:30,Main Showroom,Rescheduled,,حاكيها الخميس,2026-06-16
+RAW-0085,سيرين,50-616-4622,Rawand,Phone Call,2026-06-19,11:30,Main Showroom,Rescheduled,,,2026-06-16
+RAW-0086,زامل؟,050-865-5117,Rawand,Phone Call,2026-06-18,09:30,Main Showroom,No Show,,,2026-06-16
+RAW-0087,عامل,054-947-0644,Rawand,Phone Call,2026-06-20,14:30,Main Showroom,Scheduled,,ارجعيله عال2:00,2026-06-16
+RAW-0088,فرقد,052-362-5330,Rawand,Phone Call,2026-06-20,13:30,Main Showroom,Attended,,,2026-06-16
+RAW-0089,اشرف,052-853-8362,Rawand,Phone Call,2026-06-17,10:30,Main Showroom,Scheduled,,,2026-06-16
+RAW-0090,حسين,050-333-0310,Rawand,Phone Call,2026-06-16,17:30,Main Showroom,Scheduled,,ممكن يقدر يمر بعد ساعة,2026-06-16
+RAW-0091,صبحي,54-746-6229,Rawand,WhatsApp,2026-06-17,14:30,Main Showroom,Scheduled,,احتمال,2026-06-17
+RAW-0092,ابو عميد,052-860-7689,Rawand,Phone Call,2026-06-23,11:30,Main Showroom,Rescheduled,,احكي معه السبت,2026-06-17
+RAW-0093,مروان,052-873-8804,Rawand,Phone Call,2026-06-20,10:30,Main Showroom,Scheduled,,,2026-06-17
+RAW-0094,صالح,050-823-8901,Rawand,Phone Call,2026-06-22,13:00,Main Showroom,Scheduled,,,2026-06-17
+RAW-0095,مثنى,050-649-8488,Rawand,Phone Call,2026-06-20,12:30,Main Showroom,Scheduled,,,2026-06-17
+RAW-0096,ابو محمد,052-593-9658,Rawand,Phone Call,2026-06-21,12:00,Main Showroom,Scheduled,,احكي معه السبت الصبح,2026-06-18
+RAW-0097,وائل,050-667-9905,Rawand,Phone Call,2026-06-18,14:00,Main Showroom,Scheduled,,,2026-06-18
+RAW-0098,ادهم,054-439-0718,Rawand,Phone Call,2026-06-20,11:30,Main Showroom,Scheduled,,,2026-06-18
+RAW-0099,محمد,052-592-4864,Rawand,Phone Call,2026-06-20,12:00,Main Showroom,Scheduled,,,2026-06-18
+RAW-0100,نبيل,052-692-1517,Rawand,Phone Call,2026-06-26,11:00,Main Showroom,Scheduled,,,2026-06-18
+RAW-0101,مرعي,054-453-3752,Rawand,Phone Call,2026-06-21,14:30,Main Showroom,Scheduled,,,2026-06-18
+RAW-0102,محمد,054-777-7669,Rawand,Phone Call,2026-06-27,11:00,Main Showroom,Rescheduled,,,2026-06-18
+RAW-0103,علي,052-508-2979,Rawand,Phone Call,2026-06-19,16:00,Main Showroom,Scheduled,,,2026-06-18
+RAW-0104,مراد,54-581-7920,Rawand,Phone Call,2026-06-20,11:00,Main Showroom,Scheduled,,,2026-06-18
+RAW-0105,رشا,053-974-9147,Rawand,Phone Call,2026-06-23,16:00,Main Showroom,Scheduled,,,2026-06-20
+RAW-0106,ابو هاني,054-906-1333,Rawand,Phone Call,2026-06-21,16:30,Main Showroom,Scheduled,,,2026-06-20
+RAW-0107,ابو صلاح,052-557-2006,Rawand,Phone Call,2026-06-21,13:00,Main Showroom,Scheduled,,احتمال,2026-06-20
+RAW-0108,اياد,052-848-0874,Rawand,Phone Call,2026-06-20,15:00,Main Showroom,Closed / Sold,,,2026-06-20
+RAW-0109,عبد,052-698-1210,Rawand,Phone Call,2026-06-22,11:00,Main Showroom,Attended,,لتامر,2026-06-20
+RAW-0110,سمير,050-761-1180,Rawand,Phone Call,2026-06-26,11:00,Main Showroom,Scheduled,,,2026-06-20
+RAW-0111,وليد,050-427-7272,Rawand,Phone Call,2026-06-21,17:00,Main Showroom,Scheduled,,,2026-06-20
+RAW-0112,محمد,050-549-4337,Rawand,Phone Call,2026-06-21,11:00,Main Showroom,Cancelled,,,2026-06-20
+RAW-0113,عدنان,0524597593,Rawand,Phone Call,2026-06-27,11:00,Main Showroom,Scheduled,,,2026-06-21
+RAW-0114,يوسف,052-441-0445,Rawand,Phone Call,2026-06-26,12:00,Main Showroom,Scheduled,,الجمعة او السبت,2026-06-21
+RAW-0115,جودت,054-320-0809,Rawand,Phone Call,2026-06-26,12:00,Main Showroom,Scheduled,,,2026-06-21
+RAW-0116,حمزة,053-610-0474,Rawand,Phone Call,2026-06-26,11:00,Main Showroom,Scheduled,,,2026-06-21
+RAW-0117,صلاح,054-902-0054,Rawand,Phone Call,2026-07-04,11:30,Main Showroom,Rescheduled,,,2026-06-21
+RAW-0118,-,054-832-9559,Rawand,Phone Call,2026-06-22,11:30,Main Showroom,Cancelled,,,2026-06-21
+RAW-0119,نايف,050-754-3104,Rawand,Phone Call,2026-06-25,15:00,Main Showroom,Closed / Sold,,,2026-06-22
+RAW-0120,مالك,54-860-5654,Rawand,Phone Call,2026-06-23,14:00,Main Showroom,Attended,,,2026-06-22
+RAW-0121,محمد,052-233-4011,Rawand,Phone Call,2026-06-26,12:30,Main Showroom,Scheduled,,,2026-06-23
+RAW-0122,هاني,052-304-3310,Rawand,Phone Call,2026-06-26,13:00,Main Showroom,Scheduled,,سوبارو,2026-06-23
+RAW-0123,عادل,050-401-0900,Rawand,Phone Call,2026-06-24,16:00,Main Showroom,Scheduled,,احتمال,2026-06-23
+RAW-0124,ربيع,50-657-5700,Rawand,Phone Call,2026-07-01,11:30,Main Showroom,Scheduled,,,2026-06-23
+RAW-0125,طارق,052-483-0110,Rawand,WhatsApp,2026-06-25,11:30,Main Showroom,Scheduled,,,2026-06-24
+RAW-0126,مشهور,050-778-3305,Rawand,Phone Call,2026-06-26,11:30,Main Showroom,Rescheduled,,سوبارو,2026-06-24
+RAW-0127,مروان,0528738804,Rawand,WhatsApp,2026-06-27,11:00,Main Showroom,Scheduled,,,2026-06-24
+RAW-0128,مش عارفة,050-575-3803,Rawand,Phone Call,2026-06-26,13:00,Main Showroom,Scheduled,,,2026-06-25
+RAW-0129,محمود,053-229-0966,Rawand,Phone Call,2026-06-27,11:30,Main Showroom,Scheduled,,,2026-06-25
+RAW-0130,مؤيد,054-331-6910,Rawand,Phone Call,2026-06-26,13:30,Main Showroom,Scheduled,,,2026-06-25
+RAW-0131,عامر,0549470644,Rawand,Phone Call,2026-06-26,10:30,Main Showroom,Scheduled,,,2026-06-25
+RAW-0132,وعد,0549447155,Rawand,Phone Call,2026-06-29,11:30,Main Showroom,Scheduled,,,2026-06-27
+RAW-0133,ابو عمر,0545619080,Rawand,Phone Call,2026-07-03,10:30,Main Showroom,Scheduled,,احكي معه مش متأكدة,2026-06-27
+RAW-0134,مصطفى,0549719252,Rawand,Phone Call,2026-07-05,10:00,Main Showroom,Scheduled,,,2026-06-27
+RAW-0135,محمود,0586688671,Rawand,Phone Call,2026-06-27,15:30,Main Showroom,Scheduled,,,2026-06-27
+RAW-0136,موسى,54-744-6066,Rawand,Phone Call,2026-06-28,11:30,Main Showroom,Closed / Sold,,الأحد او الاثنين,2026-06-27
+RAW-0137,رضا,050-898-8950,Rawand,Phone Call,2026-07-02,11:30,Main Showroom,Scheduled,,,2026-06-28
+RAW-0138,فادي,0556659960,Rawand,Phone Call,2026-06-29,11:00,Main Showroom,Attended,,,2026-06-28
+RAW-0139,مصطفى,50-686-8991,Rawand,Phone Call,2026-07-17,10:30,Main Showroom,Rescheduled,,,2026-06-30
+RAW-0140,زياد,050-634-5346,Rawand,Phone Call,2026-07-02,11:00,Main Showroom,Scheduled,,,2026-06-30
+RAW-0141,اسعد,0526109128,Rawand,Phone Call,2026-07-03,13:00,Main Showroom,Scheduled,,,2026-06-30
+RAW-0142,زايد,54-366-4441,Rawand,Phone Call,2026-06-30,09:00,Main Showroom,Closed / Sold,,,2026-06-30
+RAW-0143,اخت زايد,54-366-4441,Rawand,Phone Call,2026-06-30,09:30,Main Showroom,Closed / Sold,,,2026-06-30
+RAW-0144,سند,52-451-5212,Rawand,WhatsApp,2026-06-30,16:00,Main Showroom,Closed / Sold,,,2026-06-30
+RAW-0145,ابو نور,052-555-5234,Rawand,Phone Call,2026-07-02,14:30,Main Showroom,Scheduled,,,2026-06-30
+RAW-0146,شادي,0529566687,Rawand,Phone Call,2026-07-01,11:30,Main Showroom,Rescheduled,,,2026-06-30
+RAW-0147,عادل,0522222947,Rawand,Phone Call,2026-07-01,14:30,Main Showroom,Rescheduled,,,2026-07-01
+RAW-0148,رامي,052-795-5688,Rawand,Phone Call,2026-07-11,12:30,Main Showroom,Cancelled,,,2026-07-01
+RAW-0149,خليل,0506992066,Rawand,Phone Call,2026-07-03,11:30,Main Showroom,Attended,,,2026-07-01
+RAW-0150,اشرف,0528538362,Rawand,Phone Call,2026-07-03,13:00,Main Showroom,Scheduled,,,2026-07-02
+RAW-0151,محمد,0509113020,Rawand,Phone Call,2026-07-11,16:00,Main Showroom,Rescheduled,,اخر النهار,2026-07-02
+RAW-0152,مشهور,50-778-3305,Rawand,Phone Call,2026-07-05,11:30,Main Showroom,Scheduled,,سوبارو,2026-07-02
+RAW-0153,الاستاذ كريم,0547619195,Rawand,Phone Call,2026-07-17,11:00,Main Showroom,Scheduled,,,2026-07-04
+RAW-0154,حسام,54-784-2800,Rawand,Phone Call,2026-07-09,10:00,Main Showroom,Attended,,,2026-07-04
+RAW-0155,مروان,54-779-2455,Rawand,Phone Call,2026-07-05,15:00,Main Showroom,Scheduled,,احتمال يجي بكرة,2026-07-04
+RAW-0156,محمد,0526327239,Rawand,Phone Call,2026-07-10,11:00,Main Showroom,Attended,,,2026-07-04
+RAW-0157,علي,0523732391,Rawand,Phone Call,2026-07-20,15:00,Main Showroom,Scheduled,,,2026-07-05
+RAW-0158,توفيق,0547787766,Rawand,Phone Call,2026-07-06,11:00,Main Showroom,Scheduled,,رح يحاول,2026-07-05
+RAW-0159,عماد,54-792-9215,Rawand,Phone Call,2026-07-07,10:00,Main Showroom,Rescheduled,,حيحاول,2026-07-05
+RAW-0160,ابو محمد,0525939658,Rawand,Phone Call,2026-07-10,12:30,Main Showroom,Scheduled,,,2026-07-05
+RAW-0161,محمد ابو راس,0525924864,Rawand,Phone Call,2026-07-10,09:30,Main Showroom,Scheduled,,تأكيد الخميس ضروري,2026-07-05
+RAW-0162,نبيل,0526921517,Rawand,Phone Call,2026-07-10,14:30,Main Showroom,Rescheduled,,تأكيد الخميس ضروري,2026-07-05
+RAW-0163,راشد,0503267734,Rawand,Phone Call,2026-07-13,15:00,Main Showroom,Scheduled,,,2026-07-05
+RAW-0164,ليلى,0524073802,Rawand,Phone Call,2026-07-06,10:30,Main Showroom,Attended,,,2026-07-05
+RAW-0165,طارق,0524830110,Rawand,Phone Call,2026-07-07,11:00,Main Showroom,Scheduled,,,2026-07-05
+RAW-0166,ياسر,0507811358,Rawand,Phone Call,2026-07-11,10:00,Main Showroom,Scheduled,,,2026-07-05
+RAW-0167,ابو عادل,0525837780,Rawand,Phone Call,2026-07-11,10:00,Main Showroom,Cancelled,,,2026-07-05
+RAW-0168,زامل؟,0508655117,Rawand,Phone Call,2026-07-03,10:30,Main Showroom,Attended,,,2026-07-03
+RAW-0169,مشهور,50-778-3305,Rawand,Phone Call,2026-07-07,10:30,Main Showroom,Attended,,,2026-07-05
+RAW-0170,-,0509561777,Rawand,Phone Call,2026-07-11,10:00,Main Showroom,Scheduled,,,2026-07-06
+RAW-0171,-,0536661443,Rawand,Phone Call,2026-07-11,10:30,Main Showroom,Scheduled,,,2026-07-06
+RAW-0172,نور,0525588877,Rawand,Phone Call,2026-07-07,16:00,Main Showroom,Scheduled,,,2026-07-06
+RAW-0173,زياد,0506345346,Rawand,Phone Call,2026-07-10,13:30,Main Showroom,Scheduled,,,2026-07-06
+RAW-0174,اسعد,0526109128,Rawand,Phone Call,2026-07-10,10:30,Main Showroom,Scheduled,,,2026-07-06
+RAW-0175,مؤيد,054-331-6910,Rawand,Phone Call,2026-07-11,12:00,Main Showroom,Attended,,,2026-07-06
+RAW-0176,عبد,0547338896,Rawand,Phone Call,2026-07-07,10:00,Main Showroom,Scheduled,,,2026-07-06
+RAW-0177,قاهر,0506987663,Rawand,Phone Call,2026-07-12,09:00,Main Showroom,Scheduled,,,2026-07-07
+RAW-0178,زيدان,0523871063,Rawand,Phone Call,2026-07-14,11:00,Main Showroom,Attended,,,2026-07-07
+RAW-0179,محمود,0528177171,Rawand,Phone Call,2026-07-08,12:00,Main Showroom,Attended,,,2026-07-07
+RAW-0180,حاتم,0522221856,Rawand,Phone Call,2026-07-20,12:00,Main Showroom,Rescheduled,,حاكيه الخميس,2026-07-07
+RAW-0181,حاسب,0507846171,Rawand,Phone Call,2026-07-17,09:30,Main Showroom,Rescheduled,,,2026-07-07
+RAW-0182,محمد,50-205-2064,Rawand,Phone Call,2026-07-08,13:00,Main Showroom,Attended,,,2026-07-08
+RAW-0183,زامل؟,0508655117,Rawand,Phone Call,2026-07-10,15:00,Main Showroom,Scheduled,,,2026-07-08
+RAW-0184,طلال,0525423855,Rawand,Phone Call,2026-07-13,11:30,Main Showroom,Scheduled,,,2026-07-08
+RAW-0185,دالية,50-703-2686,Rawand,Phone Call,2026-07-09,15:00,Main Showroom,Scheduled,,,2026-07-08
+RAW-0186,علاء الدين,52-861-8485,Rawand,Phone Call,2026-07-11,11:00,Main Showroom,Attended,,,2026-07-08
+RAW-0187,هاني,0523043310,Rawand,Phone Call,2026-07-10,10:00,Main Showroom,Scheduled,,,2026-07-08
+RAW-0188,عامر,0549470644,Rawand,Phone Call,2026-07-18,10:00,Main Showroom,Scheduled,,حاكيه الجمعة,2026-07-08
+RAW-0189,جمال,0507272432,Rawand,Phone Call,2026-07-10,12:30,Main Showroom,Scheduled,,,2026-07-08
+RAW-0190,علاء,52-797-7769,Rawand,Phone Call,2026-07-11,13:00,Main Showroom,Scheduled,,,2026-07-09
+RAW-0191,احمد,0526118771,Rawand,Phone Call,2026-07-11,13:00,Main Showroom,Attended,,,2026-07-09
+RAW-0192,عماد,0547929215,Rawand,Phone Call,2026-07-12,11:30,Main Showroom,Scheduled,,,2026-07-09
+RAW-0193,ام نايف,0529577080,Rawand,Phone Call,2026-07-11,12:00,Main Showroom,Scheduled,,,2026-07-09
+RAW-0194,مروان,0528738804,Rawand,Phone Call,2026-07-11,13:00,Main Showroom,Scheduled,,,2026-07-09
+RAW-0195,بشار,0532257062,Rawand,Phone Call,2026-07-09,14:30,Main Showroom,Scheduled,,,2026-07-09
+RAW-0196,نو نيم,0527082683,Rawand,Phone Call,2026-07-12,11:30,Main Showroom,Scheduled,,,2026-07-09
+RAW-0197,زيد,0528485556,Rawand,Phone Call,2026-07-17,10:00,Main Showroom,Rescheduled,,,2026-07-11
+RAW-0198,يوسف,54-921-0470,Rawand,Phone Call,2026-07-11,11:00,Main Showroom,Attended,,,2026-07-11
+RAW-0199,حسن,0532443788,Rawand,Phone Call,2026-07-17,11:00,Main Showroom,Scheduled,,,2026-07-12
+RAW-0200,هادي,0586995977,Rawand,Phone Call,2026-07-16,12:30,Main Showroom,Attended,,,2026-07-12
+RAW-0201,هاشم,0506473069,Rawand,Phone Call,2026-07-18,09:30,Main Showroom,Scheduled,,,2026-07-12
+RAW-0202,بطيخ,0507273722,Rawand,Phone Call,2026-07-25,11:30,Main Showroom,Scheduled,,احكي معه تاني,2026-07-12
+RAW-0203,راسم,0523737418,Rawand,Phone Call,2026-07-15,08:30,Main Showroom,Scheduled,,,2026-07-13
+RAW-0204,يوسف,0546323426,Rawand,Phone Call,2026-07-18,11:30,Main Showroom,Scheduled,,ابن خالتي,2026-07-13
+RAW-0205,ابو محمد,0525939658,Rawand,Phone Call,2026-07-17,13:30,Main Showroom,Scheduled,,,2026-07-13
+RAW-0206,مهند,0526425661,Rawand,Phone Call,2026-07-16,13:00,Main Showroom,Scheduled,,,2026-07-13
+RAW-0207,علاء,0527977769,Rawand,Phone Call,2026-07-14,11:00,Main Showroom,Scheduled,,,2026-07-13
+RAW-0208,وائل,0506679905,Rawand,Phone Call,2026-07-15,13:00,Main Showroom,Scheduled,,اتصلي عليه عال1,2026-07-13
+RAW-0209,ابو جود,0523240258,Rawand,Phone Call,2026-07-18,10:00,Main Showroom,Scheduled,,,2026-07-13
+RAW-0210,سالم,0547661006,Rawand,Phone Call,2026-07-17,10:00,Main Showroom,Scheduled,,,2026-07-14
+RAW-0211,محمد ليسنج,0509113020,Rawand,Phone Call,2026-07-18,11:00,Main Showroom,Scheduled,,,2026-07-14
+RAW-0212,مدحت,0586918590,Rawand,Phone Call,2026-07-17,10:30,Main Showroom,Scheduled,,,2026-07-14
+RAW-0213,يحيى,0528267281,Rawand,Phone Call,2026-07-14,11:30,Main Showroom,Attended,,,2026-07-14
+RAW-0214,عامر,0543236248,Rawand,Phone Call,2026-07-17,11:30,Main Showroom,Scheduled,,الصبح اذا ما استلم الجاكو بيجي عنا,2026-07-14
+RAW-0215,صبري,0527979033,Rawand,Phone Call,2026-07-19,11:30,Main Showroom,Scheduled,,حاكيه الصبح بكير,2026-07-14
+RAW-0216,بلال,0502461578,Rawand,Phone Call,2026-07-16,11:30,Main Showroom,Scheduled,,,2026-07-15
+RAW-0217,مصطفى,0547092070,Rawand,Phone Call,2026-07-15,15:30,Main Showroom,Scheduled,,,2026-07-15
+RAW-0218,لويس,0502431234,Rawand,Phone Call,2026-07-18,11:00,Main Showroom,Scheduled,,,2026-07-15
+RAW-0219,انس,0547475584,Rawand,Phone Call,2026-07-16,16:30,Main Showroom,Scheduled,,احكيه معه الساعة 3:30,2026-07-15
+RAW-0220,عامر,0543236248,Rawand,Phone Call,2026-07-17,13:00,Main Showroom,Scheduled,,جاكو 8,2026-07-15
+RAW-0221,فايز,54-694-5006,Rawand,Phone Call,2026-07-24,11:00,Main Showroom,Scheduled,,بريفورمنس,2026-07-15
+RAW-0222,محمد حمزة,0505464762,Rawand,Phone Call,2026-07-16,13:00,Main Showroom,Attended,,,2026-07-15
+RAW-0223,يوسف,0544579894,Rawand,Phone Call,2026-07-16,11:00,Main Showroom,Scheduled,,سيلفرادو,2026-07-15
+RAW-0224,مجد,0505592116,Rawand,Phone Call,2026-07-17,11:30,Main Showroom,Scheduled,,,2026-07-16
+RAW-0225,محمد,0528887414,Rawand,Phone Call,2026-07-24,12:00,Main Showroom,Scheduled,,,2026-07-16
+RAW-0226,انيس,0546906791,Rawand,Phone Call,2026-07-17,12:00,Main Showroom,Scheduled,,,2026-07-16
+EMA-0001,قصي,0505422962,Eman,WhatsApp,2026-06-05,11:00,Main Showroom,Scheduled,,,2026-06-02
+EMA-0002,علي,0508353270,Eman,Phone Call,2026-06-01,15:30,Main Showroom,Closed / Sold,,مع عدن,2026-06-01
+EMA-0003,صبيح,0544413979,Eman,Phone Call,2026-06-05,11:00,Main Showroom,Attended,,مع خالد او تامر,2026-06-05
+EMA-0004,ميلاد,0559724053,Eman,Phone Call,2026-06-03,10:30,Main Showroom,Scheduled,,,2026-06-02
+EMA-0005,خليل,0534855557,Eman,Phone Call,2026-06-03,10:00,Main Showroom,Scheduled,,,2026-06-02
+EMA-0006,نضال,0524634969,Eman,Phone Call,2026-06-06,11:00,Main Showroom,Scheduled,,,2026-06-02
+EMA-0007,ورد اغبارية,0532229633,Eman,Phone Call,2026-06-06,18:00,Main Showroom,Closed / Sold,,مع حلا,2026-06-02
+EMA-0008,عدنان,0503200053,Eman,WhatsApp,2026-06-03,10:30,Main Showroom,Scheduled,,,2026-06-02
+EMA-0009,بلال,0527005295,Eman,Phone Call,2026-06-04,15:00,Main Showroom,Rescheduled,,,2026-06-02
+EMA-0010,بلال قاسم,0509008943,Eman,Phone Call,2026-06-05,14:00,Main Showroom,Scheduled,,,2026-06-02
+EMA-0011,سعود,0508172305,Eman,Phone Call,2026-06-05,15:00,Main Showroom,Scheduled,,,2026-06-02
+EMA-0012,فتحي اغبارية,0526616027,Eman,Phone Call,2026-06-03,17:00,Main Showroom,Attended,,مع حلا,2026-06-02
+EMA-0013,محمد,0532396063,Eman,Phone Call,2026-06-06,13:00,Main Showroom,Attended,,موكل ابن اختو يجي يشوف السيارات لانه مسافر.. فراس 0522289389,2026-06-02
+EMA-0014,عفيف البنا,0505881773,Eman,Phone Call,2026-06-10,11:00,Main Showroom,Closed / Sold,,,2026-06-03
+EMA-0015,محمد,0544303900,Eman,Phone Call,2026-06-04,15:00,Main Showroom,Scheduled,,,2026-06-03
+EMA-0016,احمد,0542855631,Eman,Phone Call,2026-06-05,11:00,Main Showroom,Scheduled,,,2026-06-03
+EMA-0017,مجد,0537416733,Eman,Phone Call,2026-06-07,12:00,Main Showroom,Scheduled,,,2026-06-03
+EMA-0018,فارس,0502131459,Eman,Phone Call,2026-06-06,13:00,Main Showroom,Scheduled,,,2026-06-03
+EMA-0019,عبد,0525812635,Eman,Phone Call,2026-06-05,17:30,Main Showroom,Attended,,,2026-06-03
+EMA-0020,فارس,050308810,Eman,Phone Call,2026-06-06,13:00,Main Showroom,Scheduled,,,2026-06-03
+EMA-0021,محمود جبارين,0503034964,Eman,Phone Call,2026-06-10,,Main Showroom,Rescheduled,,بأي وقت,2026-06-03
+EMA-0022,شكري,0508434487,Eman,WhatsApp,2026-06-10,16:00,Main Showroom,Attended,,,2026-06-03
+EMA-0023,ابو سلطان,0559908767,Eman,Phone Call,2026-06-05,13:30,Main Showroom,Scheduled,,,2026-06-04
+EMA-0024,رامي,0545473973,Eman,Phone Call,2026-06-14,15:00,Main Showroom,Rescheduled,,,2026-06-04
+EMA-0025,امينة,0535333822,Eman,Phone Call,2026-06-06,13:00,Main Showroom,Scheduled,,,2026-06-04
+EMA-0026,هشام خلايلية,0539881001,Eman,Phone Call,2026-06-07,14:00,Main Showroom,Scheduled,,,2026-06-04
+EMA-0027,نيرڤانا,0526651043,Eman,WhatsApp,2026-06-05,11:00,Main Showroom,Closed / Sold,,,2026-06-04
+EMA-0028,عماد,0559299991,Eman,WhatsApp,2026-06-05,15:30,Main Showroom,Attended,,مع عدن,2026-06-04
+EMA-0029,عمر,0522491814,Eman,Phone Call,2026-06-13,12:00,Main Showroom,Scheduled,,,2026-06-06
+EMA-0030,نور كبها,0548344846,Eman,Phone Call,2026-06-12,,Main Showroom,Attended,,,2026-06-06
+EMA-0031,حسن جبارين,0506930014,Eman,Phone Call,2026-05-13,,Main Showroom,Scheduled,,,2026-06-06
+EMA-0032,احمد,0528817491,Eman,Phone Call,2026-06-12,11:00,Main Showroom,Rescheduled,,,2026-06-06
+EMA-0033,خالد علي,0546348166,Eman,Phone Call,2026-06-07,16:00,Main Showroom,Scheduled,,,2026-06-06
+EMA-0034,عامر,0542013347,Eman,Phone Call,2026-06-07,15:00,Main Showroom,Attended,,‏مع وسن,2026-06-06
+EMA-0035,امين,0502136007,Eman,Phone Call,2026-06-08,,Main Showroom,Scheduled,,,2026-06-06
+EMA-0036,ابو عمر,0525439007,Eman,Phone Call,2026-06-07,17:00,Main Showroom,Scheduled,,,2026-06-06
+EMA-0037,جهاد جبارين,0528900142,Eman,Phone Call,2026-06-11,18:00,Main Showroom,Rescheduled,,,2026-06-07
+EMA-0038,ورد اغبارية,0532229633,Eman,WhatsApp,2026-06-08,14:00,Main Showroom,Attended,,,2026-06-07
+EMA-0039,علي,0545422196,Eman,Phone Call,2026-06-13,12:00,Main Showroom,Scheduled,,,2026-06-07
+EMA-0040,خالد عزايزة,0509443443,Eman,Phone Call,2026-06-12,12:00,Main Showroom,Attended,,مع عدن,2026-06-07
+EMA-0041,بشير خليل,0506590999,Eman,Phone Call,2026-06-12,16:00,Main Showroom,Scheduled,,,2026-06-07
+EMA-0042,سامي كماملة,0559555757,Eman,Phone Call,2026-06-12,12:00,Main Showroom,Scheduled,,,2026-06-07
+EMA-0043,بيان,0504280420,Eman,Phone Call,2026-06-12,11:00,Main Showroom,Scheduled,,,2026-06-07
+EMA-0044,نائل,0505326012,Eman,Phone Call,2026-06-09,11:00,Main Showroom,Attended,,مع عدن,2026-06-08
+EMA-0045,نصرت,0528449609,Eman,WhatsApp,2026-06-13,10:00,Main Showroom,Scheduled,,,2026-06-08
+EMA-0046,كامل,0503133647,Eman,WhatsApp,2026-06-12,13:30,Main Showroom,Attended,,,2026-06-08
+EMA-0047,سعد صالح,0507124631,Eman,Phone Call,2026-06-12,15:00,Main Showroom,Scheduled,,,2026-06-08
+EMA-0048,يوسف,0515887752,Eman,Phone Call,2026-06-13,,Main Showroom,Scheduled,,,2026-06-08
+EMA-0049,بلال,0502138968,Eman,Phone Call,2026-06-14,12:00,Main Showroom,Scheduled,,,2026-06-08
+EMA-0050,ياسر,0507362755,Eman,Phone Call,2026-06-09,17:30,Main Showroom,Scheduled,,,2026-06-08
+EMA-0051,احمد جويحان,0542806206,Eman,Phone Call,2026-06-13,16:00,Main Showroom,Scheduled,,,2026-06-08
+EMA-0052,عماد,0559299991,Eman,WhatsApp,2026-06-11,14:00,Main Showroom,Scheduled,,رح يجي مع صاحبو,2026-06-09
+EMA-0053,طارق,0526600374,Eman,Phone Call,2026-06-13,12:00,Main Showroom,Scheduled,,بين ال 8-12,2026-06-09
+EMA-0054,اسامة,0522265702,Eman,Phone Call,2026-06-15,17:30,Main Showroom,Scheduled,,,2026-06-09
+EMA-0055,لويس,0S02345866,Eman,WhatsApp,2026-06-10,14:00,Main Showroom,Scheduled,,,2026-06-09
+EMA-0056,امين زعبي,0526554876,Eman,Phone Call,2026-06-10,11:00,Main Showroom,Attended,,مع عدن,2026-06-09
+EMA-0057,فاتن,0549951166,Eman,WhatsApp,2026-06-15,,Main Showroom,Scheduled,,,2026-06-09
+EMA-0058,ابراهيم سليمان,0522922825,Eman,Phone Call,2026-06-12,14:30,Main Showroom,Scheduled,,,2026-06-09
+EMA-0059,اياس عمري,0556649998,Eman,Phone Call,2026-06-10,18:00,Main Showroom,Scheduled,,,2026-06-09
+EMA-0060,علي,0528539646,Eman,Phone Call,2026-06-10,13:00,Main Showroom,Scheduled,,,2026-06-09
+EMA-0061,عبد نصار,0524245141,Eman,Phone Call,2026-06-13,16:00,Main Showroom,Scheduled,,,2026-06-09
+EMA-0062,امير,0549426562,Eman,WhatsApp,2026-06-14,13:00,Main Showroom,Scheduled,,,2026-06-09
+EMA-0063,محمود علي سعدي,0524792889,Eman,Phone Call,2026-06-12,15:30,Main Showroom,Scheduled,,,2026-06-10
+EMA-0064,عدنان,0526281898,Eman,Phone Call,2026-06-11,16:00,Main Showroom,Scheduled,,,2026-06-10
+EMA-0065,عبدالله,0502831892,Eman,Phone Call,2026-06-11,,Main Showroom,Scheduled,,,2026-06-10
+EMA-0066,ابراهيم كيوان,0528506068,Eman,Phone Call,2026-06-11,17:00,Main Showroom,Scheduled,,,2026-06-10
+EMA-0067,خليل,0586100149,Eman,Phone Call,2026-06-19,12:00,Main Showroom,Rescheduled,,,2026-06-10
+EMA-0068,احمد,0536633327,Eman,Phone Call,2026-06-13,14:00,Main Showroom,Scheduled,,,2026-06-10
+EMA-0069,سليمان,0522392900,Eman,WhatsApp,2026-06-13,10:00,Main Showroom,Closed / Sold,,,2026-06-10
+EMA-0070,محمد جواميس,0507297841,Eman,WhatsApp,2026-06-20,,Main Showroom,Scheduled,,,2026-06-11
+EMA-0071,امين زعبي,0526554876,Eman,WhatsApp,2026-06-12,15:00,Main Showroom,Attended,,,2026-06-12
+EMA-0072,احمد,0542855631,Eman,WhatsApp,2026-06-13,13:00,Main Showroom,Scheduled,,,2026-06-12
+EMA-0073,معتصم,0527723089,Eman,WhatsApp,2026-06-15,,Main Showroom,Scheduled,,,2026-06-12
+EMA-0074,علا ابو كتف,522944393,Eman,Phone Call,2026-06-13,16:00,Main Showroom,Scheduled,,,2026-06-13
+EMA-0075,ابراهيم,0505444415,Eman,Phone Call,2026-06-18,11:00,Main Showroom,Scheduled,,,2026-06-13
+EMA-0076,سمير,0548851650,Eman,Phone Call,2026-06-14,13:00,Main Showroom,Closed / Sold,,,2026-06-13
+EMA-0077,عارف,0523459212,Eman,Phone Call,2026-06-15,11:00,Main Showroom,Scheduled,,,2026-06-13
+EMA-0078,محمد,0505280152,Eman,Phone Call,2026-06-14,,Main Showroom,Scheduled,,,2026-06-13
+EMA-0079,سليمان,0533756320,Eman,Phone Call,2026-06-19,14:00,Main Showroom,Scheduled,,,2026-06-13
+EMA-0080,راوية,0525122332,Eman,WhatsApp,2026-06-20,,Main Showroom,Scheduled,,,2026-06-13
+EMA-0081,ماهر,0544252889,Eman,Phone Call,2026-06-16,16:00,Main Showroom,Scheduled,,,2026-06-13
+EMA-0082,محمد,0586909014,Eman,WhatsApp,2026-06-19,,Main Showroom,Scheduled,,من طرف ابراهيم,2026-06-13
+EMA-0083,صالح,0503017026,Eman,Phone Call,2026-06-16,15:00,Main Showroom,Scheduled,,,2026-06-14
+EMA-0084,ابو العبد,0522508831,Eman,Phone Call,2026-06-19,11:00,Main Showroom,Attended,,,2026-06-14
+EMA-0085,اشرف غيث,0502465888,Eman,Phone Call,2026-06-20,09:00,Main Showroom,Rescheduled,,,2026-06-14
+EMA-0086,رامي,0549930573,Eman,Phone Call,2026-06-15,15:00,Main Showroom,Attended,,,2026-06-14
+EMA-0087,محمد,0547564330,Eman,WhatsApp,2026-06-15,12:00,Main Showroom,Attended,,,2026-06-15
+EMA-0088,نضال,0543057353,Eman,WhatsApp,2026-06-16,15:00,Main Showroom,Attended,,,2026-06-15
+EMA-0089,مصطفى,0532470491,Eman,Phone Call,2026-06-20,11:00,Main Showroom,Scheduled,,,2026-06-15
+EMA-0090,عمر,0507719946,Eman,Phone Call,2026-06-18,,Main Showroom,Scheduled,,,2026-06-15
+EMA-0091,احمد,0525613366,Eman,Phone Call,2026-06-20,11:00,Main Showroom,Scheduled,,,2026-06-15
+EMA-0092,اسراء,0545217144,Eman,Phone Call,2026-06-18,17:30,Main Showroom,Attended,,,2026-06-15
+EMA-0093,سلام,0507744500,Eman,Phone Call,2026-06-16,15:00,Main Showroom,Scheduled,,,2026-06-15
+EMA-0094,محمد,0522578284,Eman,Phone Call,2026-06-19,15:00,Main Showroom,Scheduled,,,2026-06-15
+EMA-0095,علاء,0504004042,Eman,Phone Call,2026-06-17,,Main Showroom,Scheduled,,,2026-06-15
+EMA-0096,جيريس,0544837233,Eman,Phone Call,2026-06-20,13:00,Main Showroom,Scheduled,,,2026-06-16
+EMA-0097,كامل حجاجرة,0544298279,Eman,Phone Call,2026-06-20,,Main Showroom,Scheduled,,,2026-06-16
+EMA-0098,محمد,0543590020,Eman,Phone Call,2026-06-19,13:00,Main Showroom,Scheduled,,,2026-06-16
+EMA-0099,زهر امارة,0523158756,Eman,Phone Call,2026-06-18,17:00,Main Showroom,Scheduled,,,2026-06-17
+EMA-0100,ايمن الزعبي,0526554876,Eman,WhatsApp,2026-06-21,13:00,Main Showroom,Scheduled,,,2026-06-17
+EMA-0101,حمزة,0533841372,Eman,Phone Call,2026-06-19,13:00,Main Showroom,Scheduled,,مش أكيد,2026-06-17
+EMA-0102,فارس,0503088610,Eman,Phone Call,2026-06-20,11:00,Main Showroom,Scheduled,,,2026-06-17
+EMA-0103,احمد,0523811713,Eman,WhatsApp,2026-06-19,09:00,Main Showroom,Scheduled,,,2026-06-17
+EMA-0104,سعيد,0503779399,Eman,Phone Call,2026-06-24,,Main Showroom,Cancelled,,,2026-06-18
+EMA-0105,سقارة,052-775-7989,Eman,WhatsApp,2026-06-19,,Main Showroom,Scheduled,,,2026-06-18
+EMA-0106,نبيل,0543422487,Eman,Phone Call,2026-06-21,,Main Showroom,Scheduled,,,2026-06-18
+EMA-0107,محمد,0549348671,Eman,Phone Call,2026-06-26,14:00,Main Showroom,Scheduled,,,2026-06-20
+EMA-0108,عادل خياط,0587010014,Eman,Phone Call,2026-06-27,,Main Showroom,Scheduled,,,2026-06-20
+EMA-0109,פלאח,0505435537,Eman,Phone Call,2026-06-27,11:30,Main Showroom,Attended,,,2026-06-20
+EMA-0110,موفق,527245457,Eman,WhatsApp,2026-06-21,18:00,Main Showroom,Scheduled,,,2026-06-20
+EMA-0111,عنان خالد,0549924775,Eman,Phone Call,2026-06-22,16:00,Main Showroom,Attended,,,2026-06-20
+EMA-0112,علي,0504247410,Eman,WhatsApp,2026-06-21,18:00,Main Showroom,Attended,,,2026-06-20
+EMA-0113,ابو ايهم,0559418091,Eman,WhatsApp,2026-06-26,09:30,Main Showroom,Attended,,رح يجي مع صحابو 2,2026-06-20
+EMA-0114,ابو العبد,0522508831,Eman,WhatsApp,2026-06-22,16:00,Main Showroom,Scheduled,,,2026-06-20
+EMA-0115,عطا,0524046321,Eman,Phone Call,2026-06-21,15:00,Main Showroom,Scheduled,,,2026-06-21
+EMA-0116,ابو بكر,0529064007,Eman,Phone Call,2026-06-26,14:00,Main Showroom,Scheduled,,,2026-06-21
+EMA-0117,حسن,0549321339,Eman,WhatsApp,2026-06-26,14:00,Main Showroom,Scheduled,,,2026-06-21
+EMA-0118,asmaa omary,0508674369,Eman,Phone Call,2026-06-22,18:00,Main Showroom,Scheduled,,,2026-06-21
+EMA-0119,امنة,0503210551,Eman,WhatsApp,2026-06-21,13:30,Main Showroom,Attended,,,2026-06-21
+EMA-0120,محمد,0528444827,Eman,Phone Call,2026-06-21,17:00,Main Showroom,Attended,,,2026-06-21
+EMA-0121,فتحي القرناوي,0536238225,Eman,Phone Call,2026-06-27,13:30,Main Showroom,Scheduled,,,2026-06-21
+EMA-0122,حسام,0528255553,Eman,Phone Call,2026-06-24,14:00,Main Showroom,Rescheduled,,,2026-06-21
+EMA-0123,Taleb rajab,0502995401,Eman,Phone Call,2026-06-27,12:00,Main Showroom,Scheduled,,,2026-06-21
+EMA-0124,ولاء,0533686840,Eman,Phone Call,2026-06-26,14:30,Main Showroom,Scheduled,,,2026-06-22
+EMA-0125,Abo wadee,0545997279,Eman,Phone Call,2026-06-25,10:00,Main Showroom,Scheduled,,,2026-06-22
+EMA-0126,Morad haddad,0507226604,Eman,Phone Call,2026-06-25,13:00,Main Showroom,Attended,,,2026-06-22
+EMA-0127,محمد,0503328400,Eman,Phone Call,2026-06-27,12:00,Main Showroom,Scheduled,,,2026-06-22
+EMA-0128,شداد أبو وداد,0544670666,Eman,Phone Call,2026-06-26,11:00,Main Showroom,Scheduled,,,2026-06-22
+EMA-0129,قصي اغبارية,0523650172,Eman,Phone Call,2026-06-26,13:00,Main Showroom,Scheduled,,,2026-06-22
+EMA-0130,خليل,0525546010,Eman,Phone Call,2026-06-26,14:00,Main Showroom,Scheduled,,معاه توسون بدو يعمل تريد ان,2026-06-22
+EMA-0131,أبو أحمد,0524073101,Eman,Phone Call,2026-06-25,17:00,Main Showroom,Scheduled,,,2026-06-22
+EMA-0132,ابو يحيى,0539986639,Eman,Phone Call,2026-06-27,,Main Showroom,Scheduled,,,2026-06-23
+EMA-0133,نائل احمد,0545662046,Eman,Phone Call,2026-06-26,,Main Showroom,Scheduled,,رح يجي بكير,2026-06-23
+EMA-0134,داوود,0527253001,Eman,WhatsApp,2026-06-25,11:00,Main Showroom,Scheduled,,,2026-06-23
+EMA-0135,وائل حجازي,0502062258,Eman,Phone Call,2026-06-25,12:00,Main Showroom,Scheduled,,,2026-06-23
+EMA-0136,احمد,0524294999,Eman,WhatsApp,2026-06-24,13:30,Main Showroom,Attended,,,2026-06-24
+EMA-0137,عنان خالد,0549924775,Eman,WhatsApp,2026-06-25,16:30,Main Showroom,Closed / Sold,,,2026-05-25
+EMA-0138,وسام,0548119260,Eman,WhatsApp,2026-06-26,15:00,Main Showroom,Attended,,,2026-05-25
+EMA-0139,معاذ,0508666006,Eman,WhatsApp,2026-06-26,09:30,Main Showroom,Attended,,,2026-05-25
+EMA-0140,مهند,0549414356,Eman,WhatsApp,2026-06-26,09:30,Main Showroom,Closed / Sold,,,2026-05-25
+EMA-0141,قاسم,0527388101,Eman,Phone Call,2026-06-27,14:30,Main Showroom,Scheduled,,,2026-06-27
+EMA-0142,ماهر بركات,0533017277,Eman,Phone Call,2026-06-30,11:30,Main Showroom,Scheduled,,,2026-06-27
+EMA-0143,عرفات ابو عرفة,0535541970,Eman,Phone Call,2026-06-29,13:00,Main Showroom,Scheduled,,,2026-06-27
+EMA-0144,‏سمير اغبارية,0524261835,Eman,Phone Call,2026-06-29,15:30,Main Showroom,Scheduled,,,2026-06-27
+EMA-0145,منيع,0524416340,Eman,Phone Call,2026-07-04,12:00,Main Showroom,Scheduled,,,2026-06-28
+EMA-0146,ماجد,0504556601,Eman,Phone Call,2026-06-29,11:00,Main Showroom,Scheduled,,,2026-06-28
+EMA-0147,ابو اسيد,0525602975,Eman,Phone Call,2026-07-04,13:00,Main Showroom,Scheduled,,,2026-06-28
+EMA-0148,راتيف جولاني,0523135134,Eman,Phone Call,2026-06-30,16:00,Main Showroom,Scheduled,,,2026-06-29
+EMA-0149,ايهاب غريفات,0526880821,Eman,Phone Call,2026-06-30,15:00,Main Showroom,Scheduled,,,2026-06-29
+SUA-0001,وسيم,0528108976,Su'ad,Phone Call,2026-06-02,,Main Showroom,Attended,,subaru,2026-06-02
+SUA-0002,zaid abo bker,0525617025,Su'ad,Phone Call,2026-06-01,,Main Showroom,Rescheduled,,,2026-06-01
+SUA-0003,akram,0542371735,Su'ad,Phone Call,2026-06-01,,Main Showroom,Scheduled,,,2026-06-01
+SUA-0004,سحر,0509442547,Su'ad,Phone Call,2026-06-01,,Main Showroom,Rescheduled,,للاحد 14-6,2026-06-01
+SUA-0005,رضوان اشتيوي,0522229498,Su'ad,Phone Call,2026-06-01,,Main Showroom,Rescheduled,,,2026-06-01
+SUA-0006,علي,0508571804,Su'ad,Phone Call,2026-06-02,,Main Showroom,Rescheduled,,السبت 13-6,2026-06-02
+SUA-0007,يعقوب,0502393280,Su'ad,Phone Call,2026-06-03,,Main Showroom,Scheduled,,,2026-06-03
+SUA-0008,rasem,0526716110,Su'ad,Phone Call,2026-06-03,,Main Showroom,Attended,,,2026-06-03
+SUA-0009,محمد اغباريه,0528820865,Su'ad,Phone Call,2026-06-04,,Main Showroom,Attended,,,2026-06-04
+SUA-0010,عمر كيوان,052106720,Su'ad,Phone Call,2026-06-04,,Main Showroom,Scheduled,,,2026-06-04
+SUA-0011,ارسلان,0505831330,Su'ad,Phone Call,2026-06-04,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0012,نعيم,0503003882,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,s,2026-06-05
+SUA-0013,محمد ابو ليل,0527346495,Su'ad,Phone Call,2026-06-05,,Main Showroom,Cancelled,,,2026-06-05
+SUA-0014,hathem,0549401506,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,اجل,2026-06-05
+SUA-0015,يوسف حسني,0542005098,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,s,2026-06-05
+SUA-0016,رنا,0523671696,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0017,الربع,0507520467,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0018,عادل,0526697107,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0019,احمد,0524915064,Su'ad,Phone Call,2026-06-05,,Main Showroom,Rescheduled,,اجل,2026-06-05
+SUA-0020,ابراهيم,0533029647,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0021,محمد جيفارا,0533029647,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,s,2026-06-05
+SUA-0022,محمود جبارين,0549961174,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0023,حسن قعدان,0505741962,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0024,زيدان,0546171086,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0025,اشرف حداد,0506213417,Su'ad,Phone Call,2026-06-05,,Main Showroom,Attended,,,2026-06-05
+SUA-0026,حسن,0507482275,Su'ad,Phone Call,2026-06-05,,Main Showroom,Cancelled,,اجل,2026-06-05
+SUA-0027,مراد,0503072193,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0028,نهاد,05030417771,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,,2026-06-05
+SUA-0029,طارق موسى,0526684175,Su'ad,Phone Call,2026-06-05,,Main Showroom,Scheduled,,تويوتا كرولا كروس 2026 مفوار LIMITED بطوني غامق,2026-06-05
+SUA-0030,رائد جعبري,0529358539,Su'ad,Phone Call,2026-06-06,12:00,Main Showroom,Scheduled,,,2026-06-06
+SUA-0031,بلال,0506709976,Su'ad,Phone Call,2026-06-06,12:00,Main Showroom,Scheduled,,"s 
+شطب سيارته بستنى مصاري التامين",2026-06-06
+SUA-0032,صبحي,0503013770,Su'ad,Phone Call,2026-06-06,09:00,Main Showroom,Attended,,قعد مع تامر عنده ميمون على سيارته,2026-06-06
+SUA-0033,محمد الشيخ,0548637339,Su'ad,Phone Call,2026-06-06,,Main Showroom,Scheduled,,,2026-06-06
+SUA-0034,اياد,0509229996,Su'ad,Phone Call,2026-06-06,10:30,Main Showroom,Scheduled,,,2026-06-06
+SUA-0035,سعيد,0586555343,Su'ad,Phone Call,2026-06-06,,Main Showroom,Scheduled,,,2026-06-06
+SUA-0036,طارق,0505939491,Su'ad,Phone Call,2026-06-06,,Main Showroom,Scheduled,,,2026-06-06
+SUA-0037,حنا ابو ربيع,0509190016,Su'ad,Phone Call,2026-06-06,,Main Showroom,Scheduled,,,2026-06-06
+SUA-0038,رافت,0547778795,Su'ad,Phone Call,2026-06-07,12:30,Main Showroom,Scheduled,,اجل,2026-06-06
+SUA-0039,شادي,0505510222,Su'ad,Phone Call,2026-06-07,14:30,Main Showroom,Scheduled,,,2026-06-06
+SUA-0040,ايوب,0507800884,Su'ad,Phone Call,2026-06-07,10:00,Main Showroom,Rescheduled,,,2026-06-06
+SUA-0041,مراد جاكور,0523530903,Su'ad,Phone Call,2026-06-07,,Main Showroom,Scheduled,,اجل,2026-06-06
+SUA-0042,نائل جلاد,0547584443,Su'ad,Phone Call,2026-06-08,,Main Showroom,Closed / Sold,,يجي يستلم,2026-06-06
+SUA-0043,عاهد,0549809151,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,جاكو لو ربيت,2026-06-06
+SUA-0044,اشرف ابو سنينة,058-7792189-,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,مرته والده,2026-06-06
+SUA-0045,أريك كوهين,050-777-8557,Su'ad,Phone Call,2026-06-07,,Main Showroom,Scheduled,,عبري,2026-06-06
+SUA-0046,مهدي مقطرن,0523946692,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,,2026-06-06
+SUA-0047,موفيد,052-325-0532,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,جاكو 7,2026-06-07
+SUA-0048,محمد مدني,054-500-2632,Su'ad,Phone Call,2026-06-08,,Main Showroom,Scheduled,,الصبح,2026-06-07
+SUA-0049,راسم ابو ليل,052-873-5990,Su'ad,Phone Call,2026-06-08,11:00,Main Showroom,Attended,,,2026-06-07
+SUA-0050,طلعت داهوود,052-902-2318,Su'ad,Phone Call,2026-06-10,10:30,Main Showroom,Scheduled,,,2026-06-07
+SUA-0051,amer awawda,0505323648,Su'ad,Phone Call,2026-06-07,11:30,Main Showroom,Attended,,,2026-06-07
+SUA-0052,تامر زيدان,054-344-3474,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,الصبحيات جاكو 5,2026-06-07
+SUA-0053,ايوب,053-987-0595,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,,2026-06-07
+SUA-0054,مأمون إسماعيل,050-213-2215,Su'ad,Phone Call,2026-06-12,,Main Showroom,Rescheduled,,"s , يا جمعه يا سبت",2026-06-07
+SUA-0055,امير زوابي,052-506-5405,Su'ad,Phone Call,2026-06-11,11:00,Main Showroom,Scheduled,,s,2026-06-07
+SUA-0056,احمد بيطار,052-601-0482,Su'ad,Phone Call,2026-06-09,10:30,Main Showroom,Attended,,s,2026-06-07
+SUA-0057,نسرين,052-695-1130,Su'ad,Phone Call,2026-06-13,,Main Showroom,Scheduled,,s,2026-06-07
+SUA-0058,مجد,0533248191,Su'ad,WhatsApp,2026-06-08,15:30,Main Showroom,Scheduled,,,2026-06-07
+SUA-0059,FADI MAJADLY,0507222009,Su'ad,WhatsApp,2026-06-12,,Main Showroom,Scheduled,,,2026-06-07
+SUA-0060,rana,050-455-2230,Su'ad,Phone Call,2026-06-15,,Main Showroom,Scheduled,,,2026-06-08
+SUA-0061,ابراهيم,054-972-3535,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,,2026-06-08
+SUA-0062,seef khalaf,0505556379,Su'ad,WhatsApp,2026-06-12,,Main Showroom,Closed / Sold,,,2026-06-08
+SUA-0063,عمر,052-381-2743,Su'ad,Phone Call,2026-06-13,,Main Showroom,Scheduled,,متاخر,2026-06-08
+SUA-0064,ابراهيم مجاحنة,0505357242,Su'ad,WhatsApp,2026-06-11,11:00,Main Showroom,Scheduled,,10;30 -11,2026-06-08
+SUA-0065,اية مجدوبة,050-683-9222,Su'ad,Phone Call,2026-06-09,,Main Showroom,Scheduled,,,2026-06-08
+SUA-0066,شادي سكران,052-469-7869,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,,2026-06-08
+SUA-0067,نغمي,052-605-8938,Su'ad,Phone Call,2026-06-14,,Main Showroom,Scheduled,,,2026-06-09
+SUA-0068,رافت,050-683-1156,Su'ad,Phone Call,2026-06-11,,Main Showroom,Scheduled,,,2026-06-09
+SUA-0069,عادل شولي,052-846-9814,Su'ad,Phone Call,2026-06-11,11:30,Main Showroom,Scheduled,,,2026-06-09
+SUA-0070,إبراهيم,050-249-4787,Su'ad,Phone Call,2026-06-14,14:00,Main Showroom,Scheduled,,,2026-06-09
+SUA-0071,يحيى طربية,052-600-9728,Su'ad,Phone Call,2026-06-12,12:30,Main Showroom,Closed / Sold,,,2026-06-09
+SUA-0072,ابراهيم موسى,055-992-6626,Su'ad,Phone Call,2026-06-14,,Main Showroom,Scheduled,,,2026-06-09
+SUA-0073,مراد جودة,052-235-5599,Su'ad,Phone Call,2026-06-14,,Main Showroom,Scheduled,,,2026-06-09
+SUA-0074,يوسف حجيرات,054-566-8349,Su'ad,Phone Call,2026-06-13,,Main Showroom,Scheduled,,S,2026-06-09
+SUA-0075,عادل,050-661-0360,Su'ad,Phone Call,2026-06-13,,Main Showroom,Scheduled,,S 11-12,2026-06-09
+SUA-0076,جميل,0546944746,Su'ad,WhatsApp,2026-06-10,,Main Showroom,Attended,,,2026-06-10
+SUA-0077,سامح غزاوي,0549560260,Su'ad,WhatsApp,2026-06-10,,Main Showroom,Scheduled,,RAV 4,2026-06-10
+SUA-0078,رافي,0504391119,Su'ad,WhatsApp,2026-06-10,,Main Showroom,Attended,,S,2026-06-10
+SUA-0079,عماد محاميد,0525688714,Su'ad,WhatsApp,2026-06-12,14:30,Main Showroom,Scheduled,,,2026-06-10
+SUA-0080,درويش مجاهد-,054-313-3392,Su'ad,Phone Call,2026-06-11,13:30,Main Showroom,Scheduled,,لو ربيت,2026-06-10
+SUA-0081,مش ع,050-290-2957,Su'ad,Phone Call,2026-06-13,,Main Showroom,Scheduled,,تويوتا,2026-06-10
+SUA-0082,علي محاميد,054-553-7927,Su'ad,Phone Call,2026-06-13,,Main Showroom,Rescheduled,,,2026-06-10
+SUA-0083,منير,050-552-9609,Su'ad,Phone Call,2026-06-13,,Main Showroom,Scheduled,,,2026-06-10
+SUA-0084,Marwan  ابنه الياس,052-320-2433,Su'ad,Phone Call,2026-06-11,,Main Showroom,Closed / Sold,,,2026-06-11
+SUA-0085,سماح ام محمد اخت مراد,054-336-1966,Su'ad,Phone Call,2026-06-12,,Main Showroom,Scheduled,,,2026-06-11
+SUA-0086,عامر,052-664-9211,Su'ad,Phone Call,2026-06-14,,Main Showroom,Scheduled,,,2026-06-11
+SUA-0087,عبيدة,052-699-5210,Su'ad,Phone Call,2026-06-12,,Main Showroom,Cancelled,,العصر,2026-06-11
+SUA-0088,هيثم اللؤي,054-263-2639,Su'ad,Phone Call,2026-06-13,13:00,Main Showroom,Scheduled,,,2026-06-11
+SUA-0089,محمد جوزيف,052-355-0102,Su'ad,Phone Call,2026-06-13,,Main Showroom,Scheduled,,,2026-06-11
+SUA-0090,جوني عواودة,050-470-0214,Su'ad,Phone Call,2026-06-15,,Main Showroom,Scheduled,,الصبحيات,2026-06-13
+SUA-0091,منير,052-905-2889,Su'ad,Phone Call,2026-06-20,,Main Showroom,Attended,,لو ربيت,2026-06-13
+SUA-0092,ناصر,0524726553,Su'ad,Phone Call,2026-06-15,13:00,Main Showroom,Cancelled,,,2026-06-11
+SUA-0093,مصطفى داري,052-372-8322,Su'ad,Phone Call,2026-06-20,,Main Showroom,Rescheduled,,2 و بعد,2026-06-13
+SUA-0094,احمد علي,052-388-6692,Su'ad,Phone Call,2026-06-16,,Main Showroom,Scheduled,,,2026-06-13
+SUA-0095,ارين دراوشه,0547713122,Su'ad,WhatsApp,2026-06-20,,Main Showroom,Scheduled,,الصبحيات,2026-06-14
+SUA-0096,منار غميض,050-672-4760,Su'ad,Phone Call,2026-06-15,,Main Showroom,Scheduled,,,2026-06-14
+SUA-0097,احمد ادريس,0586886258,Su'ad,WhatsApp,2026-06-20,11:00,Main Showroom,Scheduled,,,2026-06-14
+SUA-0098,Amjad Nassar,052-201-0736,Su'ad,Phone Call,2026-06-19,,Main Showroom,Scheduled,,يا جمعه يا سبت,2026-06-15
+SUA-0099,Abo Omar,053-309-5244,Su'ad,Phone Call,2026-06-18,17:00,Main Showroom,Scheduled,,,2026-06-15
+SUA-0100,.,052-805-5939,Su'ad,Phone Call,2026-06-15,13:00,Main Showroom,Scheduled,,,2026-06-15
+SUA-0101,سيرين,050-616-4622,Su'ad,Phone Call,2026-06-18,18:00,Main Showroom,Cancelled,,,2026-06-15
+SUA-0102,مجد رمضان,050-923-9258,Su'ad,Phone Call,2026-06-20,12:00,Main Showroom,Scheduled,,,2026-06-15
+SUA-0103,ابو مراد,054-825-4965,Su'ad,Phone Call,2026-06-20,,Main Showroom,Scheduled,,,2026-06-15
+SUA-0104,مصطفى عوض,052-802-6570,Su'ad,Phone Call,2026-06-20,,Main Showroom,Scheduled,,,2026-06-15
+SUA-0105,محمد حجيرات,052-444-1695,Su'ad,Phone Call,2026-06-19,,Main Showroom,Scheduled,,s,2026-06-16
+SUA-0106,عز الدين,054-745-9298,Su'ad,Phone Call,2026-06-19,,Main Showroom,Scheduled,,,2026-06-16
+SUA-0107,رانيا,050-911-1996,Su'ad,Phone Call,2026-06-19,,Main Showroom,Scheduled,,2026-04-03 00:00:00,2026-06-16
+SUA-0108,Ahmad Ali Agbariah,050-927-8614,Su'ad,Phone Call,2026-06-19,14:00,Main Showroom,Cancelled,,Chery Tiggo 9 Noble,2026-06-16
+SUA-0109,مالك الشناوي,050-634-7037,Su'ad,Phone Call,2026-06-20,,Main Showroom,Closed / Sold,,بعد ال 1,2026-06-16
+SUA-0110,رولا,050-717-2650,Su'ad,Phone Call,2026-06-17,,Main Showroom,Closed / Sold,,,2026-06-16
+SUA-0111,احمد,052-540-4292,Su'ad,Phone Call,2026-06-21,11:30,Main Showroom,Scheduled,,,2026-06-16
+SUA-0112,منصف شلح - شافعمرو,054-765-7977,Su'ad,Phone Call,2026-06-22,,Main Showroom,Scheduled,,الصبحيات,2026-06-17
+SUA-0113,محمد زعبي,053-591-0658,Su'ad,Phone Call,2026-06-19,,Main Showroom,Scheduled,,بعد ال 12,2026-06-17
+SUA-0114,Majd,053-447-3240,Su'ad,Phone Call,2026-06-26,,Main Showroom,Scheduled,,,2026-06-17
+SUA-0115,ايهاب اغبارية,054-900-7674,Su'ad,Phone Call,2026-06-19,10:30,Main Showroom,Cancelled,,,2026-06-17
+SUA-0116,سعدي الدين,0586320316,Su'ad,WhatsApp,2026-06-20,,Main Showroom,Scheduled,,,2026-06-17
+SUA-0117,وليد خطيب,054-472-4167,Su'ad,Phone Call,2026-06-19,,Main Showroom,Scheduled,,,2026-06-17
+SUA-0118,Maram,053-798-1834,Su'ad,Phone Call,2026-06-20,,Main Showroom,Scheduled,,,2026-06-17
+SUA-0119,Ibrahim,050-304-8042,Su'ad,Phone Call,2026-06-20,13:30,Main Showroom,Scheduled,,,2026-06-18
+SUA-0120,سعيد زيدان,050-881-4803,Su'ad,Phone Call,2026-06-19,,Main Showroom,Rescheduled,,يا جمعه يا سبت,2026-06-18
+SUA-0121,Mhammad Ikhlel,054-882-7938,Su'ad,Phone Call,2026-06-19,,Main Showroom,Scheduled,,,2026-06-18
+SUA-0122,علي فارس,052-284-1737,Su'ad,Phone Call,2026-06-20,,Main Showroom,Scheduled,,,2026-06-18
+SUA-0123,غسان محاميد,052-861-7711,Su'ad,Phone Call,2026-06-21,,Main Showroom,Scheduled,,,2026-06-18
+SUA-0124,Eli Maroon,050-669-7301,Su'ad,Phone Call,2026-06-19,13:30,Main Showroom,Scheduled,,,2026-06-18
+SUA-0125,كريم حاجي,054-311-4186,Su'ad,Phone Call,2026-06-22,15:00,Main Showroom,Scheduled,,sh,2026-06-20
+SUA-0126,Farhan Saadi,054-616-4161,Su'ad,Phone Call,2026-06-21,16:00,Main Showroom,Rescheduled,,,2026-06-20
+SUA-0127,تغريد شلبي,050-753-0166,Su'ad,WhatsApp,2026-06-22,,Main Showroom,Scheduled,,,2026-06-20
+SUA-0128,Maged Keadan,054-798-2611,Su'ad,Phone Call,2026-06-21,12:30,Main Showroom,Scheduled,,,2026-06-20
+SUA-0129,اسعد,054-580-2669,Su'ad,Phone Call,2026-06-21,,Main Showroom,Scheduled,,,2026-06-20
+SUA-0130,محمود,050-921-0203,Su'ad,Phone Call,2026-06-23,10:00,Main Showroom,Scheduled,,,2026-06-20
+SUA-0131,مصطفى,052-334-2880,Su'ad,Phone Call,2026-06-27,12:30,Main Showroom,Scheduled,,,2026-06-20
+SUA-0132,راني,054-691-0093,Su'ad,Phone Call,2026-06-22,15:30,Main Showroom,Scheduled,,,2026-06-20
+SUA-0133,نمر حسين,054-748-2800,Su'ad,Phone Call,2026-06-26,12:00,Main Showroom,Scheduled,,,2026-06-21
+SUA-0134,امين حجازي,054-437-7564,Su'ad,Phone Call,2026-06-22,,Main Showroom,Scheduled,,,2026-06-21
+SUA-0135,بسام صفوري,053-355-1176,Su'ad,Phone Call,2026-06-27,,Main Showroom,Scheduled,,,2026-06-21
+SUA-0136,خوله,052-302-5781,Su'ad,Phone Call,2026-06-21,,Main Showroom,Scheduled,,,2026-06-21
+SUA-0137,نزار,050-574-0312,Su'ad,Phone Call,2026-06-27,10:00,Main Showroom,Scheduled,,,2026-06-21
+SUA-0138,ramez abo raya,052-869-9328,Su'ad,Phone Call,2026-06-25,10:30,Main Showroom,Scheduled,,,2026-06-21
+SUA-0139,Adnan abd algani,050-761-3028,Su'ad,Phone Call,2026-06-21,,Main Showroom,Attended,,,2026-06-21
+SUA-0140,Nidal Agbarya,054-440-6117,Su'ad,Phone Call,2026-06-22,,Main Showroom,Scheduled,,يا سبت يا احد,2026-06-22
+SUA-0141,اياد,054-241-4939,Su'ad,Phone Call,2026-06-25,19:00,Main Showroom,Scheduled,,,2026-06-22
+SUA-0142,جواد,054-357-5717,Su'ad,Phone Call,2026-06-22,17:30,Main Showroom,Scheduled,,,2026-06-22
+SUA-0143,بلال,050-782-2948,Su'ad,Phone Call,2026-06-24,12:00,Main Showroom,Scheduled,,,2026-06-23
+SUA-0144,منير,052-241-9240,Su'ad,Phone Call,2026-06-24,,Main Showroom,Scheduled,,,2026-06-23
+SUA-0145,سعيد حبيب الله,052-940-2641,Su'ad,Phone Call,2026-06-26,,Main Showroom,Scheduled,,,2026-06-23
+SUA-0146,محمد القاضي,0548313187,Su'ad,WhatsApp,2026-06-23,,Main Showroom,Attended,,,2026-06-23
+SUA-0147,Moaad,050-997-7133,Su'ad,Phone Call,2026-06-24,17:30,Main Showroom,Scheduled,,,2026-06-24
+SUA-0148,مها,052-686-8362,Su'ad,Phone Call,2026-06-26,09:30,Main Showroom,Rescheduled,,,2026-06-24
+SUA-0149,manal,053-722-9161,Su'ad,Phone Call,2026-06-28,10:00,Main Showroom,Scheduled,,,2026-06-24
+SUA-0150,هلال,054-666-3872,Su'ad,Phone Call,2026-06-26,12:00,Main Showroom,Scheduled,,,2026-06-25
+SUA-0151,توفيق,052-250-1000,Su'ad,Phone Call,2026-06-27,11:30,Main Showroom,Scheduled,,,2026-06-26
+SUA-0152,Hammodi,052-815-9035,Su'ad,Phone Call,2026-06-28,,Main Showroom,Scheduled,,,2026-06-25
+SUA-0153,محمد صالح,052-898-9230,Su'ad,Phone Call,2026-06-28,,Main Showroom,Attended,,,2026-06-27
+SUA-0154,مدحت دياب,052-429-3330,Su'ad,Phone Call,2026-06-28,15:00,Main Showroom,Attended,,,2026-06-28
+SUA-0155,Zuhdi,054-752-8009,Su'ad,Phone Call,2026-06-29,,Main Showroom,Scheduled,,,2026-06-29
+SUA-0156,عادل زعبي,053-223-9445,Su'ad,Phone Call,2026-06-29,,Main Showroom,Scheduled,,,2026-06-29
+SUA-0157,عرب,050-303-1953,Su'ad,Phone Call,2026-06-29,,Main Showroom,Scheduled,,,2026-06-29
+SUA-0158,محمود,054-250-6695,Su'ad,Phone Call,2026-07-01,13:30,Main Showroom,Scheduled,,,2026-06-29
+SUA-0159,رؤوف,053490095,Su'ad,WhatsApp,2026-06-29,,Main Showroom,Closed / Sold,,,2026-06-28
+SUA-0160,مي,053-968-0253,Su'ad,Phone Call,2026-06-30,15:00,Main Showroom,Scheduled,,,2026-06-30
+SUA-0161,kareem,0524261770,Su'ad,Phone Call,2026-06-30,,Main Showroom,Closed / Sold,,,2026-06-30
+SUA-0162,حسن,0544555185,Su'ad,WhatsApp,2026-06-30,,Main Showroom,Closed / Sold,,,2026-06-30
+SUA-0163,طاهر,0503445334,Su'ad,WhatsApp,2026-06-30,,Main Showroom,Closed / Sold,,,2026-06-30
+SUA-0164,Tofek Habeb Allah,052-877-3083,Su'ad,Phone Call,2026-07-01,,Main Showroom,Cancelled,,,2026-07-01
+SUA-0165,محمد زوج هديك,052-631-7381,Su'ad,Phone Call,2026-07-04,,Main Showroom,Scheduled,,,2026-07-01
+SUA-0166,مها,0526868362,Su'ad,Phone Call,2026-07-01,10:30,Main Showroom,Attended,,,2026-07-01
+SUA-0167,وجيه محمد عمري,050-816-0176,Su'ad,WhatsApp,2026-07-02,,Main Showroom,Attended,,,2026-07-01
+SUA-0168,امجد,0543522155,Su'ad,Phone Call,2026-07-01,,Main Showroom,Attended,,,2026-07-01
+SUA-0169,Fadi Alloush,052-515-5221,Su'ad,Phone Call,2026-07-04,,Main Showroom,Scheduled,,,2026-07-02
+SUA-0170,MOHAMMAD HAMARASHEH,050-525-9556,Su'ad,Phone Call,2026-07-03,19:30,Main Showroom,Scheduled,,,2026-07-02
+SUA-0171,Mhammad Ikhlel,054-882-7938,Su'ad,Phone Call,2026-07-02,,Main Showroom,Attended,,,2026-07-02
+SUA-0172,عمر غرة,050-490-0722,Su'ad,Phone Call,2026-07-07,17:00,Main Showroom,Scheduled,,,2026-07-02
+SUA-0173,Tareq Ziadat,052-865-5100,Su'ad,Phone Call,2026-07-05,14:00,Main Showroom,Scheduled,,,2026-07-02
+SUA-0174,عوني شاهين,0542007890,Su'ad,Phone Call,2026-07-03,,Main Showroom,Attended,,,2026-07-02
+SUA-0175,يوسف جودة,052-306-3934,Su'ad,Phone Call,2026-07-10,,Main Showroom,Scheduled,,,2026-07-04
+SUA-0176,ابو قصي,052-566-0287,Su'ad,Phone Call,2026-07-04,,Main Showroom,Scheduled,,يا جمعه يا سبت,2026-07-04
+SUA-0177,فادي,052-595-8560,Su'ad,Phone Call,2026-07-07,17:30,Main Showroom,Scheduled,,,2026-07-04
+SUA-0178,احمد حسن,052-846-5458,Su'ad,Phone Call,2026-07-07,11:00,Main Showroom,Scheduled,,,2026-07-04
+SUA-0179,يوسف نجم,0509777057,Su'ad,Phone Call,2026-07-05,,Main Showroom,Scheduled,,,2026-07-04
+SUA-0180,shadi bransi,050-269-3904,Su'ad,Phone Call,2026-07-07,13:00,Main Showroom,Scheduled,,,2026-07-05
+SUA-0181,هاني خوري,052-802-9370,Su'ad,Phone Call,2026-07-07,10:00,Main Showroom,Scheduled,,,2026-07-06
+SUA-0182,Mohammad Elayyan,053-774-1527,Su'ad,Phone Call,2026-07-09,16:00,Main Showroom,Scheduled,,,2026-07-06
+SUA-0183,hasnaa jnje,054-806-2711,Su'ad,Phone Call,2026-07-05,,Main Showroom,Attended,,,2026-07-06
+SUA-0184,OMAR HAWA,052-465-5377,Su'ad,Phone Call,2026-07-10,,Main Showroom,Scheduled,,,2026-07-06
+SUA-0185,mohamed,052-564-4716,Su'ad,Phone Call,2026-07-11,15:00,Main Showroom,Scheduled,,,2026-07-06
+SUA-0186,زياد,0525455259,Su'ad,Phone Call,2026-07-11,15:00,Main Showroom,Scheduled,,,2026-07-06
+SUA-0187,محمد شرقية,054-223-3428,Su'ad,Phone Call,2026-07-10,10:00,Main Showroom,Scheduled,,,2026-07-06
+SUA-0188,Mohammad Muneer,052-228-7049,Su'ad,Phone Call,2026-07-17,19:00,Main Showroom,Scheduled,,,2026-07-06

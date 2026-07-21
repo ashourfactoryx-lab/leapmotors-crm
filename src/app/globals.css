@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #14161b;
+  --color-graphite: #20242d;
+  --color-paper: #edeef1;
+  --color-card: #ffffff;
+  --color-line: #e1e3e8;
+  --color-text: #171a20;
+  --color-muted: #6a7280;
+
+  --color-accent: #0bd1a0;
+  --color-accent-deep: #06a57e;
+  --color-accent-soft: #e4fbf4;
+
+  --color-status-scheduled: #8a94a3;
+  --color-status-confirmed: #3b7bf6;
+  --color-status-attended: #0bd1a0;
+  --color-status-no_show: #f0524b;
+  --color-status-rescheduled: #8a6bf0;
+  --color-status-cancelled: #b8bec8;
+  --color-status-closed_sold: #c79a3b;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-graphite: var(--color-graphite);
+  --color-paper: var(--color-paper);
+  --color-card: var(--color-card);
+  --color-line: var(--color-line);
+  --color-text: var(--color-text);
+  --color-muted: var(--color-muted);
+
+  --color-accent: var(--color-accent);
+  --color-accent-deep: var(--color-accent-deep);
+  --color-accent-soft: var(--color-accent-soft);
+
+  --color-status-scheduled: var(--color-status-scheduled);
+  --color-status-confirmed: var(--color-status-confirmed);
+  --color-status-attended: var(--color-status-attended);
+  --color-status-no_show: var(--color-status-no_show);
+  --color-status-rescheduled: var(--color-status-rescheduled);
+  --color-status-cancelled: var(--color-status-cancelled);
+  --color-status-closed_sold: var(--color-status-closed_sold);
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
