@@ -8,12 +8,16 @@ import { Kpi } from "@/components/ui/Kpi";
 import { CreateAccountModal } from "./CreateAccountModal";
 import { CredsModal } from "./CredsModal";
 import { RemoveConfirmModal } from "./RemoveConfirmModal";
+import { HandlersPanel } from "./HandlersPanel";
+import type { Handler } from "@/lib/handlers-query";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { dateLocaleTag } from "@/lib/i18n/locale";
 
 export type Account = {
   id: string;
   fullName: string;
   username: string;
-  role: "agent" | "team_leader";
+  role: "agent" | "team_leader" | "showroom";
   status: "active" | "suspended";
   agentCode: string | null;
   apptCount: number;
@@ -26,21 +30,30 @@ type ModalState =
   | null;
 
 function RoleChip({ role }: { role: Account["role"] }) {
+  const { t } = useLocale();
   if (role === "team_leader") {
     return (
       <span className="rounded-md bg-[#181B22] px-2 py-1 font-mono text-[10.5px] font-bold uppercase tracking-wide text-accent">
-        Team Leader
+        {t("admin.teamLeaderChip")}
+      </span>
+    );
+  }
+  if (role === "showroom") {
+    return (
+      <span className="rounded-md bg-[#EFE9FE] px-2 py-1 font-mono text-[10.5px] font-bold uppercase tracking-wide text-[#7C5CFF]">
+        {t("admin.showroomChip")}
       </span>
     );
   }
   return (
     <span className="rounded-md bg-[#EEF0F3] px-2 py-1 font-mono text-[10.5px] font-bold uppercase tracking-wide text-[#5B6470]">
-      Agent
+      {t("admin.agentChip")}
     </span>
   );
 }
 
 function StatusChip({ status }: { status: Account["status"] }) {
+  const { t } = useLocale();
   const suspended = status === "suspended";
   return (
     <span
@@ -49,7 +62,7 @@ function StatusChip({ status }: { status: Account["status"] }) {
       }`}
     >
       <span className={`h-1.5 w-1.5 rounded-full ${suspended ? "bg-[#B8BEC8]" : "bg-accent"}`} />
-      {suspended ? "Suspended" : "Active"}
+      {suspended ? t("admin.suspended") : t("admin.active")}
     </span>
   );
 }
@@ -92,6 +105,7 @@ function AccountRow({
   onConfirmRemove: (account: Account) => void;
 }) {
   const router = useRouter();
+  const { t } = useLocale();
   const [resetting, startReset] = useTransition();
   const [toggling, startToggle] = useTransition();
   const [rowError, setRowError] = useState("");
@@ -146,22 +160,25 @@ function AccountRow({
       <td className="border-b border-line px-3 py-3">
         <div className="flex flex-wrap justify-end gap-1.5">
           <ActionButton onClick={handleReset} disabled={resetting}>
-            {resetting ? "Resetting…" : "Reset password"}
+            {resetting ? t("admin.resetting") : t("admin.resetPassword")}
           </ActionButton>
           <ActionButton onClick={handleToggleSuspend} disabled={toggling} variant="go">
-            {account.status === "suspended" ? "Reactivate" : "Suspend"}
+            {account.status === "suspended" ? t("admin.reactivate") : t("admin.suspend")}
           </ActionButton>
           <ActionButton onClick={() => onConfirmRemove(account)} variant="danger">
-            Remove
+            {t("admin.remove")}
           </ActionButton>
         </div>
-        {rowError && <div className="mt-1 text-right text-[11.5px] font-medium text-[#F0524B]">{rowError}</div>}
+        {rowError && (
+          <div className="mt-1 text-right text-[11.5px] font-medium text-[#F0524B] rtl:text-left">{rowError}</div>
+        )}
       </td>
     </tr>
   );
 }
 
 function EmptyState() {
+  const { t } = useLocale();
   return (
     <div className="px-5 py-11 text-center text-muted">
       <div className="mx-auto mb-3.5 flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft">
@@ -169,8 +186,8 @@ function EmptyState() {
           <path d="M12 2l7 4v5c0 4.4-3 8.3-7 9-4-0.7-7-4.6-7-9V6l7-4z" />
         </svg>
       </div>
-      <h4 className="mb-1 font-display text-base font-semibold text-text">No accounts yet</h4>
-      <p className="text-sm">Add your first agent to get them booking.</p>
+      <h4 className="mb-1 font-display text-base font-semibold text-text">{t("admin.noAccountsYet")}</h4>
+      <p className="text-sm">{t("admin.addFirstAgent")}</p>
     </div>
   );
 }
@@ -179,11 +196,14 @@ export function AdminPanelClient({
   accounts,
   totalAppointments,
   bookedToday,
+  handlers,
 }: {
   accounts: Account[];
   totalAppointments: number;
   bookedToday: number;
+  handlers: Handler[];
 }) {
+  const { t, locale } = useLocale();
   const [modal, setModal] = useState<ModalState>(null);
   const activeCount = accounts.filter((a) => a.status === "active").length;
   const takenCodes = new Set(accounts.map((a) => a.agentCode).filter((c): c is string => Boolean(c)));
@@ -192,28 +212,33 @@ export function AdminPanelClient({
   return (
     <div>
       <div className="mb-5 grid grid-cols-2 gap-4 md:grid-cols-3">
-        <Kpi label="Team members" value={accounts.length} sub={`${activeCount} active`} dot="#3B7BF6" />
-        <Kpi label="Appointments" value={totalAppointments} sub="all time" dot="#8A6BF0" />
         <Kpi
-          label="Booked today"
+          label={t("admin.teamMembers")}
+          value={accounts.length}
+          sub={t("admin.activeCount", { count: activeCount })}
+          dot="#3B7BF6"
+        />
+        <Kpi label={t("admin.appointments")} value={totalAppointments} sub={t("admin.allTimeLower")} dot="#8A6BF0" />
+        <Kpi
+          label={t("admin.bookedToday")}
           value={bookedToday}
-          sub={new Date().toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "long" })}
+          sub={new Date().toLocaleDateString(dateLocaleTag(locale), { weekday: "short", day: "numeric", month: "long" })}
           dot="#0BD1A0"
           accent
         />
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-line bg-card shadow-sm">
+      <div className="overflow-hidden rounded-2xl border border-line bg-card shadow-card">
         <div className="flex items-center justify-between border-b border-line px-5 py-4">
-          <h3 className="font-display text-[15.5px] font-semibold">Team accounts</h3>
+          <h3 className="font-display text-[15.5px] font-semibold">{t("admin.teamAccounts")}</h3>
           <button
             onClick={() => setModal({ type: "create" })}
-            className="flex items-center gap-2 rounded-[9px] bg-ink px-[15px] py-2.5 font-display text-[13.5px] font-semibold text-white transition-colors hover:bg-black"
+            className="flex items-center gap-2 rounded-[9px] bg-ink px-[15px] py-2.5 font-display text-[13.5px] font-semibold text-white transition-all duration-150 hover:-translate-y-px hover:bg-black hover:shadow-md active:translate-y-0 active:shadow-none"
           >
             <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} className="h-4 w-4 stroke-current">
               <path d="M12 5v14M5 12h14" />
             </svg>
-            Add account
+            {t("admin.addAccount")}
           </button>
         </div>
 
@@ -224,7 +249,7 @@ export function AdminPanelClient({
             <table className="w-full min-w-[640px] border-collapse">
               <thead>
                 <tr>
-                  {["Name", "Username", "Role", "Appts", "Status", ""].map((h) => (
+                  {[t("admin.colName"), t("admin.colUsername"), t("admin.colRole"), t("admin.colAppts"), t("col.status"), ""].map((h) => (
                     <th
                       key={h}
                       className="border-b border-line px-3 py-2.5 text-left text-[11px] font-semibold uppercase tracking-wide text-[#9AA1AC]"
@@ -242,8 +267,8 @@ export function AdminPanelClient({
                     onShowCreds={(username, password) =>
                       setModal({
                         type: "creds",
-                        title: "Password reset",
-                        subtitle: `Share this with ${a.fullName}. They can change it later.`,
+                        title: t("admin.passwordResetTitle"),
+                        subtitle: t("admin.shareWithThem", { name: a.fullName }),
                         username,
                         password,
                       })
@@ -257,11 +282,9 @@ export function AdminPanelClient({
         )}
       </div>
 
-      <p className="mx-auto mt-4 max-w-[760px] text-[12.5px] leading-relaxed text-muted">
-        You create every account here — employees can only sign in, never self-register. Suspending
-        blocks sign-in without deleting their history; removing deletes the login but keeps their
-        booked appointments in the records.
-      </p>
+      <HandlersPanel handlers={handlers} />
+
+      <p className="mx-auto mt-4 max-w-[760px] text-[12.5px] leading-relaxed text-muted">{t("admin.footerNote")}</p>
 
       {modal?.type === "create" && (
         <CreateAccountModal
@@ -271,8 +294,8 @@ export function AdminPanelClient({
           onCreated={(username, password) =>
             setModal({
               type: "creds",
-              title: "Account created",
-              subtitle: `Share these with ${username}. They can change the password later.`,
+              title: t("admin.accountCreatedTitle"),
+              subtitle: t("admin.shareTheseWithThem", { name: username }),
               username,
               password,
             })

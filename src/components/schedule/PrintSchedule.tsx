@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { STATUS_META, type ApptStatus } from "@/lib/appt-meta";
+import { statusLabel, type ApptStatus } from "@/lib/appt-meta";
 import type { ScheduleRow } from "@/lib/schedule-query";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { dateLocaleTag } from "@/lib/i18n/locale";
 
-function formatLongDate(iso: string) {
-  return new Date(`${iso}T00:00:00`).toLocaleDateString("en-GB", {
+function formatLongDate(iso: string, localeTag: string) {
+  return new Date(`${iso}T00:00:00`).toLocaleDateString(localeTag, {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -14,12 +16,14 @@ function formatLongDate(iso: string) {
 }
 
 function PrintTable({ rows }: { rows: ScheduleRow[] }) {
+  const { t } = useLocale();
+  const headers = [t("col.time"), t("col.customer"), t("col.phone"), t("col.agent"), t("col.handledBy"), t("col.status")];
   return (
     <table className="mb-1.5 w-full border-collapse">
       <thead>
         <tr>
-          {["Time", "Customer", "Phone", "Agent", "Status"].map((h) => (
-            <th key={h} className="border-b border-[#ccc] px-2 py-1.5 text-left text-[10px] uppercase tracking-wide text-[#888]">
+          {headers.map((h) => (
+            <th key={h} className="border-b border-[#ccc] px-2 py-1.5 text-left text-[10px] uppercase tracking-wide text-[#888] rtl:text-right">
               {h}
             </th>
           ))}
@@ -29,12 +33,13 @@ function PrintTable({ rows }: { rows: ScheduleRow[] }) {
         {rows.map((r) => (
           <tr key={r.id}>
             <td className="whitespace-nowrap border-b border-[#eee] px-2 py-2 font-mono text-[12.5px] font-semibold">
-              {r.apptTime ? r.apptTime.slice(0, 5) : "—"}
+              {r.apptTime ? r.apptTime.slice(0, 5) : t("common.dash")}
             </td>
             <td className="border-b border-[#eee] px-2 py-2 text-[12.5px]">{r.customerName}</td>
             <td className="whitespace-nowrap border-b border-[#eee] px-2 py-2 font-mono text-[12.5px]">{r.phone}</td>
             <td className="border-b border-[#eee] px-2 py-2 text-[12.5px]">{r.agentName}</td>
-            <td className="border-b border-[#eee] px-2 py-2 text-[11px] text-[#555]">{STATUS_META[r.status].label}</td>
+            <td className="border-b border-[#eee] px-2 py-2 text-[12.5px]">{r.handledByName ?? t("common.dash")}</td>
+            <td className="border-b border-[#eee] px-2 py-2 text-[11px] text-[#555]">{statusLabel(t, r.status)}</td>
           </tr>
         ))}
       </tbody>
@@ -55,27 +60,29 @@ export function PrintSchedule({
   rows: ScheduleRow[];
   groups: readonly (readonly [string, ScheduleRow[]])[] | null;
 }) {
+  const { t, locale } = useLocale();
   return (
     <div className="hidden font-sans text-[#111] print:mx-auto print:block print:max-w-[720px]">
       <div className="mb-1 flex items-end justify-between border-b-2 border-[#111] pb-3">
         <Image src="/leapmotor-mark-dark.png" alt="LeapMotor" width={30} height={30} className="h-[30px] w-auto" />
-        <div className="text-right">
-          <div className="font-display text-[17px] font-semibold">Today&apos;s Appointments</div>
-          <div className="text-[13px] text-[#555]">{formatLongDate(date)}</div>
+        <div className="text-right rtl:text-left">
+          <div className="font-display text-[17px] font-semibold">{t("schedule.printTitle")}</div>
+          <div className="text-[13px] text-[#555]">{formatLongDate(date, dateLocaleTag(locale))}</div>
         </div>
       </div>
 
       <div className="mb-3.5 mt-2 font-mono text-xs text-[#666]">
-        {rows.length} appointment{rows.length !== 1 ? "s" : ""}
-        {statusFilter !== "all" ? ` · ${STATUS_META[statusFilter].label}` : ""} · sorted by {sort}
+        {t("schedule.apptCountSimple", { count: rows.length })}
+        {statusFilter !== "all" ? ` · ${statusLabel(t, statusFilter)}` : ""} ·{" "}
+        {t("schedule.sortedBy", { sort: sort === "time" ? t("schedule.sortTime") : t("schedule.sortAgent") })}
       </div>
 
       {rows.length === 0 ? (
-        <p className="py-5 text-[13px] text-[#777]">No appointments for this day.</p>
+        <p className="py-5 text-[13px] text-[#777]">{t("schedule.noApptsForDay")}</p>
       ) : groups ? (
         groups.map(([name, list]) => (
           <div key={name}>
-            <div className="mb-1.5 mt-4 border-l-[3px] border-[#111] pl-2 font-display text-[13px] font-semibold">
+            <div className="mb-1.5 mt-4 border-l-[3px] border-[#111] pl-2 font-display text-[13px] font-semibold rtl:border-l-0 rtl:border-r-[3px] rtl:pl-0 rtl:pr-2">
               {name} · {list.length}
             </div>
             <PrintTable rows={list} />
@@ -89,7 +96,7 @@ export function PrintSchedule({
         className="mt-4.5 border-t border-[#eee] pt-2 text-center text-[10.5px] text-[#999]"
         suppressHydrationWarning
       >
-        LeapMotor · Appointment Command Center — generated {new Date().toLocaleString("en-GB")}
+        {t("schedule.footer", { time: new Date().toLocaleString(dateLocaleTag(locale)) })}
       </div>
     </div>
   );

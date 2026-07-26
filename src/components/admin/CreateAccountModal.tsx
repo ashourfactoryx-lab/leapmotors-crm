@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { createAccount } from "@/app/admin/actions";
 import { Modal } from "@/components/ui/Modal";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 
 function suggestUsername(name: string) {
   const cleaned = name
@@ -37,10 +38,11 @@ export function CreateAccountModal({
   onCreated: (username: string, password: string) => void;
 }) {
   const router = useRouter();
+  const { t } = useLocale();
   const [fullName, setFullName] = useState("");
   const [username, setUsername] = useState("");
   const [usernameTouched, setUsernameTouched] = useState(false);
-  const [role, setRole] = useState<"agent" | "team_leader">("agent");
+  const [role, setRole] = useState<"agent" | "team_leader" | "showroom">("agent");
   const [agentCode, setAgentCode] = useState("");
   const [codeTouched, setCodeTouched] = useState(false);
   const [error, setError] = useState("");
@@ -57,15 +59,15 @@ export function CreateAccountModal({
     const trimmedName = fullName.trim();
     const trimmedUser = username.trim().toLowerCase();
     if (!trimmedName || !trimmedUser) {
-      setError("Fill in name and username.");
+      setError(t("createAccount.errorFillIn"));
       return;
     }
     if (takenUsernames.has(trimmedUser)) {
-      setError("That username is taken. Pick another.");
+      setError(t("createAccount.errorUsernameTaken"));
       return;
     }
     if (role === "agent" && !agentCode.trim()) {
-      setError("Agent code is required for agents.");
+      setError(t("createAccount.errorAgentCodeRequired"));
       return;
     }
 
@@ -87,52 +89,50 @@ export function CreateAccountModal({
   return (
     <Modal onClose={onClose}>
       <div className="px-[22px] pt-5">
-        <h3 className="mb-1 font-display text-lg font-semibold">Add account</h3>
-        <p className="text-[13px] leading-relaxed text-muted">
-          Create a login for a new team member. We&apos;ll generate a password for you to share with
-          them.
-        </p>
+        <h3 className="mb-1 font-display text-lg font-semibold">{t("createAccount.title")}</h3>
+        <p className="text-[13px] leading-relaxed text-muted">{t("createAccount.intro")}</p>
       </div>
       <div className="px-[22px] py-[18px]">
-        <label className={labelClass}>Full name</label>
+        <label className={labelClass}>{t("createAccount.fullName")}</label>
         <input
           value={fullName}
           onChange={(e) => handleNameChange(e.target.value)}
-          placeholder="e.g. Lina Haddad"
+          placeholder={t("createAccount.fullNamePlaceholder")}
           className={inputClass}
         />
 
-        <label className={labelClass}>Role</label>
+        <label className={labelClass}>{t("createAccount.role")}</label>
         <select
           value={role}
-          onChange={(e) => setRole(e.target.value as "agent" | "team_leader")}
+          onChange={(e) => setRole(e.target.value as "agent" | "team_leader" | "showroom")}
           className={`${inputClass} bg-card`}
         >
-          <option value="agent">Agent — books &amp; tracks their own appointments</option>
-          <option value="team_leader">Team Leader — views all, prints schedules</option>
+          <option value="agent">{t("createAccount.roleAgent")}</option>
+          <option value="team_leader">{t("createAccount.roleLeader")}</option>
+          <option value="showroom">{t("createAccount.roleShowroom")}</option>
         </select>
 
-        <label className={labelClass}>Username</label>
+        <label className={labelClass}>{t("createAccount.username")}</label>
         <input
           value={username}
           onChange={(e) => {
             setUsername(e.target.value);
             setUsernameTouched(true);
           }}
-          placeholder="username"
+          placeholder={t("createAccount.usernamePlaceholder")}
           className={`${inputClass} lowercase`}
         />
 
         {role === "agent" && (
           <>
-            <label className={labelClass}>Agent code</label>
+            <label className={labelClass}>{t("createAccount.agentCode")}</label>
             <input
               value={agentCode}
               onChange={(e) => {
                 setAgentCode(e.target.value.toUpperCase());
                 setCodeTouched(true);
               }}
-              placeholder="e.g. RAW"
+              placeholder={t("createAccount.agentCodePlaceholder")}
               maxLength={4}
               className={`${inputClass} uppercase`}
             />
@@ -146,14 +146,14 @@ export function CreateAccountModal({
           onClick={onClose}
           className="rounded-[9px] border border-line bg-card px-4 py-2.5 font-display text-[13.5px] font-semibold text-text transition-colors hover:border-[#9AA1AC]"
         >
-          Cancel
+          {t("common.cancel")}
         </button>
         <button
           onClick={submit}
           disabled={pending}
-          className="rounded-[9px] bg-ink px-4 py-2.5 font-display text-[13.5px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
+          className="rounded-[9px] bg-ink px-4 py-2.5 font-display text-[13.5px] font-semibold text-white transition-all duration-150 hover:-translate-y-px hover:bg-black hover:shadow-md active:translate-y-0 active:shadow-none disabled:opacity-60"
         >
-          {pending ? "Creating…" : "Create account"}
+          {pending ? t("createAccount.creating") : t("createAccount.createAccount")}
         </button>
       </div>
     </Modal>

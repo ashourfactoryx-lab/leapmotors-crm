@@ -6,7 +6,7 @@ import { requireAdmin } from "@/lib/require-admin";
 import { usernameToEmail } from "@/lib/auth-username";
 import { generatePassword } from "@/lib/generate-password";
 
-type CreatableRole = "agent" | "team_leader";
+type CreatableRole = "agent" | "team_leader" | "showroom";
 
 type ActionResult<T> = { ok: true; data: T } | { ok: false; error: string };
 

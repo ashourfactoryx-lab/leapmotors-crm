@@ -3,11 +3,13 @@
 import { useActionState } from "react";
 import Image from "next/image";
 import { login, type LoginState } from "./actions";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 
 const initialState: LoginState = null;
 
 export default function LoginPage() {
   const [state, formAction, pending] = useActionState(login, initialState);
+  const { t } = useLocale();
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[radial-gradient(120%_90%_at_82%_-10%,#2A2F3A_0%,#14161B_55%)] p-6">
@@ -28,50 +30,51 @@ export default function LoginPage() {
               </span>
             </div>
             <h1 className="mb-3 font-display text-[31px] font-semibold leading-[1.15] tracking-[-0.5px]">
-              Appointment
-              <br />
-              Command Center
+              {t("login.brandTitle")
+                .split("\n")
+                .map((line, i) => (
+                  <span key={i}>
+                    {i > 0 && <br />}
+                    {line}
+                  </span>
+                ))}
             </h1>
             <p className="max-w-[34ch] text-[14.5px] leading-relaxed text-[#A7AEBA]">
-              One place for the call-center team to book, confirm, and hand off showroom visits —
-              each agent on their own private sheet.
+              {t("login.brandSubtitle")}
             </p>
           </div>
         </div>
 
         <div className="flex flex-col justify-center p-8 md:p-11">
           <div className="font-mono text-[11.5px] uppercase tracking-[1.5px] text-[#9AA1AC]">
-            Sign in
+            {t("login.signIn")}
           </div>
-          <h2 className="mb-1 mt-1.5 font-display text-[22px] font-semibold">Welcome back</h2>
-          <p className="mb-6 text-[13.5px] text-muted">
-            Sign in with the username and password your admin gave you. You&apos;ll only ever see
-            your own appointments.
-          </p>
+          <h2 className="mb-1 mt-1.5 font-display text-[22px] font-semibold">{t("login.welcomeBack")}</h2>
+          <p className="mb-6 text-[13.5px] text-muted">{t("login.intro")}</p>
 
           <form action={formAction}>
             <label className="mb-1.5 block text-xs font-medium text-muted" htmlFor="username">
-              Username
+              {t("login.username")}
             </label>
             <input
               id="username"
               name="username"
               className="w-full rounded-[9px] border border-line px-[15px] py-[13px] text-[15px] text-text transition-colors focus:border-accent focus:shadow-[0_0_0_3px_rgba(11,209,160,0.16)] focus:outline-none"
-              placeholder="e.g. rawand"
+              placeholder={t("login.usernamePlaceholder")}
               autoComplete="username"
             />
 
             <div className="h-3.5" />
 
             <label className="mb-1.5 block text-xs font-medium text-muted" htmlFor="password">
-              Password
+              {t("login.password")}
             </label>
             <input
               id="password"
               name="password"
               type="password"
               className="w-full rounded-[9px] border border-line px-[15px] py-[13px] text-[15px] text-text transition-colors focus:border-accent focus:shadow-[0_0_0_3px_rgba(11,209,160,0.16)] focus:outline-none"
-              placeholder="Your password"
+              placeholder={t("login.passwordPlaceholder")}
               autoComplete="current-password"
             />
 
@@ -82,9 +85,9 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={pending}
-              className="flex w-full items-center justify-center gap-2 rounded-[9px] bg-ink py-3.5 font-display text-[15px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-[9px] bg-ink py-3.5 font-display text-[15px] font-semibold text-white transition-all duration-150 hover:-translate-y-px hover:bg-black hover:shadow-md active:translate-y-0 active:shadow-none disabled:opacity-60"
             >
-              {pending ? "Signing in…" : "Enter workspace →"}
+              {pending ? t("login.signingIn") : t("login.enterWorkspace")}
             </button>
           </form>
         </div>

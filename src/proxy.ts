@@ -69,7 +69,8 @@ export async function proxy(request: NextRequest) {
     if (
       LEADER_UP.some((p) => path.startsWith(p)) &&
       profile.role !== "admin" &&
-      profile.role !== "team_leader"
+      profile.role !== "team_leader" &&
+      profile.role !== "showroom"
     ) {
       const url = request.nextUrl.clone();
       url.pathname = "/";

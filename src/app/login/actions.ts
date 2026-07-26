@@ -3,15 +3,18 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { usernameToEmail } from "@/lib/auth-username";
+import { getLocale } from "@/lib/i18n/get-locale";
+import { translate } from "@/lib/i18n/translate";
 
 export type LoginState = { error: string } | null;
 
 export async function login(_prevState: LoginState, formData: FormData): Promise<LoginState> {
   const username = String(formData.get("username") ?? "").trim();
   const password = String(formData.get("password") ?? "");
+  const locale = await getLocale();
 
   if (!username || !password) {
-    return { error: "Enter your username and password." };
+    return { error: translate(locale, "login.errorEmpty") };
   }
 
   const supabase = await createClient();
@@ -21,7 +24,7 @@ export async function login(_prevState: LoginState, formData: FormData): Promise
   });
 
   if (error || !data.user) {
-    return { error: "That username and password don’t match. Try again." };
+    return { error: translate(locale, "login.errorMismatch") };
   }
 
   const { data: profile } = await supabase
@@ -32,7 +35,7 @@ export async function login(_prevState: LoginState, formData: FormData): Promise
 
   if (profile?.status && profile.status !== "active") {
     await supabase.auth.signOut();
-    return { error: "This account is no longer active. Contact your admin." };
+    return { error: translate(locale, "login.errorInactive") };
   }
 
   redirect("/");

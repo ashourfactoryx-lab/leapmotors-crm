@@ -13,12 +13,12 @@
   --color-accent-deep: #06a57e;
   --color-accent-soft: #e4fbf4;
 
-  --color-status-scheduled: #8a94a3;
+  --color-status-scheduled: #3d5a99;
   --color-status-confirmed: #3b7bf6;
   --color-status-attended: #0bd1a0;
   --color-status-no_show: #f0524b;
   --color-status-rescheduled: #8a6bf0;
-  --color-status-cancelled: #b8bec8;
+  --color-status-cancelled: #ad6690;
   --color-status-closed_sold: #c79a3b;
 }
 
@@ -52,6 +52,47 @@ body {
   background: var(--color-paper);
   color: var(--color-text);
   font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+/* Card depth system: a soft ambient shadow plus a slightly larger, more
+   diffuse one underneath — reads as gentle elevation instead of Tailwind's
+   flat default shadow-sm. -hover is the same treatment one notch stronger,
+   paired with a 1px lift, for cards/rows that respond to hover. */
+@utility shadow-card {
+  box-shadow:
+    0 1px 2px rgba(16, 18, 22, 0.04),
+    0 8px 20px -8px rgba(16, 18, 22, 0.1);
+}
+
+@utility shadow-card-hover {
+  box-shadow:
+    0 2px 4px rgba(16, 18, 22, 0.05),
+    0 16px 32px -10px rgba(16, 18, 22, 0.16);
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media print {

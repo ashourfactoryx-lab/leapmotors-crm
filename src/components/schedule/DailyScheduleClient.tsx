@@ -3,39 +3,25 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { updateAppointment, rescheduleAppointment } from "@/lib/appointment-actions";
-import { STATUS_META, STATUS_ORDER, type ApptStatus } from "@/lib/appt-meta";
+import { STATUS_ORDER, type ApptStatus } from "@/lib/appt-meta";
 import { agentColor, initials } from "@/lib/agent-visuals";
 import { SCHEDULE_SELECT, mapScheduleRow, type ScheduleRow } from "@/lib/schedule-query";
+import type { Handler } from "@/lib/handlers-query";
 import { ScheduleTable } from "./ScheduleTable";
 import { PrintSchedule } from "./PrintSchedule";
 import { RescheduleModal } from "@/components/appointments/RescheduleModal";
+import { CommentsModal } from "@/components/appointments/CommentsModal";
+import { isoFromLocalDate, todayISO, isValidISODate } from "@/lib/local-date";
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { dateLocaleTag } from "@/lib/i18n/locale";
+import { statusLabel } from "@/lib/appt-meta";
 
 type SortMode = "time" | "agent";
 type StatusFilter = "all" | ApptStatus;
 
-// Formats a Date's LOCAL calendar day as YYYY-MM-DD. Never use
-// .toISOString() for this: it serializes to UTC, which silently rolls the
-// date back (or forward) a day whenever the local offset crosses midnight
-// relative to UTC — exactly the bug that made the date-nav arrows jump by
-// two days instead of one.
-function isoFromLocalDate(d: Date) {
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
-
-function todayISO() {
-  return isoFromLocalDate(new Date());
-}
-
-function isValidISODate(iso: string) {
-  return /^\d{4}-\d{2}-\d{2}$/.test(iso) && !Number.isNaN(new Date(`${iso}T00:00:00`).getTime());
-}
-
-function formatLongDate(iso: string) {
+function formatLongDate(iso: string, localeTag: string) {
   if (!isValidISODate(iso)) return "";
-  return new Date(`${iso}T00:00:00`).toLocaleDateString("en-GB", {
+  return new Date(`${iso}T00:00:00`).toLocaleDateString(localeTag, {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -58,10 +44,13 @@ const HANDLED: ApptStatus[] = ["attended", "closed_sold", "no_show"];
 export function DailyScheduleClient({
   initialDate,
   initialRows,
+  handlers,
 }: {
   initialDate: string;
   initialRows: ScheduleRow[];
+  handlers: Handler[];
 }) {
+  const { t, locale, dir } = useLocale();
   const [date, setDate] = useState(initialDate);
   const [sort, setSort] = useState<SortMode>("time");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
@@ -111,6 +100,7 @@ export function DailyScheduleClient({
   }, [date]);
 
   const [rescheduleTarget, setRescheduleTarget] = useState<ScheduleRow | null>(null);
+  const [commentsTarget, setCommentsTarget] = useState<{ id: string; customerName: string } | null>(null);
 
   async function commitStatus(id: string, status: ApptStatus) {
     if (status === "rescheduled") {
@@ -122,6 +112,17 @@ export function DailyScheduleClient({
     if (!previous) return;
     setRows((prev) => prev.map((r) => (r.id === id ? { ...r, status } : r)));
     const result = await updateAppointment(id, { status });
+    if (!result.ok) {
+      setRows((prev) => prev.map((r) => (r.id === id ? previous : r)));
+    }
+  }
+
+  async function commitHandledBy(id: string, handledBy: string | null) {
+    const previous = rows.find((r) => r.id === id);
+    if (!previous) return;
+    const handledByName = handledBy ? (handlers.find((h) => h.id === handledBy)?.name ?? null) : null;
+    setRows((prev) => prev.map((r) => (r.id === id ? { ...r, handledById: handledBy, handledByName } : r)));
+    const result = await updateAppointment(id, { handled_by: handledBy });
     if (!result.ok) {
       setRows((prev) => prev.map((r) => (r.id === id ? previous : r)));
     }
@@ -164,7 +165,7 @@ export function DailyScheduleClient({
 
   const segButtonClass = (active: boolean) =>
     `rounded-md px-3.5 py-1.5 font-display text-[12.5px] font-semibold transition-colors ${
-      active ? "bg-card text-text shadow-sm" : "text-muted"
+      active ? "bg-card text-text shadow-card" : "text-muted"
     }`;
 
   return (
@@ -175,7 +176,7 @@ export function DailyScheduleClient({
             onClick={() => setDate((d) => shiftDate(d, -1))}
             className="rounded-[9px] border border-line bg-card px-3.5 py-2.5 font-display text-sm font-semibold text-text transition-colors hover:border-[#9AA1AC]"
           >
-            ←
+            {dir === "rtl" ? "→" : "←"}
           </button>
           <input
             type="date"
@@ -189,21 +190,21 @@ export function DailyScheduleClient({
             onClick={() => setDate((d) => shiftDate(d, 1))}
             className="rounded-[9px] border border-line bg-card px-3.5 py-2.5 font-display text-sm font-semibold text-text transition-colors hover:border-[#9AA1AC]"
           >
-            →
+            {dir === "rtl" ? "←" : "→"}
           </button>
           <button
             onClick={() => setDate(todayISO())}
             className="rounded-[9px] border border-line bg-card px-3.5 py-2.5 font-display text-sm font-semibold text-text transition-colors hover:border-[#9AA1AC]"
           >
-            Today
+            {t("schedule.today")}
           </button>
 
-          <div className="ml-1.5 inline-flex gap-0.5 rounded-[9px] bg-paper p-[3px]">
+          <div className="ms-1.5 inline-flex gap-0.5 rounded-[9px] bg-paper p-[3px]">
             <button onClick={() => setSort("time")} className={segButtonClass(sort === "time")}>
-              By time
+              {t("schedule.byTime")}
             </button>
             <button onClick={() => setSort("agent")} className={segButtonClass(sort === "agent")}>
-              By agent
+              {t("schedule.byAgent")}
             </button>
           </div>
 
@@ -212,29 +213,29 @@ export function DailyScheduleClient({
             onChange={(e) => setStatusFilter(e.target.value as StatusFilter)}
             className="rounded-[9px] border border-line bg-card px-3 py-2.5 text-[13px] font-medium text-text"
           >
-            <option value="all">All statuses</option>
+            <option value="all">{t("schedule.allStatuses")}</option>
             {STATUS_ORDER.map((s) => (
               <option key={s} value={s}>
-                {STATUS_META[s].label}
+                {statusLabel(t, s)}
               </option>
             ))}
           </select>
 
           <button
             onClick={() => window.print()}
-            className="ml-auto flex items-center gap-2 rounded-[9px] bg-ink px-[15px] py-2.5 font-display text-[13.5px] font-semibold text-white transition-colors hover:bg-black"
+            className="ms-auto flex items-center gap-2 rounded-[9px] bg-ink px-[15px] py-2.5 font-display text-[13.5px] font-semibold text-white transition-all duration-150 hover:-translate-y-px hover:bg-black hover:shadow-md active:translate-y-0 active:shadow-none"
           >
             <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} className="h-4 w-4 stroke-current">
               <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
               <path d="M6 14h12v8H6z" />
             </svg>
-            Print schedule
+            {t("schedule.printSchedule")}
           </button>
         </div>
 
         <div className="mb-4 text-[13px] text-muted">
-          <b className="font-display text-text">{formatLongDate(date)}</b> · {filtered.length} appointment
-          {filtered.length !== 1 ? "s" : ""} · {handledCount} handled
+          <b className="font-display text-text">{formatLongDate(date, dateLocaleTag(locale))}</b> ·{" "}
+          {t("schedule.summary", { count: filtered.length, handled: handledCount })}
         </div>
 
         {filtered.length === 0 ? (
@@ -245,11 +246,11 @@ export function DailyScheduleClient({
                 <path d="M3 10h18M8 2v4M16 2v4" />
               </svg>
             </div>
-            <h4 className="mb-1 font-display text-base font-semibold text-text">Nothing here for this day</h4>
-            <p className="text-sm">Try another date or clear the status filter.</p>
+            <h4 className="mb-1 font-display text-base font-semibold text-text">{t("schedule.nothingHere")}</h4>
+            <p className="text-sm">{t("schedule.tryAnotherDate")}</p>
           </div>
         ) : sort === "agent" ? (
-          <div className="overflow-hidden rounded-2xl border border-line bg-card shadow-sm">
+          <div className="overflow-hidden rounded-2xl border border-line bg-card shadow-card">
             {groups.map(([name, list]) => (
               <div key={name} className="border-b border-line last:border-b-0">
                 <div className="flex items-center gap-2.5 px-5 pb-1.5 pt-4 font-display text-[12.5px] font-semibold text-muted">
@@ -262,13 +263,27 @@ export function DailyScheduleClient({
                   {name}
                   <span className="font-normal text-[#9AA1AC]">· {list.length}</span>
                 </div>
-                <ScheduleTable rows={list} showAgent={false} onStatusChange={commitStatus} />
+                <ScheduleTable
+                  rows={list}
+                  showAgent={false}
+                  handlers={handlers}
+                  onStatusChange={commitStatus}
+                  onHandledByChange={commitHandledBy}
+                  onOpenComments={(id, customerName) => setCommentsTarget({ id, customerName })}
+                />
               </div>
             ))}
           </div>
         ) : (
-          <div className="overflow-hidden rounded-2xl border border-line bg-card shadow-sm">
-            <ScheduleTable rows={flatRows} showAgent onStatusChange={commitStatus} />
+          <div className="overflow-hidden rounded-2xl border border-line bg-card shadow-card">
+            <ScheduleTable
+              rows={flatRows}
+              showAgent
+              handlers={handlers}
+              onStatusChange={commitStatus}
+              onHandledByChange={commitHandledBy}
+              onOpenComments={(id, customerName) => setCommentsTarget({ id, customerName })}
+            />
           </div>
         )}
       </div>
@@ -288,6 +303,14 @@ export function DailyScheduleClient({
           currentTime={rescheduleTarget.apptTime}
           onCancel={() => setRescheduleTarget(null)}
           onConfirm={handleRescheduleConfirm}
+        />
+      )}
+
+      {commentsTarget && (
+        <CommentsModal
+          apptId={commentsTarget.id}
+          customerName={commentsTarget.customerName}
+          onClose={() => setCommentsTarget(null)}
         />
       )}
     </div>

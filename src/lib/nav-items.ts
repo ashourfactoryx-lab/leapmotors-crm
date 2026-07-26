@@ -1,8 +1,10 @@
-export type Role = "agent" | "team_leader" | "admin";
+export type Role = "agent" | "team_leader" | "admin" | "showroom";
 
+// title is a translation key suffix (nav.{key}), resolved by the component
+// via useLocale() — not the literal label, so nav strings live in one place
+// (the dictionary) instead of here.
 export type NavItem = {
   key: string;
-  title: string;
   href: string;
   icon: keyof typeof ICONS;
 };
@@ -22,26 +24,22 @@ export const ICONS = {
     '<path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6" rx=".5"/><rect x="13" y="8" width="3" height="10" rx=".5"/><rect x="19" y="5" width="0" height="13" rx=".5"/>',
 } as const;
 
-const MINE: NavItem = { key: "mine", title: "My Sheet", href: "/my", icon: "mine" };
-const BOOK: NavItem = { key: "book", title: "Book Appointment", href: "/book", icon: "book" };
-const DAILY: NavItem = { key: "daily", title: "Daily Schedule", href: "/schedule", icon: "daily" };
-const DASH: NavItem = { key: "dash", title: "Dashboard", href: "/", icon: "dash" };
-const ALL: NavItem = { key: "all", title: "All Appointments", href: "/appointments", icon: "all" };
-const REPORTS: NavItem = { key: "reports", title: "Reports", href: "/reports", icon: "reports" };
-const ADMIN: NavItem = { key: "admin", title: "Admin Panel", href: "/admin", icon: "admin" };
+const MINE: NavItem = { key: "mine", href: "/my", icon: "mine" };
+const BOOK: NavItem = { key: "book", href: "/book", icon: "book" };
+const DAILY: NavItem = { key: "daily", href: "/schedule", icon: "daily" };
+const DASH: NavItem = { key: "dash", href: "/", icon: "dash" };
+const ALL: NavItem = { key: "all", href: "/appointments", icon: "all" };
+const REPORTS: NavItem = { key: "reports", href: "/reports", icon: "reports" };
+const ADMIN: NavItem = { key: "admin", href: "/admin", icon: "admin" };
 
 const NAV_AGENT: NavItem[] = [MINE, BOOK, DAILY, DASH];
 const NAV_LEAD: NavItem[] = [MINE, BOOK, DAILY, ALL, REPORTS, DASH];
 const NAV_ADMIN: NavItem[] = [ADMIN, MINE, BOOK, DAILY, ALL, REPORTS, DASH];
+const NAV_SHOWROOM: NavItem[] = [DAILY, ALL, REPORTS, DASH];
 
 export function navItemsForRole(role: Role): NavItem[] {
   if (role === "admin") return NAV_ADMIN;
   if (role === "team_leader") return NAV_LEAD;
+  if (role === "showroom") return NAV_SHOWROOM;
   return NAV_AGENT;
 }
-
-export const ROLE_LABEL: Record<Role, string> = {
-  agent: "Call Center · Agent",
-  team_leader: "Team Leader",
-  admin: "Administrator",
-};

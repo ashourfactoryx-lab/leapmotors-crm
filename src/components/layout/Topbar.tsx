@@ -1,5 +1,22 @@
 "use client";
 
+import { useLocale } from "@/components/i18n/LocaleProvider";
+import { dateLocaleTag } from "@/lib/i18n/locale";
+
+function LanguageToggle() {
+  const { locale, setLocale } = useLocale();
+  const next = locale === "en" ? "he" : "en";
+  return (
+    <button
+      onClick={() => setLocale(next)}
+      aria-label="Switch language"
+      className="rounded-[9px] border border-line bg-card px-3 py-2 font-display text-[13px] font-semibold text-muted transition-colors hover:border-[#9AA1AC] hover:text-text"
+    >
+      {next === "he" ? "עברית" : "English"}
+    </button>
+  );
+}
+
 export function Topbar({
   viewTitle,
   onMenuClick,
@@ -9,7 +26,8 @@ export function Topbar({
   onMenuClick: () => void;
   onlineCount?: number;
 }) {
-  const today = new Date().toLocaleDateString("en-GB", {
+  const { t, locale } = useLocale();
+  const today = new Date().toLocaleDateString(dateLocaleTag(locale), {
     weekday: "short",
     day: "numeric",
     month: "long",
@@ -29,7 +47,7 @@ export function Topbar({
         </button>
         <div>
           <div className="font-mono text-xs tracking-[0.4px] text-muted">
-            WORKSPACE · {viewTitle.toUpperCase()}
+            {t("nav.workspace").toUpperCase()} · {viewTitle.toUpperCase()}
           </div>
           <h2 className="font-display text-[19px] font-semibold">{viewTitle}</h2>
         </div>
@@ -38,7 +56,7 @@ export function Topbar({
       <div className="flex items-center gap-2.5">
         <div className="hidden items-center gap-1.5 text-[13px] text-muted sm:flex">
           <span className="h-2 w-2 rounded-full bg-accent" />
-          <b className="text-text">{onlineCount}</b> online
+          <b className="text-text">{onlineCount}</b> {t("common.online")}
         </div>
         <div className="flex items-center gap-2 rounded-[9px] border border-line bg-card px-[13px] py-2 text-[13px] font-medium text-muted">
           <svg
@@ -54,6 +72,7 @@ export function Topbar({
           </svg>
           <b className="font-display text-text">{today}</b>
         </div>
+        <LanguageToggle />
       </div>
     </div>
   );

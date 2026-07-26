@@ -4,24 +4,42 @@ import { MySheetGrid } from "@/components/my-sheet/MySheetGrid";
 import { getSession } from "@/lib/session";
 import { createClient } from "@/lib/supabase/server";
 import { MY_SHEET_SELECT, mapMySheetRow } from "@/lib/my-sheet-query";
+import { fetchHandlers } from "@/lib/handlers-query";
+import { getLocale } from "@/lib/i18n/get-locale";
+import { translate } from "@/lib/i18n/translate";
 
 export default async function MySheetPage() {
   const session = await getSession();
   if (!session) redirect("/login");
 
   const supabase = await createClient();
-  const { data } = await supabase
-    .from("appointments")
-    .select(MY_SHEET_SELECT)
-    .eq("assigned_agent", session.userId)
-    .order("appt_date", { ascending: false })
-    .order("appt_time", { ascending: false, nullsFirst: false });
+  const [{ data }, { data: branches }, handlers, locale] = await Promise.all([
+    supabase
+      .from("appointments")
+      .select(MY_SHEET_SELECT)
+      .eq("assigned_agent", session.userId)
+      .order("appt_code", { ascending: true }),
+    supabase.from("branches").select("id, name").order("name"),
+    fetchHandlers(supabase),
+    getLocale(),
+  ]);
 
   const rows = (data ?? []).map(mapMySheetRow);
 
   return (
-    <AppShell userId={session.userId} role={session.role} userName={session.fullName} viewTitle="My Sheet">
-      <MySheetGrid rows={rows} userName={session.fullName} userId={session.userId} />
+    <AppShell
+      userId={session.userId}
+      role={session.role}
+      userName={session.fullName}
+      viewTitle={translate(locale, "nav.mine")}
+    >
+      <MySheetGrid
+        rows={rows}
+        branches={branches ?? []}
+        handlers={handlers}
+        userName={session.fullName}
+        userId={session.userId}
+      />
     </AppShell>
   );
 }

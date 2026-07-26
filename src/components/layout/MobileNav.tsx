@@ -4,9 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NavIcon } from "./NavIcon";
 import { navItemsForRole, type Role } from "@/lib/nav-items";
+import { useLocale } from "@/components/i18n/LocaleProvider";
 
 export function MobileNav({ role }: { role: Role }) {
   const pathname = usePathname();
+  const { t } = useLocale();
   const items = navItemsForRole(role);
 
   return (
@@ -22,7 +24,7 @@ export function MobileNav({ role }: { role: Role }) {
             }`}
           >
             <NavIcon icon={item.icon} className="h-5 w-5 stroke-current" />
-            {item.title.split(" ")[0]}
+            {t(`navShort.${item.key}`)}
           </Link>
         );
       })}

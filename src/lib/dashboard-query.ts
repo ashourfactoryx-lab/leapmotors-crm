@@ -79,6 +79,7 @@ export type DashboardStats = {
   attended: number;
   noShow: number;
   sold: number;
+  decided: number;
   attendanceRate: number;
   conversionRate: number;
   leaderboard: { agentId: string; name: string; booked: number }[];
@@ -112,5 +113,5 @@ export function computeDashboardStats(
     count: rows.filter((r) => r.status === status).length,
   }));
 
-  return { total, attended, noShow, sold, attendanceRate, conversionRate, leaderboard, statusBreakdown };
+  return { total, attended, noShow, sold, decided, attendanceRate, conversionRate, leaderboard, statusBreakdown };
 }

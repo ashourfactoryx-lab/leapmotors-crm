@@ -32,7 +32,7 @@ export function AppShell({
           onClick={() => setRailOpen(false)}
         />
       )}
-      <div className="min-w-0 md:ml-[236px]">
+      <div className="min-w-0 md:ml-[236px] rtl:md:ml-0 rtl:md:mr-[236px]">
         <Topbar viewTitle={viewTitle} onMenuClick={() => setRailOpen((v) => !v)} onlineCount={onlineCount} />
         <main className="max-w-[1180px] px-4 py-7 pb-24 md:px-[30px] md:pb-[60px] md:pt-7">
           {children}

@@ -11,7 +11,7 @@ import { singleEmbed } from "@/lib/supabase-embed";
 // it surfaces the new appointment it was rescheduled into, not the other
 // way around.
 export const SCHEDULE_SELECT =
-  "id, appt_code, appt_time, customer_name, phone, source, status, assigned_agent, agent:profiles!assigned_agent(full_name), linked:appointments!rescheduled_from(appt_code)";
+  "id, appt_code, appt_time, customer_name, phone, source, status, assigned_agent, handled_by, agent:profiles!assigned_agent(full_name), handler:handlers(name), linked:appointments!rescheduled_from(appt_code)";
 
 export type ScheduleRow = {
   id: string;
@@ -23,6 +23,8 @@ export type ScheduleRow = {
   status: ApptStatus;
   agentId: string;
   agentName: string;
+  handledById: string | null;
+  handledByName: string | null;
   rescheduledToCode: string | null;
 };
 
@@ -35,12 +37,15 @@ type RawScheduleRow = {
   source: ApptSource;
   status: ApptStatus;
   assigned_agent: string;
+  handled_by: string | null;
   agent: unknown;
+  handler: unknown;
   linked: unknown;
 };
 
 export function mapScheduleRow(r: RawScheduleRow): ScheduleRow {
   const agent = singleEmbed<{ full_name: string }>(r.agent);
+  const handler = singleEmbed<{ name: string }>(r.handler);
   const linked = singleEmbed<{ appt_code: string }>(r.linked);
   return {
     id: r.id,
@@ -52,6 +57,8 @@ export function mapScheduleRow(r: RawScheduleRow): ScheduleRow {
     status: r.status,
     agentId: r.assigned_agent,
     agentName: agent?.full_name ?? "",
+    handledById: r.handled_by,
+    handledByName: handler?.name ?? null,
     rescheduledToCode: linked?.appt_code ?? null,
   };
 }
