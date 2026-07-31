@@ -47,6 +47,8 @@ const SEED_ACCOUNTS: SeedAccount[] = [
   { username: "suad", fullName: "Su'ad", role: "agent", agentCode: "SUA", password: "leap2026" },
   { username: "kanar", fullName: "Kanar", role: "agent", agentCode: "KAN", password: "leap2026" },
   { username: "salma", fullName: "Salma", role: "agent", agentCode: "AG7", password: "leap2026" },
+  { username: "mariam", fullName: "Mariam", role: "agent", agentCode: "MAR", password: "leap2026" },
+  { username: "ghazal", fullName: "Ghazal", role: "agent", agentCode: "GHA", password: "leap2026" },
 ];
 
 const STATUS_MAP: Record<string, string> = {

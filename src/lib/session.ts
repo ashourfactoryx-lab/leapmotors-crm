@@ -1,5 +1,5 @@
 import "server-only";
-import { createClient } from "@/lib/supabase/server";
+import { headers } from "next/headers";
 import type { Role } from "@/lib/nav-items";
 
 export type Session = {
@@ -10,27 +10,19 @@ export type Session = {
   status: string;
 };
 
-// Returns null when signed out. Middleware already guards page routes, so
-// pages can treat a null session as "shouldn't happen" rather than re-check.
+// Returns null when signed out. The proxy (src/proxy.ts) already resolved
+// the signed-in user and their profile once per request and forwarded the
+// result as request headers — reading those here avoids repeating the same
+// auth.getUser() + profile query on every page, which was doubling every
+// navigation's round-trips to Supabase.
 export async function getSession(): Promise<Session | null> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) return null;
+  const headerStore = await headers();
+  const userId = headerStore.get("x-user-id");
+  const role = headerStore.get("x-user-role");
+  const status = headerStore.get("x-user-status");
+  const fullName = headerStore.get("x-user-full-name");
+  const username = headerStore.get("x-user-username");
+  if (!userId || !role || !status || !fullName || !username) return null;
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("full_name, username, role, status")
-    .eq("id", user.id)
-    .single();
-  if (!profile) return null;
-
-  return {
-    userId: user.id,
-    fullName: profile.full_name,
-    username: profile.username,
-    role: profile.role,
-    status: profile.status,
-  };
+  return { userId, fullName, username, role: role as Role, status };
 }

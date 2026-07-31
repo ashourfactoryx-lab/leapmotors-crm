@@ -54,9 +54,7 @@ export function StatusDonut({ data, total }: { data: { status: ApptStatus; count
             className="cursor-pointer transition-[stroke-dasharray,opacity] duration-700 ease-out hover:opacity-75"
             style={{ transitionDelay: grown ? "0ms" : "80ms" }}
           >
-            <title>
-              {statusLabel(t, s.status)}: {s.count} ({pct}%)
-            </title>
+            <title>{`${statusLabel(t, s.status)}: ${s.count} (${pct}%)`}</title>
           </circle>
         );
       })}
