@@ -13,13 +13,12 @@ export default async function MySheetPage() {
   if (!session) redirect("/login");
 
   const supabase = await createClient();
-  const [{ data }, { data: branches }, handlers, locale] = await Promise.all([
+  const [{ data }, handlers, locale] = await Promise.all([
     supabase
       .from("appointments")
       .select(MY_SHEET_SELECT)
       .eq("assigned_agent", session.userId)
       .order("appt_code", { ascending: true }),
-    supabase.from("branches").select("id, name").order("name"),
     fetchHandlers(supabase),
     getLocale(),
   ]);
@@ -35,7 +34,6 @@ export default async function MySheetPage() {
     >
       <MySheetGrid
         rows={rows}
-        branches={branches ?? []}
         handlers={handlers}
         userName={session.fullName}
         userId={session.userId}

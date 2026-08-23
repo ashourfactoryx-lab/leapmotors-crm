@@ -14,10 +14,8 @@ import { todayISO } from "@/lib/local-date";
 import type { Handler } from "@/lib/handlers-query";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 
-const COLUMN_LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+const COLUMN_LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
 const BLANK_ROW_COUNT = 10;
-
-type Branch = { id: string; name: string };
 
 function makeDraftKey() {
   return `draft-${Math.random().toString(36).slice(2)}`;
@@ -82,16 +80,13 @@ type DraftFields = {
   apptDate: string;
   apptTime: string;
   source: ApptSource;
-  branchId: string;
 };
 
 function DraftRow({
   rowNumber,
-  branches,
   onCreate,
 }: {
   rowNumber: number;
-  branches: Branch[];
   onCreate: (fields: DraftFields) => Promise<boolean>;
 }) {
   const [fields, setFields] = useState<DraftFields>({
@@ -100,7 +95,6 @@ function DraftRow({
     apptDate: todayISO(),
     apptTime: "",
     source: "phone_call",
-    branchId: branches[0]?.id ?? "",
   });
   const [submitting, setSubmitting] = useState(false);
   const { t } = useLocale();
@@ -121,7 +115,7 @@ function DraftRow({
 
   // Fires once focus actually leaves the row (tabbing/clicking between this
   // row's own cells re-focuses a descendant, which relatedTarget catches) —
-  // not on every per-cell blur, so filling Name then Phone then Branch
+  // not on every per-cell blur, so filling Name then Phone then Source
   // doesn't submit a half-typed row after the first field.
   function handleRowBlur(e: React.FocusEvent<HTMLTableRowElement>) {
     const next = e.relatedTarget as Node | null;
@@ -135,24 +129,7 @@ function DraftRow({
         {rowNumber}
       </td>
       <td className={cellClass + " font-mono text-[#c4c8ce]"}>{t("common.dash")}</td>
-      <td className={editableCellClass}>
-        <input
-          type="date"
-          value={fields.apptDate}
-          disabled={submitting}
-          onChange={(e) => set("apptDate", e.target.value)}
-          className={`${inputClass} font-mono`}
-        />
-      </td>
-      <td className={editableCellClass}>
-        <input
-          type="time"
-          value={fields.apptTime}
-          disabled={submitting}
-          onChange={(e) => set("apptTime", e.target.value)}
-          className={`${inputClass} font-mono`}
-        />
-      </td>
+      <td className={cellClass + " font-mono text-[#c4c8ce]"}>{t("common.dash")}</td>
       <td className={editableCellClass}>
         <input
           value={fields.customerName}
@@ -189,22 +166,24 @@ function DraftRow({
         </select>
       </td>
       <td className={editableCellClass}>
-        <select
-          value={fields.branchId}
+        <input
+          type="date"
+          value={fields.apptDate}
           disabled={submitting}
-          onChange={(e) => set("branchId", e.target.value)}
-          className={selectClass}
-        >
-          <option value="">{t("common.dash")}</option>
-          {branches.map((b) => (
-            <option key={b.id} value={b.id}>
-              {b.name}
-            </option>
-          ))}
-        </select>
+          onChange={(e) => set("apptDate", e.target.value)}
+          className={`${inputClass} font-mono`}
+        />
+      </td>
+      <td className={editableCellClass}>
+        <input
+          type="time"
+          value={fields.apptTime}
+          disabled={submitting}
+          onChange={(e) => set("apptTime", e.target.value)}
+          className={`${inputClass} font-mono`}
+        />
       </td>
       <td className={cellClass + " text-[#c4c8ce]"}>{submitting ? t("common.adding") : t("common.dash")}</td>
-      <td className={cellClass + " text-[#c4c8ce]"}>{t("common.dash")}</td>
       <td className={cellClass + " text-[#c4c8ce]"}>{t("common.dash")}</td>
       <td className={cellClass + " text-[#c4c8ce]"}>{t("common.dash")}</td>
       <td className={cellClass + " text-[#c4c8ce]"}>{t("common.dash")}</td>
@@ -214,13 +193,11 @@ function DraftRow({
 
 export function MySheetGrid({
   rows: initialRows,
-  branches,
   handlers,
   userName,
   userId,
 }: {
   rows: MyApptRow[];
-  branches: Branch[];
   handlers: Handler[];
   userName: string;
   userId: string;
@@ -305,20 +282,6 @@ export function MySheetGrid({
     await refetchRows();
   }
 
-  function commitSale(id: string, raw: string) {
-    const trimmed = raw.trim();
-    if (trimmed === "") {
-      commit(id, { sale_amount: null }, { saleAmount: null });
-      return;
-    }
-    const parsed = Number(trimmed);
-    if (Number.isNaN(parsed)) {
-      setToast(t("mySheet.saleMustBeNumber"));
-      return;
-    }
-    commit(id, { sale_amount: parsed }, { saleAmount: parsed });
-  }
-
   function commitNotes(id: string, raw: string) {
     commit(id, { notes: raw || null }, { notes: raw || null });
   }
@@ -349,11 +312,6 @@ export function MySheetGrid({
     commit(id, { source }, { source });
   }
 
-  function commitBranch(id: string, branchId: string) {
-    const branchName = branches.find((b) => b.id === branchId)?.name ?? null;
-    commit(id, { branch_id: branchId || null }, { branchId: branchId || null, branchName });
-  }
-
   function commitHandledBy(id: string, handledBy: string) {
     const handledByName = handlers.find((h) => h.id === handledBy)?.name ?? null;
     commit(id, { handled_by: handledBy || null }, { handledById: handledBy || null, handledByName });
@@ -366,7 +324,6 @@ export function MySheetGrid({
       apptDate: fields.apptDate || todayISO(),
       apptTime: fields.apptTime || null,
       source: fields.source,
-      branchId: fields.branchId || null,
     });
     if (!result.ok) {
       setToast(t("mySheet.couldntAddRow", { error: result.error }));
@@ -433,15 +390,14 @@ export function MySheetGrid({
             <colgroup>
               <col className="w-10" />
               <col className="w-[92px]" />
-              <col className="w-[110px]" />
-              <col className="w-[84px]" />
+              <col className="w-[100px]" />
               <col className="w-[150px]" />
               <col className="w-[130px]" />
               <col className="w-[110px]" />
-              <col className="w-[130px]" />
+              <col className="w-[110px]" />
+              <col className="w-[84px]" />
               <col className="w-[140px]" />
               <col className="w-[130px]" />
-              <col className="w-24" />
               <col className="w-[200px]" />
               <col className="w-[120px]" />
             </colgroup>
@@ -461,15 +417,14 @@ export function MySheetGrid({
                 <th className="sticky left-0 top-5 z-30 h-[34px] border border-[#e2e3e6] bg-[#e7eaee] rtl:left-auto rtl:right-0" />
                 {[
                   t("col.apptId"),
-                  t("col.date"),
-                  t("col.time"),
+                  t("col.bookedOn"),
                   t("col.customer"),
                   t("col.phone"),
                   t("col.source"),
-                  t("col.branch"),
+                  t("col.date"),
+                  t("col.time"),
                   t("col.status"),
                   t("col.handledBy"),
-                  t("col.sale"),
                   t("col.notes"),
                   t("col.comments"),
                 ].map((f) => (
@@ -498,17 +453,7 @@ export function MySheetGrid({
                         </div>
                       )}
                     </td>
-                    <td className={editableCellClass}>
-                      <EditableTextCell type="date" mono value={r.apptDate} onCommit={(v) => commitDate(r.id, v)} />
-                    </td>
-                    <td className={editableCellClass}>
-                      <EditableTextCell
-                        type="time"
-                        mono
-                        value={r.apptTime ?? ""}
-                        onCommit={(v) => commitTime(r.id, v)}
-                      />
-                    </td>
+                    <td className={cellClass + " font-mono text-muted"}>{r.bookedOn}</td>
                     <td className={editableCellClass}>
                       <EditableTextCell value={r.customerName} onCommit={(v) => commitCustomerName(r.id, v)} />
                     </td>
@@ -534,18 +479,15 @@ export function MySheetGrid({
                       </select>
                     </td>
                     <td className={editableCellClass}>
-                      <select
-                        value={r.branchId ?? ""}
-                        onChange={(e) => commitBranch(r.id, e.target.value)}
-                        className={selectClass}
-                      >
-                        <option value="">{t("common.dash")}</option>
-                        {branches.map((b) => (
-                          <option key={b.id} value={b.id}>
-                            {b.name}
-                          </option>
-                        ))}
-                      </select>
+                      <EditableTextCell type="date" mono value={r.apptDate} onCommit={(v) => commitDate(r.id, v)} />
+                    </td>
+                    <td className={editableCellClass}>
+                      <EditableTextCell
+                        type="time"
+                        mono
+                        value={r.apptTime ?? ""}
+                        onCommit={(v) => commitTime(r.id, v)}
+                      />
                     </td>
                     <td
                       className="relative overflow-hidden border border-[#e2e3e6] bg-card p-0 focus-within:shadow-[inset_0_0_0_2px_var(--color-accent)]"
@@ -584,14 +526,6 @@ export function MySheetGrid({
                     </td>
                     <td className={editableCellClass}>
                       <EditableTextCell
-                        value={r.saleAmount === null ? "" : String(r.saleAmount)}
-                        placeholder={t("common.dash")}
-                        numeric
-                        onCommit={(v) => commitSale(r.id, v)}
-                      />
-                    </td>
-                    <td className={editableCellClass}>
-                      <EditableTextCell
                         value={r.notes ?? ""}
                         placeholder={t("mySheet.addNote")}
                         onCommit={(v) => commitNotes(r.id, v)}
@@ -606,7 +540,7 @@ export function MySheetGrid({
                 );
               })}
               {drafts.map((key, i) => (
-                <DraftRow key={key} rowNumber={rows.length + i + 1} branches={branches} onCreate={(f) => handleCreateDraft(key, f)} />
+                <DraftRow key={key} rowNumber={rows.length + i + 1} onCreate={(f) => handleCreateDraft(key, f)} />
               ))}
             </tbody>
           </table>

@@ -18,15 +18,15 @@ export default function LoginPage() {
           <div>
             <div className="mb-8 flex items-center gap-2.5">
               <Image
-                src="/leapmotor-mark-white.png"
-                alt="LeapMotor"
+                src="/qonvra-mark-white.png"
+                alt="Qonvra"
                 width={36}
                 height={36}
                 className="h-9 w-auto"
                 priority
               />
               <span className="font-display text-[17px] font-semibold uppercase tracking-[0.2em]">
-                Leapmotor
+                Qonvra
               </span>
             </div>
             <h1 className="mb-3 font-display text-[31px] font-semibold leading-[1.15] tracking-[-0.5px]">
@@ -39,9 +39,6 @@ export default function LoginPage() {
                   </span>
                 ))}
             </h1>
-            <p className="max-w-[34ch] text-[14.5px] leading-relaxed text-[#A7AEBA]">
-              {t("login.brandSubtitle")}
-            </p>
           </div>
         </div>
 

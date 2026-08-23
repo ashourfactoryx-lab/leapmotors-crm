@@ -39,15 +39,15 @@ export function Sidebar({
     >
       <div className="mb-6 flex items-center gap-2.5 px-1">
         <Image
-          src="/leapmotor-mark-white.png"
-          alt="LeapMotor"
+          src="/qonvra-mark-white.png"
+          alt="Qonvra"
           width={28}
           height={28}
           className="h-7 w-auto"
           priority
         />
         <span className="font-display text-[13.5px] font-semibold uppercase tracking-[0.2em] text-white">
-          Leapmotor
+          Qonvra
         </span>
       </div>
 

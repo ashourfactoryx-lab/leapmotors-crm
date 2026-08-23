@@ -55,8 +55,6 @@ export const en: Record<string, string> = {
 
   // ── login ───────────────────────────────────────────────────────────
   "login.brandTitle": "Appointment\nCommand Center",
-  "login.brandSubtitle":
-    "One place for the call-center team to book, confirm, and hand off showroom visits — each agent on their own private sheet.",
   "login.signIn": "Sign in",
   "login.welcomeBack": "Welcome back",
   "login.intro": "Sign in with the username and password your admin gave you. You'll only ever see your own appointments.",
@@ -91,6 +89,7 @@ export const en: Record<string, string> = {
 
   // ── shared table column headers ────────────────────────────────────
   "col.apptId": "Appt ID",
+  "col.bookedOn": "Booked On",
   "col.id": "ID",
   "col.appt": "Appt",
   "col.date": "Date",
@@ -161,7 +160,7 @@ export const en: Record<string, string> = {
   "schedule.sortTime": "time",
   "schedule.sortAgent": "agent",
   "schedule.noApptsForDay": "No appointments for this day.",
-  "schedule.footer": "LeapMotor · Appointment Command Center — generated {{time}}",
+  "schedule.footer": "Qonvra · Appointment Command Center — generated {{time}}",
 
   // ── book appointment ────────────────────────────────────────────────
   "book.bookedPrefix": "Booked {{name}} — ",
@@ -360,8 +359,6 @@ export const he: Record<string, string> = {
 
   // ── login ───────────────────────────────────────────────────────────
   "login.brandTitle": "מרכז ניהול\nתורים",
-  "login.brandSubtitle":
-    "מקום אחד לצוות המוקד לקבוע, לאשר ולהעביר ביקורי אולם תצוגה — כל נציג עם הגיליון הפרטי שלו.",
   "login.signIn": "התחברות",
   "login.welcomeBack": "ברוכים השבים",
   "login.intro": "התחברו עם שם המשתמש והסיסמה שקיבלתם מהמנהל. תוכלו לראות רק את התורים שלכם.",
@@ -396,6 +393,7 @@ export const he: Record<string, string> = {
 
   // ── shared table column headers ────────────────────────────────────
   "col.apptId": "מזהה תור",
+  "col.bookedOn": "תאריך הזמנה",
   "col.id": "מזהה",
   "col.appt": "תור",
   "col.date": "תאריך",
@@ -466,7 +464,7 @@ export const he: Record<string, string> = {
   "schedule.sortTime": "שעה",
   "schedule.sortAgent": "נציג",
   "schedule.noApptsForDay": "אין תורים ליום הזה.",
-  "schedule.footer": "לפמוטור · מרכז ניהול תורים — הופק ב-{{time}}",
+  "schedule.footer": "קונברה · מרכז ניהול תורים — הופק ב-{{time}}",
 
   // ── book appointment ────────────────────────────────────────────────
   "book.bookedPrefix": "נקבע תור ל{{name}} — ",

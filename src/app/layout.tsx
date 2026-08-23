@@ -22,8 +22,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LeapMotor CRM",
-  description: "Appointment scheduling and CRM for the LeapMotor call-center team.",
+  title: "Qonvra CRM",
+  description: "Appointment scheduling and CRM for the Qonvra call-center team.",
 };
 
 export default async function RootLayout({

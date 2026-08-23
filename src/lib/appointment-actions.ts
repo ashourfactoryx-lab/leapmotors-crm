@@ -41,7 +41,6 @@ export async function createQuickAppointment(input: {
   apptDate: string;
   apptTime: string | null;
   source: ApptSource;
-  branchId: string | null;
 }): Promise<{ ok: true; row: MyApptRow } | { ok: false; error: string }> {
   const session = await getSession();
   if (!session) return { ok: false, error: "Not signed in." };
@@ -55,7 +54,6 @@ export async function createQuickAppointment(input: {
       appt_date: input.apptDate,
       appt_time: input.apptTime,
       source: input.source,
-      branch_id: input.branchId,
       assigned_agent: session.userId,
       created_by: session.userId,
     })

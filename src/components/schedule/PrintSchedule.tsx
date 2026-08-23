@@ -64,7 +64,7 @@ export function PrintSchedule({
   return (
     <div className="hidden font-sans text-[#111] print:mx-auto print:block print:max-w-[720px]">
       <div className="mb-1 flex items-end justify-between border-b-2 border-[#111] pb-3">
-        <Image src="/leapmotor-mark-dark.png" alt="LeapMotor" width={30} height={30} className="h-[30px] w-auto" />
+        <Image src="/qonvra-mark-dark.png" alt="Qonvra" width={30} height={30} className="h-[30px] w-auto" />
         <div className="text-right rtl:text-left">
           <div className="font-display text-[17px] font-semibold">{t("schedule.printTitle")}</div>
           <div className="text-[13px] text-[#555]">{formatLongDate(date, dateLocaleTag(locale))}</div>
