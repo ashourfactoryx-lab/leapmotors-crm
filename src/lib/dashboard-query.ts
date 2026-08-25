@@ -99,13 +99,17 @@ export function computeDashboardStats(
   const attendanceRate = decided ? Math.round((attended / decided) * 100) : 0;
   const conversionRate = attended ? Math.round((sold / attended) * 100) : 0;
 
+  // profiles is pre-filtered to active accounts, so a removed agent's past
+  // appointments still count toward the totals above but their name drops
+  // off the leaderboard instead of showing as a stray "Unknown" row.
   const nameById = new Map(profiles.map((p) => [p.id, p.full_name]));
   const bookedById = new Map<string, number>();
   for (const r of rows) {
     bookedById.set(r.assigned_agent, (bookedById.get(r.assigned_agent) ?? 0) + 1);
   }
   const leaderboard = [...bookedById.entries()]
-    .map(([agentId, booked]) => ({ agentId, name: nameById.get(agentId) ?? "Unknown", booked }))
+    .filter(([agentId]) => nameById.has(agentId))
+    .map(([agentId, booked]) => ({ agentId, name: nameById.get(agentId)!, booked }))
     .sort((a, b) => b.booked - a.booked);
 
   const statusBreakdown = STATUS_ORDER.map((status) => ({

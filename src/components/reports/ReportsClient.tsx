@@ -98,7 +98,7 @@ export function ReportsClient({
       setLoading(true);
       try {
         const rows = await fetchReportRows(supabase, range, agentId === "all" ? undefined : agentId);
-        const { data: profiles } = await supabase.from("profiles").select("id, full_name");
+        const { data: profiles } = await supabase.from("profiles").select("id, full_name").eq("status", "active");
         if (cancelled) return;
         setAgentPerformance(computeAgentPerformance(rows, profiles ?? []));
         setSourcePerformance(computeSourcePerformance(rows));

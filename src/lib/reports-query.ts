@@ -61,6 +61,9 @@ function computeTotals(rows: ReportRow[]): Totals {
 
 export type AgentPerf = Totals & { agentId: string; name: string };
 
+// profiles is pre-filtered to active accounts, so a removed agent's past
+// appointments still count everywhere else but their name drops off this
+// table instead of showing as a stray "Unknown" row.
 export function computeAgentPerformance(
   rows: ReportRow[],
   profiles: { id: string; full_name: string }[],
@@ -73,7 +76,8 @@ export function computeAgentPerformance(
     byAgent.set(r.assigned_agent, list);
   }
   return [...byAgent.entries()]
-    .map(([agentId, list]) => ({ agentId, name: nameById.get(agentId) ?? "Unknown", ...computeTotals(list) }))
+    .filter(([agentId]) => nameById.has(agentId))
+    .map(([agentId, list]) => ({ agentId, name: nameById.get(agentId)!, ...computeTotals(list) }))
     .sort((a, b) => b.booked - a.booked);
 }
 

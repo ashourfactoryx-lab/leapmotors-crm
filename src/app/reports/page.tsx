@@ -23,7 +23,7 @@ export default async function ReportsPage() {
   const supabase = await createClient();
   const [rows, { data: profiles }, months, handlers, locale] = await Promise.all([
     fetchReportRows(supabase),
-    supabase.from("profiles").select("id, full_name"),
+    supabase.from("profiles").select("id, full_name").eq("status", "active"),
     fetchAvailableMonths(supabase),
     fetchHandlers(supabase),
     getLocale(),

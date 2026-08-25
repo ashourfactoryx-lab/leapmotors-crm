@@ -14,7 +14,7 @@ export default async function DashboardPage() {
   const supabase = await createClient();
   const [rows, { data: profiles }, months, locale] = await Promise.all([
     fetchAllAppointmentAgentStatus(supabase),
-    supabase.from("profiles").select("id, full_name"),
+    supabase.from("profiles").select("id, full_name").eq("status", "active"),
     fetchAvailableMonths(supabase),
     getLocale(),
   ]);

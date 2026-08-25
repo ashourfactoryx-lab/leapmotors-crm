@@ -49,7 +49,7 @@ export function DashboardClient({
       try {
         const [rows, { data: profiles }] = await Promise.all([
           fetchAllAppointmentAgentStatus(supabase, range),
-          supabase.from("profiles").select("id, full_name"),
+          supabase.from("profiles").select("id, full_name").eq("status", "active"),
         ]);
         if (cancelled) return;
         setStats(computeDashboardStats(rows, profiles ?? []));
