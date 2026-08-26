@@ -99,17 +99,16 @@ export function computeDashboardStats(
   const attendanceRate = decided ? Math.round((attended / decided) * 100) : 0;
   const conversionRate = attended ? Math.round((sold / attended) * 100) : 0;
 
-  // profiles is pre-filtered to active accounts, so a removed agent's past
+  // profiles is pre-filtered to active agents, so a removed agent's past
   // appointments still count toward the totals above but their name drops
-  // off the leaderboard instead of showing as a stray "Unknown" row.
-  const nameById = new Map(profiles.map((p) => [p.id, p.full_name]));
+  // off the leaderboard. Every active agent gets a row here — even ones with
+  // zero bookings so far — rather than only agents who already have activity.
   const bookedById = new Map<string, number>();
   for (const r of rows) {
     bookedById.set(r.assigned_agent, (bookedById.get(r.assigned_agent) ?? 0) + 1);
   }
-  const leaderboard = [...bookedById.entries()]
-    .filter(([agentId]) => nameById.has(agentId))
-    .map(([agentId, booked]) => ({ agentId, name: nameById.get(agentId)!, booked }))
+  const leaderboard = profiles
+    .map((p) => ({ agentId: p.id, name: p.full_name, booked: bookedById.get(p.id) ?? 0 }))
     .sort((a, b) => b.booked - a.booked);
 
   const statusBreakdown = STATUS_ORDER.map((status) => ({
