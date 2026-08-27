@@ -15,7 +15,7 @@ export default async function AllAppointmentsPage() {
   const supabase = await createClient();
   const [{ rows, count }, { data: agents }, handlers, locale] = await Promise.all([
     fetchAllAppointments(supabase, { search: "", agentId: "all", handlerId: "all", page: 0 }),
-    supabase.from("profiles").select("id, full_name").order("full_name"),
+    supabase.from("profiles").select("id, full_name").eq("status", "active").order("full_name"),
     fetchHandlers(supabase),
     getLocale(),
   ]);
@@ -27,7 +27,13 @@ export default async function AllAppointmentsPage() {
       userName={session.fullName}
       viewTitle={translate(locale, "nav.all")}
     >
-      <AllAppointmentsClient initialRows={rows} initialCount={count} agents={agents ?? []} handlers={handlers} />
+      <AllAppointmentsClient
+        initialRows={rows}
+        initialCount={count}
+        agents={agents ?? []}
+        handlers={handlers}
+        role={session.role}
+      />
     </AppShell>
   );
 }

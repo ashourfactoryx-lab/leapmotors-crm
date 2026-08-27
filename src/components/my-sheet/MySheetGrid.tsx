@@ -3,15 +3,17 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
-import { updateAppointment, rescheduleAppointment, createQuickAppointment } from "@/lib/appointment-actions";
+import { updateAppointment, rescheduleAppointment, createQuickAppointment, deleteAppointment } from "@/lib/appointment-actions";
 import { STATUS_META, STATUS_ORDER, statusLabel, sourceLabel, type ApptSource, type ApptStatus } from "@/lib/appt-meta";
 import { agentColor, initials } from "@/lib/agent-visuals";
 import { MY_SHEET_SELECT, mapMySheetRow, type MyApptRow } from "@/lib/my-sheet-query";
 import { RescheduleModal } from "@/components/appointments/RescheduleModal";
 import { CommentsModal } from "@/components/appointments/CommentsModal";
 import { CommentsButton } from "@/components/appointments/CommentsButton";
+import { DeleteConfirmModal } from "@/components/appointments/DeleteConfirmModal";
 import { todayISO } from "@/lib/local-date";
 import type { Handler } from "@/lib/handlers-query";
+import type { Role } from "@/lib/nav-items";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 
 const COLUMN_LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
@@ -196,18 +198,22 @@ export function MySheetGrid({
   handlers,
   userName,
   userId,
+  role,
 }: {
   rows: MyApptRow[];
   handlers: Handler[];
   userName: string;
   userId: string;
+  role: Role;
 }) {
   const { t, dir } = useLocale();
+  const canDelete = role === "admin" || role === "team_leader";
   const [rows, setRows] = useState(initialRows);
   const [drafts, setDrafts] = useState(() => Array.from({ length: BLANK_ROW_COUNT }, () => makeDraftKey()));
   const [toast, setToast] = useState<string | null>(null);
   const [rescheduleTarget, setRescheduleTarget] = useState<MyApptRow | null>(null);
   const [commentsTarget, setCommentsTarget] = useState<{ id: string; customerName: string } | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<{ id: string; customerName: string } | null>(null);
   // Rows always come back from the server in appt-number order and stay put
   // there when edited in place — a new/edited row never jumps around the
   // sheet. Re-sorting by date is opt-in only, applied for display without
@@ -441,9 +447,24 @@ export function MySheetGrid({
               {displayRows.map((r, i) => {
                 const meta = STATUS_META[r.status];
                 return (
-                  <tr key={r.id} className="hover:[&>td.cell]:bg-[#fafbfc]">
+                  <tr key={r.id} className="group hover:[&>td.cell]:bg-[#fafbfc]">
                     <td className="sticky left-0 z-10 overflow-hidden border border-[#e2e3e6] bg-[#f4f5f7] text-center font-mono text-[11px] font-medium text-[#98a0aa] rtl:left-auto rtl:right-0">
-                      {i + 1}
+                      {canDelete ? (
+                        <>
+                          <span className="group-hover:hidden">{i + 1}</span>
+                          <button
+                            onClick={() => setDeleteTarget({ id: r.id, customerName: r.customerName })}
+                            title={t("deleteConfirm.button")}
+                            className="hidden h-full w-full items-center justify-center text-[#F0524B] group-hover:flex"
+                          >
+                            <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} className="h-3.5 w-3.5 stroke-current">
+                              <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6h16Z" />
+                            </svg>
+                          </button>
+                        </>
+                      ) : (
+                        i + 1
+                      )}
                     </td>
                     <td className={cellClass + " font-mono"}>
                       {r.apptCode}
@@ -584,6 +605,20 @@ export function MySheetGrid({
           apptId={commentsTarget.id}
           customerName={commentsTarget.customerName}
           onClose={() => setCommentsTarget(null)}
+        />
+      )}
+
+      {deleteTarget && (
+        <DeleteConfirmModal
+          customerName={deleteTarget.customerName}
+          onCancel={() => setDeleteTarget(null)}
+          onConfirm={async () => {
+            const result = await deleteAppointment(deleteTarget.id);
+            if (result.ok) {
+              setRows((prev) => prev.filter((r) => r.id !== deleteTarget.id));
+            }
+            return result;
+          }}
         />
       )}
     </div>

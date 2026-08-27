@@ -64,6 +64,17 @@ export async function createQuickAppointment(input: {
   return { ok: true, row: mapMySheetRow(data) };
 }
 
+// No manual role check needed here: the "appt delete" RLS policy (admin or
+// team_leader only) already restricts who this can touch, using the
+// caller's own session — not a service-role client. Deletes cascade to
+// appt_history and appt_comments (both FK on delete cascade).
+export async function deleteAppointment(id: string): Promise<{ ok: true } | { ok: false; error: string }> {
+  const supabase = await createClient();
+  const { error } = await supabase.from("appointments").delete().eq("id", id);
+  if (error) return { ok: false, error: error.message };
+  return { ok: true };
+}
+
 // Keeps the original appointment as a frozen historical record
 // (status='rescheduled') and creates a new linked appointment for the new
 // date/time — see reschedule_appointment() in the DB, which does both as a

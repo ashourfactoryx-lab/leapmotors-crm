@@ -295,6 +295,15 @@ export const en: Record<string, string> = {
   "removeConfirm.removing": "Removing…",
   "removeConfirm.removeAccount": "Remove account",
 
+  // ── delete appointment confirm modal ────────────────────────────────
+  "deleteConfirm.title": "Delete {{name}}'s appointment?",
+  "deleteConfirm.intro": "This permanently deletes the appointment, its history, and its comments. This can't be undone. Type the confirmation password to continue.",
+  "deleteConfirm.passwordLabel": "Confirmation password",
+  "deleteConfirm.wrongPassword": "That's not the right password.",
+  "deleteConfirm.deleting": "Deleting…",
+  "deleteConfirm.deleteAppointment": "Delete appointment",
+  "deleteConfirm.button": "Delete",
+
   // ── showroom handlers panel ─────────────────────────────────────────
   "handlers.enterName": "Enter a name.",
   "handlers.namePlaceholder": "e.g. Hala",
@@ -596,6 +605,15 @@ export const he: Record<string, string> = {
   "removeConfirm.intro": "ההתחברות שלהם תימחק והם לא יוכלו להתחבר יותר. התורים שקבעו יישארו ברישומים.",
   "removeConfirm.removing": "מסיר…",
   "removeConfirm.removeAccount": "הסרת חשבון",
+
+  // ── delete appointment confirm modal ────────────────────────────────
+  "deleteConfirm.title": "למחוק את התור של {{name}}?",
+  "deleteConfirm.intro": "פעולה זו מוחקת לצמיתות את התור, ההיסטוריה שלו וההערות שלו. לא ניתן לבטל. הקלידו את סיסמת האישור כדי להמשיך.",
+  "deleteConfirm.passwordLabel": "סיסמת אישור",
+  "deleteConfirm.wrongPassword": "הסיסמה שגויה.",
+  "deleteConfirm.deleting": "מוחק…",
+  "deleteConfirm.deleteAppointment": "מחיקת תור",
+  "deleteConfirm.button": "מחיקה",
 
   // ── showroom handlers panel ─────────────────────────────────────────
   "handlers.enterName": "הזינו שם.",

@@ -37,6 +37,7 @@ export default async function MySheetPage() {
         handlers={handlers}
         userName={session.fullName}
         userId={session.userId}
+        role={session.role}
       />
     </AppShell>
   );

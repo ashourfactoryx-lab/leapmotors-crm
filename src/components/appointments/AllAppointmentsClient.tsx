@@ -8,8 +8,11 @@ import { fetchAllAppointments, PAGE_SIZE, type AllApptRow } from "@/lib/all-appo
 import type { Handler } from "@/lib/handlers-query";
 import { CommentsModal } from "@/components/appointments/CommentsModal";
 import { CommentsButton } from "@/components/appointments/CommentsButton";
+import { DeleteConfirmModal } from "@/components/appointments/DeleteConfirmModal";
+import { deleteAppointment } from "@/lib/appointment-actions";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { dateLocaleTag } from "@/lib/i18n/locale";
+import type { Role } from "@/lib/nav-items";
 
 function formatDate(iso: string, localeTag: string) {
   return new Date(`${iso}T00:00:00`).toLocaleDateString(localeTag, { day: "2-digit", month: "short" });
@@ -20,12 +23,15 @@ export function AllAppointmentsClient({
   initialCount,
   agents,
   handlers,
+  role,
 }: {
   initialRows: AllApptRow[];
   initialCount: number;
   agents: { id: string; full_name: string }[];
   handlers: Handler[];
+  role: Role;
 }) {
+  const canDelete = role === "admin" || role === "team_leader";
   const [searchInput, setSearchInput] = useState("");
   const [search, setSearch] = useState("");
   const [agentId, setAgentId] = useState<string>("all");
@@ -36,6 +42,7 @@ export function AllAppointmentsClient({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [commentsTarget, setCommentsTarget] = useState<{ id: string; customerName: string } | null>(null);
+  const [deleteTarget, setDeleteTarget] = useState<{ id: string; customerName: string } | null>(null);
   const { t, locale, dir } = useLocale();
   const isFirstRun = useRef(true);
 
@@ -221,9 +228,22 @@ export function AllAppointmentsClient({
                         </span>
                       </td>
                       <td className="border-b border-line px-3 py-3">
-                        <CommentsButton
-                          onClick={() => setCommentsTarget({ id: r.id, customerName: r.customerName })}
-                        />
+                        <div className="flex items-center gap-1.5">
+                          <CommentsButton
+                            onClick={() => setCommentsTarget({ id: r.id, customerName: r.customerName })}
+                          />
+                          {canDelete && (
+                            <button
+                              onClick={() => setDeleteTarget({ id: r.id, customerName: r.customerName })}
+                              title={t("deleteConfirm.button")}
+                              className="flex h-7 w-7 items-center justify-center rounded-md text-[#9AA1AC] transition-colors hover:bg-[#FBE9E8] hover:text-[#F0524B]"
+                            >
+                              <svg viewBox="0 0 24 24" fill="none" strokeWidth={2} className="h-4 w-4 stroke-current">
+                                <path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6h16Z" />
+                              </svg>
+                            </button>
+                          )}
+                        </div>
                       </td>
                     </tr>
                   );
@@ -261,6 +281,21 @@ export function AllAppointmentsClient({
           apptId={commentsTarget.id}
           customerName={commentsTarget.customerName}
           onClose={() => setCommentsTarget(null)}
+        />
+      )}
+
+      {deleteTarget && (
+        <DeleteConfirmModal
+          customerName={deleteTarget.customerName}
+          onCancel={() => setDeleteTarget(null)}
+          onConfirm={async () => {
+            const result = await deleteAppointment(deleteTarget.id);
+            if (result.ok) {
+              setRows((prev) => prev.filter((r) => r.id !== deleteTarget.id));
+              setCount((prev) => prev - 1);
+            }
+            return result;
+          }}
         />
       )}
     </div>
