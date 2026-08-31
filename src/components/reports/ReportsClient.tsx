@@ -102,14 +102,23 @@ export function ReportsClient({
     async function refresh() {
       setLoading(true);
       try {
-        const rows = await fetchReportRows(supabase, range, agentId === "all" ? undefined : agentId);
-        const { data: profiles } = await supabase.from("profiles").select("id, full_name").eq("status", "active");
+        const filterAgentId = agentId === "all" ? undefined : agentId;
+        // Daily booking activity groups by created_at (when booked), not
+        // appt_date (when scheduled) — it needs its own fetch scoped by the
+        // same field it groups by, or "August" would show a mix of bookings
+        // made in other months for an August visit, and miss August
+        // bookings made for a visit scheduled outside August.
+        const [rows, dailyRows, { data: profiles }] = await Promise.all([
+          fetchReportRows(supabase, range, filterAgentId, "appt_date"),
+          range ? fetchReportRows(supabase, range, filterAgentId, "created_at") : Promise.resolve(null),
+          supabase.from("profiles").select("id, full_name").eq("status", "active"),
+        ]);
         if (cancelled) return;
         setAgentPerformance(computeAgentPerformance(rows, profiles ?? []));
         setSourcePerformance(computeSourcePerformance(rows));
         setHandlerPerformance(computeHandlerPerformance(rows, handlers));
         setTimeSeries(computeTimeSeries(rows, period === "all" ? "month" : "day", dateLocaleTag(locale)));
-        setDailyActivity(computeDailyBookingActivity(rows, profiles ?? [], dateLocaleTag(locale)));
+        setDailyActivity(computeDailyBookingActivity(dailyRows ?? rows, profiles ?? [], dateLocaleTag(locale)));
         setError(null);
       } catch {
         if (!cancelled) setError(t("reports.couldntLoad"));

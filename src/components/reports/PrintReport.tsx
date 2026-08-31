@@ -6,16 +6,41 @@ import type { AgentPerf, SourcePerf, HandlerPerf, TimeSeriesPoint, DailyBookingA
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { dateLocaleTag } from "@/lib/i18n/locale";
 
-function PrintTable({ headers, rows }: { headers: string[]; rows: (string | number)[][] }) {
+// leftAlignCols: column indices (besides 0, which is always left-aligned)
+// that hold free text rather than a number — e.g. a comma-separated agent
+// or status breakdown. Right-aligning long wrapped text reads as broken
+// (each line staggers to a different start position), so those columns get
+// normal left-aligned prose instead of the numeric right/mono treatment.
+function PrintTable({
+  headers,
+  rows,
+  leftAlignCols = [],
+  colWidths,
+}: {
+  headers: string[];
+  rows: (string | number)[][];
+  leftAlignCols?: number[];
+  colWidths?: string[];
+}) {
   return (
-    <table className="mb-4 w-full border-collapse">
+    <table
+      className="mb-4 w-full border-collapse"
+      style={leftAlignCols.length > 0 ? { tableLayout: "fixed" } : undefined}
+    >
+      {colWidths && (
+        <colgroup>
+          {colWidths.map((w, i) => (
+            <col key={i} style={{ width: w }} />
+          ))}
+        </colgroup>
+      )}
       <thead>
         <tr>
           {headers.map((h, i) => (
             <th
               key={h}
               className={`border-b border-[#ccc] px-2 py-1.5 text-[10px] uppercase tracking-wide text-[#888] ${
-                i === 0 ? "text-left rtl:text-right" : "text-right rtl:text-left"
+                i === 0 || leftAlignCols.includes(i) ? "text-left rtl:text-right" : "text-right rtl:text-left"
               }`}
             >
               {h}
@@ -29,8 +54,12 @@ function PrintTable({ headers, rows }: { headers: string[]; rows: (string | numb
             {row.map((cell, ci) => (
               <td
                 key={ci}
-                className={`border-b border-[#eee] px-2 py-1.5 text-[12px] ${
-                  ci === 0 ? "font-medium" : "text-right font-mono"
+                className={`border-b border-[#eee] px-2 py-1.5 text-[12px] break-words ${
+                  ci === 0
+                    ? "font-medium"
+                    : leftAlignCols.includes(ci)
+                      ? "text-left rtl:text-right"
+                      : "text-right font-mono"
                 }`}
               >
                 {cell}
@@ -103,6 +132,8 @@ export function PrintReport({
             .join(", "),
           d.byStatus.map((s) => `${statusLabel(t, s.status)}: ${s.count}`).join(", "),
         ])}
+        leftAlignCols={[2, 3]}
+        colWidths={["17%", "10%", "43%", "30%"]}
       />
 
       <div className="mb-1.5 mt-4 font-display text-[13px] font-semibold">{t("reports.agentPerformance")}</div>

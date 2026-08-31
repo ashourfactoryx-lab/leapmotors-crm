@@ -16,10 +16,20 @@ const HANDLED: ApptStatus[] = ["attended", "closed_sold", "no_show"];
 
 // Same 1000-row PostgREST cap applies here as everywhere else this project
 // aggregates over the full table — page through with .range().
+//
+// dateField controls which column the period filter applies to. Every table
+// except daily booking activity is naturally about appt_date (appointments
+// SCHEDULED in the selected month); daily booking activity is about
+// created_at (appointments BOOKED in the selected month) — filtering it by
+// appt_date instead would silently mix in bookings made in other months
+// whose visit happens to fall in this one, and exclude bookings made this
+// month for a visit scheduled elsewhere. Always pass the field matching
+// what the caller will group/filter by.
 export async function fetchReportRows(
   supabase: SupabaseClient,
   range?: { from: string; to: string },
   agentId?: string,
+  dateField: "appt_date" | "created_at" = "appt_date",
 ): Promise<ReportRow[]> {
   const PAGE = 1000;
   const rows: ReportRow[] = [];
@@ -27,7 +37,7 @@ export async function fetchReportRows(
     let query = supabase
       .from("appointments")
       .select("status, assigned_agent, source, sale_amount, appt_date, handled_by, created_at");
-    if (range) query = query.gte("appt_date", range.from).lt("appt_date", range.to);
+    if (range) query = query.gte(dateField, range.from).lt(dateField, range.to);
     if (agentId) query = query.eq("assigned_agent", agentId);
     const { data, error } = await query.range(offset, offset + PAGE - 1);
     if (error) throw error;
