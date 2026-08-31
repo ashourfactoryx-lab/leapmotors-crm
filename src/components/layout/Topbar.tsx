@@ -21,10 +21,12 @@ export function Topbar({
   viewTitle,
   onMenuClick,
   onlineCount = 1,
+  compact,
 }: {
   viewTitle: string;
   onMenuClick: () => void;
   onlineCount?: number;
+  compact?: boolean;
 }) {
   const { t, locale } = useLocale();
   const today = new Date().toLocaleDateString(dateLocaleTag(locale), {
@@ -34,7 +36,9 @@ export function Topbar({
   });
 
   return (
-    <div className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-line bg-paper/86 px-4 backdrop-blur-sm print:hidden md:px-[30px]">
+    <div
+      className={`sticky top-0 z-10 flex items-center justify-between border-b border-line bg-paper/86 px-4 backdrop-blur-sm print:hidden md:px-[30px] ${compact ? "h-12" : "h-16"}`}
+    >
       <div className="flex items-center gap-1.5">
         <button
           onClick={onMenuClick}
@@ -45,12 +49,14 @@ export function Topbar({
             <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <div>
-          <div className="font-mono text-xs tracking-[0.4px] text-muted">
-            {t("nav.workspace").toUpperCase()} · {viewTitle.toUpperCase()}
+        {!compact && (
+          <div>
+            <div className="font-mono text-xs tracking-[0.4px] text-muted">
+              {t("nav.workspace").toUpperCase()} · {viewTitle.toUpperCase()}
+            </div>
+            <h2 className="font-display text-[19px] font-semibold">{viewTitle}</h2>
           </div>
-          <h2 className="font-display text-[19px] font-semibold">{viewTitle}</h2>
-        </div>
+        )}
       </div>
 
       <div className="flex items-center gap-2.5">

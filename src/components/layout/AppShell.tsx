@@ -35,9 +35,16 @@ export function AppShell({
         />
       )}
       <div className="min-w-0 md:ml-[236px] rtl:md:ml-0 rtl:md:mr-[236px]">
-        <Topbar viewTitle={viewTitle} onMenuClick={() => setRailOpen((v) => !v)} onlineCount={onlineCount} />
+        <Topbar
+          viewTitle={viewTitle}
+          onMenuClick={() => setRailOpen((v) => !v)}
+          onlineCount={onlineCount}
+          compact={fullWidth}
+        />
         <main
-          className={`px-4 py-7 pb-24 md:px-[30px] md:pb-[60px] md:pt-7 ${fullWidth ? "max-w-none" : "max-w-[1180px]"}`}
+          className={`px-4 pb-24 md:px-[30px] md:pb-[60px] ${
+            fullWidth ? "max-w-none py-3 md:pt-3" : "max-w-[1180px] py-7 md:pt-7"
+          }`}
         >
           {children}
         </main>

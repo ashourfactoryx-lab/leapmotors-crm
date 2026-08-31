@@ -343,16 +343,19 @@ export function MySheetGrid({
 
   return (
     <div>
-      <div className="mb-5 grid grid-cols-2 gap-3.5 md:grid-cols-4">
+      <div className="mb-3 grid grid-cols-2 gap-2.5 md:grid-cols-4">
         {[
           { label: t("mySheet.booked"), value: stats.booked },
           { label: t("mySheet.attended"), value: stats.attended },
           { label: t("mySheet.sold"), value: stats.sold },
           { label: t("mySheet.noShows"), value: stats.noShow },
         ].map((s) => (
-          <div key={s.label} className="rounded-xl border border-line bg-card px-4 py-[15px]">
-            <div className="text-[11.5px] font-medium text-muted">{s.label}</div>
-            <div className="mt-1.5 font-display text-[23px] font-semibold">{s.value}</div>
+          <div
+            key={s.label}
+            className="flex items-baseline gap-2 rounded-lg border border-line bg-card px-3 py-2"
+          >
+            <span className="font-display text-[17px] font-semibold">{s.value}</span>
+            <span className="text-[11px] font-medium text-muted">{s.label}</span>
           </div>
         ))}
       </div>
