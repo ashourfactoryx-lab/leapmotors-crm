@@ -136,7 +136,10 @@ export type TimeSeriesPoint = Totals & { key: string; label: string };
 
 // Groups by calendar month (YYYY-MM) when no specific month is selected
 // ("all time" — one row per month keeps the table readable), or by day
-// within that month otherwise.
+// within that month otherwise. Keys off created_at (when the appointment
+// was added to the system) rather than appt_date (the scheduled visit
+// date) — this is a "how many did each agent get into the system" report,
+// matching daily booking activity below it rather than the visit calendar.
 export function computeTimeSeries(
   rows: ReportRow[],
   granularity: "month" | "day",
@@ -144,7 +147,7 @@ export function computeTimeSeries(
 ): TimeSeriesPoint[] {
   const byKey = new Map<string, ReportRow[]>();
   for (const r of rows) {
-    const key = granularity === "month" ? r.appt_date.slice(0, 7) : r.appt_date;
+    const key = granularity === "month" ? r.created_at.slice(0, 7) : r.created_at.slice(0, 10);
     const list = byKey.get(key) ?? [];
     list.push(r);
     byKey.set(key, list);
