@@ -391,7 +391,7 @@ export function MySheetGrid({
           </span>
         </div>
 
-        <div className="max-h-[65vh] overflow-auto">
+        <div className="max-h-[80vh] overflow-auto">
           <table className="w-full min-w-[1220px] table-fixed border-collapse text-[13px]">
             <colgroup>
               <col className="w-10" />

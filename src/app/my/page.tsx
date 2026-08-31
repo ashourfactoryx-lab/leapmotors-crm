@@ -31,6 +31,7 @@ export default async function MySheetPage() {
       role={session.role}
       userName={session.fullName}
       viewTitle={translate(locale, "nav.mine")}
+      fullWidth
     >
       <MySheetGrid
         rows={rows}

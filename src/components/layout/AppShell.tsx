@@ -12,12 +12,14 @@ export function AppShell({
   role,
   userName,
   viewTitle,
+  fullWidth,
   children,
 }: {
   userId: string;
   role: Role;
   userName: string;
   viewTitle: string;
+  fullWidth?: boolean;
   children: React.ReactNode;
 }) {
   const [railOpen, setRailOpen] = useState(false);
@@ -34,7 +36,9 @@ export function AppShell({
       )}
       <div className="min-w-0 md:ml-[236px] rtl:md:ml-0 rtl:md:mr-[236px]">
         <Topbar viewTitle={viewTitle} onMenuClick={() => setRailOpen((v) => !v)} onlineCount={onlineCount} />
-        <main className="max-w-[1180px] px-4 py-7 pb-24 md:px-[30px] md:pb-[60px] md:pt-7">
+        <main
+          className={`px-4 py-7 pb-24 md:px-[30px] md:pb-[60px] md:pt-7 ${fullWidth ? "max-w-none" : "max-w-[1180px]"}`}
+        >
           {children}
         </main>
       </div>
