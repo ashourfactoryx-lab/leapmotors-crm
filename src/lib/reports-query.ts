@@ -158,16 +158,29 @@ export type DailyBookingActivity = {
   date: string;
   label: string;
   total: number;
-  byAgent: { agentId: string; name: string; count: number }[];
+  byAgent: {
+    agentId: string;
+    name: string;
+    count: number;
+    byStatus: { status: ApptStatus; count: number }[];
+  }[];
   byStatus: { status: ApptStatus; count: number }[];
 };
 
+function statusBreakdown(rows: ReportRow[]): { status: ApptStatus; count: number }[] {
+  return STATUS_ORDER.map((status) => ({
+    status,
+    count: rows.filter((r) => r.status === status).length,
+  })).filter((s) => s.count > 0);
+}
+
 // Groups by the date each appointment was actually CREATED (created_at),
 // not appt_date (the scheduled visit date) — answers "how many appointments
-// did each agent add today", independent of when those appointments are
-// scheduled for. profiles is pre-filtered to active accounts, same as the
-// other report tables, so a removed agent's past activity still counts
-// toward the day's total but drops off the per-agent breakdown.
+// did each agent add today, and what became of them", independent of when
+// those appointments are scheduled for. profiles is pre-filtered to active
+// accounts, same as the other report tables, so a removed agent's past
+// activity still counts toward the day's total but drops off the
+// per-agent breakdown.
 export function computeDailyBookingActivity(
   rows: ReportRow[],
   profiles: { id: string; full_name: string }[],
@@ -183,25 +196,28 @@ export function computeDailyBookingActivity(
   }
   return [...byDate.entries()]
     .map(([date, list]) => {
-      const byAgentCount = new Map<string, number>();
+      const byAgentRows = new Map<string, ReportRow[]>();
       for (const r of list) {
-        byAgentCount.set(r.assigned_agent, (byAgentCount.get(r.assigned_agent) ?? 0) + 1);
+        const agentList = byAgentRows.get(r.assigned_agent) ?? [];
+        agentList.push(r);
+        byAgentRows.set(r.assigned_agent, agentList);
       }
-      const byAgent = [...byAgentCount.entries()]
+      const byAgent = [...byAgentRows.entries()]
         .filter(([agentId]) => nameById.has(agentId))
-        .map(([agentId, count]) => ({ agentId, name: nameById.get(agentId)!, count }))
+        .map(([agentId, agentRows]) => ({
+          agentId,
+          name: nameById.get(agentId)!,
+          count: agentRows.length,
+          byStatus: statusBreakdown(agentRows),
+        }))
         .sort((a, b) => b.count - a.count);
-      const byStatus = STATUS_ORDER.map((status) => ({
-        status,
-        count: list.filter((r) => r.status === status).length,
-      })).filter((s) => s.count > 0);
       const label = new Date(`${date}T00:00:00`).toLocaleDateString(localeTag, {
         weekday: "short",
         day: "numeric",
         month: "short",
         year: "numeric",
       });
-      return { date, label, total: list.length, byAgent, byStatus };
+      return { date, label, total: list.length, byAgent, byStatus: statusBreakdown(list) };
     })
     .sort((a, b) => b.date.localeCompare(a.date));
 }

@@ -98,7 +98,9 @@ export function PrintReport({
         rows={dailyActivity.map((d) => [
           d.label,
           d.total,
-          d.byAgent.map((a) => `${a.name}: ${a.count}`).join(", "),
+          d.byAgent
+            .map((a) => `${a.name}: ${a.byStatus.map((s) => `${statusLabel(t, s.status)} ${s.count}`).join("/")}`)
+            .join(", "),
           d.byStatus.map((s) => `${statusLabel(t, s.status)}: ${s.count}`).join(", "),
         ])}
       />

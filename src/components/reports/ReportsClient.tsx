@@ -226,7 +226,7 @@ export function ReportsClient({
           {dailyActivity.length === 0 ? (
             <p className="px-5 py-8 text-center text-sm text-muted">{t("reports.noApptsInPeriod")}</p>
           ) : (
-            <table className="w-full min-w-[860px] border-collapse text-[13.5px]">
+            <table className="w-full min-w-[1080px] border-collapse text-[13.5px]">
               <thead>
                 <tr>
                   <Th>{t("reports.day")}</Th>
@@ -243,15 +243,32 @@ export function ReportsClient({
                       {d.total}
                     </Td>
                     <td className="border-b border-line px-3 py-2.5">
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-2">
                         {d.byAgent.map((a) => (
-                          <span
+                          <div
                             key={a.agentId}
-                            className="inline-flex items-center gap-1 rounded-full bg-[#F2F3F5] px-2 py-0.5 text-[11.5px] font-medium text-text"
+                            className="inline-flex items-center gap-1.5 rounded-lg bg-[#F2F3F5] px-2 py-1 text-[11.5px]"
                           >
-                            {a.name}
+                            <span className="font-semibold text-text">{a.name}</span>
                             <span className="font-mono text-[10.5px] text-muted">{a.count}</span>
-                          </span>
+                            <span className="mx-0.5 h-3 w-px bg-[#dcdee2]" />
+                            <div className="flex items-center gap-1">
+                              {a.byStatus.map((s) => {
+                                const meta = STATUS_META[s.status];
+                                return (
+                                  <span
+                                    key={s.status}
+                                    title={statusLabel(t, s.status)}
+                                    className="inline-flex items-center gap-0.5 font-mono text-[10.5px] font-semibold"
+                                    style={{ color: meta.color }}
+                                  >
+                                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: meta.color }} />
+                                    {s.count}
+                                  </span>
+                                );
+                              })}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </td>
