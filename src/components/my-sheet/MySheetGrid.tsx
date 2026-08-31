@@ -392,20 +392,20 @@ export function MySheetGrid({
         </div>
 
         <div className="max-h-[80vh] overflow-auto">
-          <table className="w-full min-w-[1220px] table-fixed border-collapse text-[13px]">
+          <table className="w-full min-w-[1600px] table-fixed border-collapse text-[13px]">
             <colgroup>
               <col className="w-10" />
-              <col className="w-[92px]" />
               <col className="w-[100px]" />
-              <col className="w-[150px]" />
-              <col className="w-[130px]" />
               <col className="w-[110px]" />
-              <col className="w-[110px]" />
-              <col className="w-[84px]" />
+              <col className="w-[220px]" />
               <col className="w-[140px]" />
-              <col className="w-[130px]" />
-              <col className="w-[200px]" />
               <col className="w-[120px]" />
+              <col className="w-[120px]" />
+              <col className="w-[90px]" />
+              <col className="w-[150px]" />
+              <col className="w-[140px]" />
+              <col className="w-[260px]" />
+              <col className="w-[110px]" />
             </colgroup>
             <thead>
               <tr>
