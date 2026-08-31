@@ -342,8 +342,8 @@ export function MySheetGrid({
   }
 
   return (
-    <div>
-      <div className="mb-3 grid grid-cols-2 gap-2.5 md:grid-cols-4">
+    <div className="flex min-h-0 flex-1 flex-col">
+      <div className="mb-3 grid flex-shrink-0 grid-cols-2 gap-2.5 md:grid-cols-4">
         {[
           { label: t("mySheet.booked"), value: stats.booked },
           { label: t("mySheet.attended"), value: stats.attended },
@@ -360,8 +360,8 @@ export function MySheetGrid({
         ))}
       </div>
 
-      <div className="overflow-hidden rounded-[10px] border border-[#cfd2d7] bg-card shadow-card">
-        <div className="flex flex-wrap items-center gap-3 border-b border-[#e6e7ea] bg-[#fbfbfc] px-3.5 py-2.5">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-[10px] border border-[#cfd2d7] bg-card shadow-card">
+        <div className="flex flex-shrink-0 flex-wrap items-center gap-3 border-b border-[#e6e7ea] bg-[#fbfbfc] px-3.5 py-2.5">
           <div className="flex items-center gap-2.5 font-display text-[13.5px] font-semibold">
             <span
               className="flex h-[22px] w-[22px] items-center justify-center rounded-md font-display text-[10px] font-bold text-white"
@@ -394,7 +394,7 @@ export function MySheetGrid({
           </span>
         </div>
 
-        <div className="max-h-[80vh] overflow-auto">
+        <div className="min-h-0 flex-1 overflow-auto">
           <table className="w-full min-w-[1600px] table-fixed border-collapse text-[13px]">
             <colgroup>
               <col className="w-10" />
@@ -570,14 +570,14 @@ export function MySheetGrid({
           </table>
         </div>
 
-        <div className="flex h-[38px] items-end gap-[3px] border-t border-[#e0e2e6] bg-[#f2f3f5] px-2.5">
+        <div className="flex h-[38px] flex-shrink-0 items-end gap-[3px] border-t border-[#e0e2e6] bg-[#f2f3f5] px-2.5">
           <div className="mb-[-1px] rounded-t-lg border border-b-0 border-[#e0e2e6] bg-card px-4 py-2 font-display text-[12.5px] font-semibold text-accent-deep">
             {userName}
           </div>
         </div>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-3.5 text-[11.5px] text-muted">
+      <div className="mt-3 flex flex-shrink-0 flex-wrap gap-3.5 text-[11.5px] text-muted">
         {STATUS_ORDER.map((s) => (
           <span key={s} className="inline-flex items-center gap-1.5">
             <span className="h-[9px] w-[9px] rounded-sm" style={{ background: STATUS_META[s].color }} />
