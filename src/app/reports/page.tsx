@@ -10,6 +10,7 @@ import {
   computeSourcePerformance,
   computeHandlerPerformance,
   computeTimeSeries,
+  computeDailyBookingActivity,
 } from "@/lib/reports-query";
 import { fetchHandlers } from "@/lib/handlers-query";
 import { dateLocaleTag } from "@/lib/i18n/locale";
@@ -33,6 +34,7 @@ export default async function ReportsPage() {
   const sourcePerformance = computeSourcePerformance(rows);
   const handlerPerformance = computeHandlerPerformance(rows, handlers);
   const timeSeries = computeTimeSeries(rows, "month", dateLocaleTag(locale));
+  const dailyActivity = computeDailyBookingActivity(rows, profiles ?? [], dateLocaleTag(locale));
 
   return (
     <AppShell
@@ -46,6 +48,7 @@ export default async function ReportsPage() {
         initialSourcePerformance={sourcePerformance}
         initialHandlerPerformance={handlerPerformance}
         initialTimeSeries={timeSeries}
+        initialDailyActivity={dailyActivity}
         monthOptions={months}
         agents={profiles ?? []}
         handlers={handlers}

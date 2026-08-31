@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { sourceLabel } from "@/lib/appt-meta";
-import type { AgentPerf, SourcePerf, HandlerPerf, TimeSeriesPoint } from "@/lib/reports-query";
+import type { AgentPerf, SourcePerf, HandlerPerf, TimeSeriesPoint, DailyBookingActivity } from "@/lib/reports-query";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { dateLocaleTag } from "@/lib/i18n/locale";
 
@@ -48,6 +48,7 @@ export function PrintReport({
   agentLabel,
   timeSeries,
   timeSeriesGranularity,
+  dailyActivity,
   agentPerformance,
   sourcePerformance,
   handlerPerformance,
@@ -56,6 +57,7 @@ export function PrintReport({
   agentLabel: string;
   timeSeries: TimeSeriesPoint[];
   timeSeriesGranularity: "month" | "day";
+  dailyActivity: DailyBookingActivity[];
   agentPerformance: AgentPerf[];
   sourcePerformance: SourcePerf[];
   handlerPerformance: HandlerPerf[];
@@ -88,6 +90,16 @@ export function PrintReport({
           t("reports.colSales"),
         ]}
         rows={timeSeries.map((pt) => [pt.label, pt.booked, pt.attended, pt.noShow, pt.sold, pt.sales.toLocaleString()])}
+      />
+
+      <div className="mb-1.5 mt-4 font-display text-[13px] font-semibold">{t("reports.dailyBookingActivity")}</div>
+      <PrintTable
+        headers={[t("reports.day"), t("reports.colBooked"), t("reports.byAgent")]}
+        rows={dailyActivity.map((d) => [
+          d.label,
+          d.total,
+          d.byAgent.map((a) => `${a.name}: ${a.count}`).join(", "),
+        ])}
       />
 
       <div className="mb-1.5 mt-4 font-display text-[13px] font-semibold">{t("reports.agentPerformance")}</div>

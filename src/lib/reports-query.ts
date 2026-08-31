@@ -8,6 +8,7 @@ type ReportRow = {
   sale_amount: number | null;
   appt_date: string;
   handled_by: string | null;
+  created_at: string;
 };
 
 const ATTENDED_LIKE: ApptStatus[] = ["attended", "closed_sold"];
@@ -25,7 +26,7 @@ export async function fetchReportRows(
   for (let offset = 0; ; offset += PAGE) {
     let query = supabase
       .from("appointments")
-      .select("status, assigned_agent, source, sale_amount, appt_date, handled_by");
+      .select("status, assigned_agent, source, sale_amount, appt_date, handled_by, created_at");
     if (range) query = query.gte("appt_date", range.from).lt("appt_date", range.to);
     if (agentId) query = query.eq("assigned_agent", agentId);
     const { data, error } = await query.range(offset, offset + PAGE - 1);
@@ -151,4 +152,51 @@ export function computeTimeSeries(
       return { key, label, ...computeTotals(list) };
     })
     .sort((a, b) => b.key.localeCompare(a.key));
+}
+
+export type DailyBookingActivity = {
+  date: string;
+  label: string;
+  total: number;
+  byAgent: { agentId: string; name: string; count: number }[];
+};
+
+// Groups by the date each appointment was actually CREATED (created_at),
+// not appt_date (the scheduled visit date) — answers "how many appointments
+// did each agent add today", independent of when those appointments are
+// scheduled for. profiles is pre-filtered to active accounts, same as the
+// other report tables, so a removed agent's past activity still counts
+// toward the day's total but drops off the per-agent breakdown.
+export function computeDailyBookingActivity(
+  rows: ReportRow[],
+  profiles: { id: string; full_name: string }[],
+  localeTag = "en-GB",
+): DailyBookingActivity[] {
+  const nameById = new Map(profiles.map((p) => [p.id, p.full_name]));
+  const byDate = new Map<string, ReportRow[]>();
+  for (const r of rows) {
+    const date = r.created_at.slice(0, 10);
+    const list = byDate.get(date) ?? [];
+    list.push(r);
+    byDate.set(date, list);
+  }
+  return [...byDate.entries()]
+    .map(([date, list]) => {
+      const byAgentCount = new Map<string, number>();
+      for (const r of list) {
+        byAgentCount.set(r.assigned_agent, (byAgentCount.get(r.assigned_agent) ?? 0) + 1);
+      }
+      const byAgent = [...byAgentCount.entries()]
+        .filter(([agentId]) => nameById.has(agentId))
+        .map(([agentId, count]) => ({ agentId, name: nameById.get(agentId)!, count }))
+        .sort((a, b) => b.count - a.count);
+      const label = new Date(`${date}T00:00:00`).toLocaleDateString(localeTag, {
+        weekday: "short",
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      });
+      return { date, label, total: list.length, byAgent };
+    })
+    .sort((a, b) => b.date.localeCompare(a.date));
 }

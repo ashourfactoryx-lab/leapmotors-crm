@@ -13,10 +13,12 @@ import {
   computeSourcePerformance,
   computeHandlerPerformance,
   computeTimeSeries,
+  computeDailyBookingActivity,
   type AgentPerf,
   type SourcePerf,
   type HandlerPerf,
   type TimeSeriesPoint,
+  type DailyBookingActivity,
 } from "@/lib/reports-query";
 import type { Handler } from "@/lib/handlers-query";
 import { PrintReport } from "./PrintReport";
@@ -62,6 +64,7 @@ export function ReportsClient({
   initialSourcePerformance,
   initialHandlerPerformance,
   initialTimeSeries,
+  initialDailyActivity,
   monthOptions,
   agents,
   handlers,
@@ -70,6 +73,7 @@ export function ReportsClient({
   initialSourcePerformance: SourcePerf[];
   initialHandlerPerformance: HandlerPerf[];
   initialTimeSeries: TimeSeriesPoint[];
+  initialDailyActivity: DailyBookingActivity[];
   monthOptions: MonthOption[];
   agents: { id: string; full_name: string }[];
   handlers: Handler[];
@@ -81,6 +85,7 @@ export function ReportsClient({
   const [sourcePerformance, setSourcePerformance] = useState(initialSourcePerformance);
   const [handlerPerformance, setHandlerPerformance] = useState(initialHandlerPerformance);
   const [timeSeries, setTimeSeries] = useState(initialTimeSeries);
+  const [dailyActivity, setDailyActivity] = useState(initialDailyActivity);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const isFirstRun = useRef(true);
@@ -104,6 +109,7 @@ export function ReportsClient({
         setSourcePerformance(computeSourcePerformance(rows));
         setHandlerPerformance(computeHandlerPerformance(rows, handlers));
         setTimeSeries(computeTimeSeries(rows, period === "all" ? "month" : "day", dateLocaleTag(locale)));
+        setDailyActivity(computeDailyBookingActivity(rows, profiles ?? [], dateLocaleTag(locale)));
         setError(null);
       } catch {
         if (!cancelled) setError(t("reports.couldntLoad"));
@@ -209,6 +215,45 @@ export function ReportsClient({
                     <Td right>{pt.noShow}</Td>
                     <Td right>{pt.sold}</Td>
                     <Td right>{pt.sales.toLocaleString()}</Td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </Panel>
+
+        <Panel title={t("reports.dailyBookingActivity")} hint={t("reports.daysCount", { count: dailyActivity.length })}>
+          {dailyActivity.length === 0 ? (
+            <p className="px-5 py-8 text-center text-sm text-muted">{t("reports.noApptsInPeriod")}</p>
+          ) : (
+            <table className="w-full min-w-[640px] border-collapse text-[13.5px]">
+              <thead>
+                <tr>
+                  <Th>{t("reports.day")}</Th>
+                  <Th right>{t("reports.colBooked")}</Th>
+                  <Th>{t("reports.byAgent")}</Th>
+                </tr>
+              </thead>
+              <tbody>
+                {dailyActivity.map((d) => (
+                  <tr key={d.date} className="hover:bg-[#F7F8FA]">
+                    <td className="border-b border-line px-3 py-2.5 text-[13px] font-medium text-text">{d.label}</td>
+                    <Td right bold>
+                      {d.total}
+                    </Td>
+                    <td className="border-b border-line px-3 py-2.5">
+                      <div className="flex flex-wrap gap-1.5">
+                        {d.byAgent.map((a) => (
+                          <span
+                            key={a.agentId}
+                            className="inline-flex items-center gap-1 rounded-full bg-[#F2F3F5] px-2 py-0.5 text-[11.5px] font-medium text-text"
+                          >
+                            {a.name}
+                            <span className="font-mono text-[10.5px] text-muted">{a.count}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -343,6 +388,7 @@ export function ReportsClient({
         agentLabel={agentLabel}
         timeSeries={timeSeries}
         timeSeriesGranularity={period === "all" ? "month" : "day"}
+        dailyActivity={dailyActivity}
         agentPerformance={agentPerformance}
         sourcePerformance={sourcePerformance}
         handlerPerformance={handlerPerformance}
