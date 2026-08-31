@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { sourceLabel } from "@/lib/appt-meta";
+import { sourceLabel, statusLabel } from "@/lib/appt-meta";
 import type { AgentPerf, SourcePerf, HandlerPerf, TimeSeriesPoint, DailyBookingActivity } from "@/lib/reports-query";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { dateLocaleTag } from "@/lib/i18n/locale";
@@ -94,11 +94,12 @@ export function PrintReport({
 
       <div className="mb-1.5 mt-4 font-display text-[13px] font-semibold">{t("reports.dailyBookingActivity")}</div>
       <PrintTable
-        headers={[t("reports.day"), t("reports.colBooked"), t("reports.byAgent")]}
+        headers={[t("reports.day"), t("reports.colBooked"), t("reports.byAgent"), t("reports.byStatus")]}
         rows={dailyActivity.map((d) => [
           d.label,
           d.total,
           d.byAgent.map((a) => `${a.name}: ${a.count}`).join(", "),
+          d.byStatus.map((s) => `${statusLabel(t, s.status)}: ${s.count}`).join(", "),
         ])}
       />
 

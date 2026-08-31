@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { agentColor, initials } from "@/lib/agent-visuals";
-import { sourceLabel } from "@/lib/appt-meta";
+import { sourceLabel, statusLabel, STATUS_META } from "@/lib/appt-meta";
 import { monthToRange, type MonthOption } from "@/lib/dashboard-query";
 import { useLocale } from "@/components/i18n/LocaleProvider";
 import { dateLocaleTag } from "@/lib/i18n/locale";
@@ -226,12 +226,13 @@ export function ReportsClient({
           {dailyActivity.length === 0 ? (
             <p className="px-5 py-8 text-center text-sm text-muted">{t("reports.noApptsInPeriod")}</p>
           ) : (
-            <table className="w-full min-w-[640px] border-collapse text-[13.5px]">
+            <table className="w-full min-w-[860px] border-collapse text-[13.5px]">
               <thead>
                 <tr>
                   <Th>{t("reports.day")}</Th>
                   <Th right>{t("reports.colBooked")}</Th>
                   <Th>{t("reports.byAgent")}</Th>
+                  <Th>{t("reports.byStatus")}</Th>
                 </tr>
               </thead>
               <tbody>
@@ -252,6 +253,24 @@ export function ReportsClient({
                             <span className="font-mono text-[10.5px] text-muted">{a.count}</span>
                           </span>
                         ))}
+                      </div>
+                    </td>
+                    <td className="border-b border-line px-3 py-2.5">
+                      <div className="flex flex-wrap gap-1.5">
+                        {d.byStatus.map((s) => {
+                          const meta = STATUS_META[s.status];
+                          return (
+                            <span
+                              key={s.status}
+                              className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[11.5px] font-semibold"
+                              style={{ background: `${meta.color}1A`, color: meta.color }}
+                            >
+                              <span className="h-1.5 w-1.5 rounded-full" style={{ background: meta.color }} />
+                              {statusLabel(t, s.status)}
+                              <span className="font-mono text-[10.5px] opacity-70">{s.count}</span>
+                            </span>
+                          );
+                        })}
                       </div>
                     </td>
                   </tr>

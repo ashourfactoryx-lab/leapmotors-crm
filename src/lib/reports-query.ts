@@ -1,5 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { ApptSource, ApptStatus } from "@/lib/appt-meta";
+import { STATUS_ORDER, type ApptSource, type ApptStatus } from "@/lib/appt-meta";
 
 type ReportRow = {
   status: ApptStatus;
@@ -159,6 +159,7 @@ export type DailyBookingActivity = {
   label: string;
   total: number;
   byAgent: { agentId: string; name: string; count: number }[];
+  byStatus: { status: ApptStatus; count: number }[];
 };
 
 // Groups by the date each appointment was actually CREATED (created_at),
@@ -190,13 +191,17 @@ export function computeDailyBookingActivity(
         .filter(([agentId]) => nameById.has(agentId))
         .map(([agentId, count]) => ({ agentId, name: nameById.get(agentId)!, count }))
         .sort((a, b) => b.count - a.count);
+      const byStatus = STATUS_ORDER.map((status) => ({
+        status,
+        count: list.filter((r) => r.status === status).length,
+      })).filter((s) => s.count > 0);
       const label = new Date(`${date}T00:00:00`).toLocaleDateString(localeTag, {
         weekday: "short",
         day: "numeric",
         month: "short",
         year: "numeric",
       });
-      return { date, label, total: list.length, byAgent };
+      return { date, label, total: list.length, byAgent, byStatus };
     })
     .sort((a, b) => b.date.localeCompare(a.date));
 }
